@@ -1,0 +1,20 @@
+{
+  "name": "cara-online-store",
+  "version": "1.0.0",
+  "description": "A full stack online shopping website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DannySantino/cara-online-store.git"
+  },
+  "keywords": [],
+  "author": "Danny Santino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DannySantino/cara-online-store/issues"
+  },
+  "homepage": "https://github.com/DannySantino/cara-online-store#readme"
+}

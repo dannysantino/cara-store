@@ -1,0 +1,26 @@
+#footer h4 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+#footer ul li {
+    margin-bottom: 1rem;
+}
+
+#footer ul li a:hover,
+#footer .socials i:hover {
+    color: #088178;
+}
+
+#footer .socials i {
+    color: #465b52;
+    font-size: 1.3rem;
+    padding-right: 4px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+#footer .app img {
+    border: 1px solid #088178;
+    border-radius: 6px;
+}
