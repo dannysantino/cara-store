@@ -1,5 +1,4 @@
 import '../stylesheets/Shop.css'
-import '../stylesheets/Featured.css'
 
 const Shop = () => {
     return (

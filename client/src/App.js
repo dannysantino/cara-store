@@ -1,5 +1,8 @@
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import Shop from './pages/Shop';
+import Product from './pages/Product';
+import About from './pages/About';
 import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
 

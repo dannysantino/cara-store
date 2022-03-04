@@ -16,6 +16,5 @@
 }
 
 #product .details button:hover {
-    color: #088178;
-    background-color: aliceblue;
+    filter: brightness(.9);
 }
