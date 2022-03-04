@@ -1,0 +1,21 @@
+#product .image img {
+    width: 100%;
+}
+
+#product .details input {
+    width: 50px;
+    height: 48px;
+    font-size: 1rem;
+    padding-left: 10px;
+    margin-right: 10px;
+}
+
+#product .details button {
+    color: #fff;
+    background-color: #088178;
+}
+
+#product .details button:hover {
+    color: #088178;
+    background-color: aliceblue;
+}
