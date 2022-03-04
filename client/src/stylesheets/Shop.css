@@ -1,18 +1,3 @@
 #shop-header {
     background-image: url("../../public/img/banner/b1.jpg");
 }
-
-#pagination {
-    display: flex;
-    justify-content: center;
-}
-
-#pagination nav .tag {
-    color: #088178;
-}
-
-#pagination nav .page-item.active a {
-    color: #fff;
-    border-color: #088178;
-    background-color: #088178;
-}
