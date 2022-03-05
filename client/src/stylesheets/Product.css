@@ -10,11 +10,6 @@
     margin-right: 10px;
 }
 
-#product .details button {
-    color: #fff;
-    background-color: #088178;
-}
-
 #product .details button:hover {
     filter: brightness(.9);
 }

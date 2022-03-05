@@ -1,3 +1,5 @@
+import Featured from '../components/Featured'
+
 import '../stylesheets/Product.css'
 
 const Product = () => {
@@ -43,82 +45,7 @@ const Product = () => {
                     <h2>Related Items</h2>
                     <p>Browse through similar items</p>
                     <div className='row px-4 px-xl-5'>
-                        <div className='col-12 col-sm-6 col-lg-3'>
-                            <div className='product'>
-                                <img src='img/products/n1.jpg' alt='t-shirt' />
-                                <div className='desc'>
-                                    <span>hermes</span>
-                                    <h5>T-Shirt - Flowery Design</h5>
-                                    <div className='star'>
-                                        <i className='fa-solid fa-star'></i>
-                                        <i className='fa-solid fa-star'></i>
-                                        <i className='fa-solid fa-star'></i>
-                                        <i className='fa-solid fa-star'></i>
-                                        <i className='fa-solid fa-star'></i>
-                                    </div>
-                                    <h4>$127.99</h4>
-                                </div>
-                                <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
-                            </div>
-                        </div>
-
-                        <div className='col-12 col-sm-6 col-lg-3'>
-                            <div className='product'>
-                                <img src='img/products/n2.jpg' alt='t-shirt' />
-                                <div className='desc'>
-                                    <span>hermes</span>
-                                    <h5>T-Shirt - Flowery Design</h5>
-                                    <div className='star'>
-                                        <i className='fa-solid fa-star'></i>
-                                        <i className='fa-solid fa-star'></i>
-                                        <i className='fa-solid fa-star'></i>
-                                        <i className='fa-solid fa-star'></i>
-                                        <i className='fa-solid fa-star'></i>
-                                    </div>
-                                    <h4>$127.99</h4>
-                                </div>
-                                <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
-                            </div>
-                        </div>
-
-                        <div className='col-12 col-sm-6 col-lg-3'>
-                            <div className='product'>
-                                <img src='img/products/n3.jpg' alt='t-shirt' />
-                                <div className='desc'>
-                                    <span>hermes</span>
-                                    <h5>T-Shirt - Flowery Design</h5>
-                                    <div className='star'>
-                                        <i className='fa-solid fa-star'></i>
-                                        <i className='fa-solid fa-star'></i>
-                                        <i className='fa-solid fa-star'></i>
-                                        <i className='fa-solid fa-star'></i>
-                                        <i className='fa-solid fa-star'></i>
-                                    </div>
-                                    <h4>$127.99</h4>
-                                </div>
-                                <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
-                            </div>
-                        </div>
-
-                        <div className='col-12 col-sm-6 col-lg-3'>
-                            <div className='product'>
-                                <img src='img/products/n4.jpg' alt='t-shirt' />
-                                <div className='desc'>
-                                    <span>hermes</span>
-                                    <h5>T-Shirt - Flowery Design</h5>
-                                    <div className='star'>
-                                        <i className='fa-solid fa-star'></i>
-                                        <i className='fa-solid fa-star'></i>
-                                        <i className='fa-solid fa-star'></i>
-                                        <i className='fa-solid fa-star'></i>
-                                        <i className='fa-solid fa-star'></i>
-                                    </div>
-                                    <h4>$127.99</h4>
-                                </div>
-                                <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
-                            </div>
-                        </div>
-
+                        <Featured context={'n'} />
                     </div>
                 </div>
             </section>

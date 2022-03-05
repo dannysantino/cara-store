@@ -18,7 +18,7 @@ const Shop = () => {
                 </div>
             </section>
 
-            <section id='products' className='py-5 my-5'>
+            <section id='shop' className='py-5 my-5'>
                 <div className='container-fluid'>
                     <div className='row'>
                         <div className='col'>

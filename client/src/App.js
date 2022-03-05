@@ -4,6 +4,7 @@ import Shop from './pages/Shop';
 import Product from './pages/Product';
 import About from './pages/About';
 import Blog from './pages/Blog';
+import Cart from './pages/Cart';
 import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
 
@@ -13,7 +14,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <Home />
+      <Cart />
       <Newsletter />
       <Footer />
     </>

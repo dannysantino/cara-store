@@ -59,14 +59,17 @@ button.base,
 button.clear {
   font-size: 14px;
   font-weight: 600;
-  color: #000;
   padding: 15px 30px;
   border: none;
   outline: none;
   border-radius: 4px;
-  background-color: #fff;
   cursor: pointer;
   transition: .3s ease;
+}
+
+button.base {
+  color: #fff;
+  background-color: #088178;
 }
 
 button.clear {
