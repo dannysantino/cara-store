@@ -11,9 +11,9 @@ const Navbar = () => {
     }
 
     return (
-        <nav id='nav' className='p-4 px-lg-5'>
+        <nav id='nav'>
             <a href='#'><img src='img/logo.png' className='logo' alt='cara-store-logo' /></a>
-            <div>
+            <div className='wrapper'>
                 <ul id='navbar'>
                     <li><a href='#' className='active'>Home</a></li>
                     <li><a href='shop.html'>Shop</a></li>

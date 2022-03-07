@@ -69,11 +69,6 @@
     border: 1px solid #e2e9e1;
 }
 
-#coupon button:hover,
-#subtotal button:hover {
-    filter: brightness(.9);
-}
-
 #subtotal {
     border: 1px solid #e2e9e1;
 }

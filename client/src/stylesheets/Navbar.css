@@ -2,6 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1.5rem 6rem;
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     left: 0;
@@ -14,6 +16,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 0;
 }
 
 #navbar li {
@@ -55,6 +58,9 @@
 }
 
 @media (max-width: 991px) {
+    #nav {
+        padding: 1.5rem;
+    }
     #navbar {
         flex-direction: column;
         justify-content: flex-start;

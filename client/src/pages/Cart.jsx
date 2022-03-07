@@ -33,7 +33,7 @@ const Cart = () => {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><a href='#'><i className='fa-regular fa-circle-xmark'></i></a></td>
+                                        <td><a href='#' className='plain-anchor'><i className='fa-regular fa-circle-xmark'></i></a></td>
                                         <td><img src='img/products/f1.jpg' alt='cart-item' /></td>
                                         <td>Men's Fashion T-Shirt</td>
                                         <td>$104.99</td>
@@ -41,7 +41,7 @@ const Cart = () => {
                                         <td>$104.99</td>
                                     </tr>
                                     <tr>
-                                        <td><a href='#'><i className='fa-regular fa-circle-xmark'></i></a></td>
+                                        <td><a href='#' className='plain-anchor'><i className='fa-regular fa-circle-xmark'></i></a></td>
                                         <td><img src='img/products/f2.jpg' alt='cart-item' /></td>
                                         <td>Men's Fashion T-Shirt</td>
                                         <td>$104.99</td>
@@ -49,7 +49,7 @@ const Cart = () => {
                                         <td>$104.99</td>
                                     </tr>
                                     <tr>
-                                        <td><a href='#'><i className='fa-regular fa-circle-xmark'></i></a></td>
+                                        <td><a href='#' className='plain-anchor'><i className='fa-regular fa-circle-xmark'></i></a></td>
                                         <td><img src='img/products/f3.jpg' alt='cart-item' /></td>
                                         <td>Men's Fashion T-Shirt</td>
                                         <td>$104.99</td>

@@ -15,7 +15,7 @@
 #footer .socials i {
     color: #465b52;
     font-size: 1.3rem;
-    padding-right: 4px;
+    margin-right: 1rem;
     cursor: pointer;
     transition: .3s ease;
 }
@@ -23,4 +23,8 @@
 #footer .app img {
     border: 1px solid #088178;
     border-radius: 6px;
+}
+
+#footer .copyright a {
+    text-decoration: none;
 }

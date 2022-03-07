@@ -46,7 +46,3 @@
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
-
-#newsletter button:hover {
-    filter: brightness(.9);
-}
