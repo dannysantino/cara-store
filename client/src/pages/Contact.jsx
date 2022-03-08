@@ -56,28 +56,28 @@ const Contact = () => {
                 </div>
             </section>
 
-            <section id="contact-form" className='pt-5 pb-lg-5'>
-                <div className="container">
-                    <div className="row pt-5 px-sm-3 px-md-4 p-lg-5 mx-1 mx-sm-0">
-                        <div className="col-12 col-lg-7 col-xl-8">
-                            <div className="wrapper form">
-                                <form action="">
+            <section id='contact-form' className='pt-5 pb-lg-5'>
+                <div className='container'>
+                    <div className='row pt-5 px-sm-3 px-md-4 p-lg-5 mx-1 mx-sm-0'>
+                        <div className='col-12 col-lg-7 col-xl-8'>
+                            <div className='wrapper form'>
+                                <form action=''>
                                     <span>LEAVE A MESSAGE</span>
                                     <h2>We'd love to hear from you</h2>
-                                    <input type="text" placeholder='Your name' />
-                                    <input type="text" placeholder='E-mail' />
-                                    <input type="text" placeholder='Subject' />
-                                    <textarea cols="30" rows="10" placeholder='Your Message'></textarea>
+                                    <input type='text' placeholder='Your name' />
+                                    <input type='text' placeholder='E-mail' />
+                                    <input type='text' placeholder='Subject' />
+                                    <textarea cols='30' rows='10' placeholder='Your Message'></textarea>
                                     <button className='base'>Submit</button>
                                 </form>
                             </div>
                         </div>
-                        <div className="col-12 col-lg-5 col-xl-4 mt-4">
-                            <div className="wrapper contact-staff ms-lg-5">
+                        <div className='col-12 col-lg-5 col-xl-4 mt-4'>
+                            <div className='wrapper contact-staff ms-lg-5'>
                                 <h2>Contact Staff</h2>
-                                <div className="staff mb-5">
-                                    <img src="img/people/1.png" alt="person" />
-                                    <div className="info">
+                                <div className='staff mb-5'>
+                                    <img src='img/people/1.png' alt='person' />
+                                    <div className='info'>
                                         <p>Phil Anderson</p>
                                         <span>Senior Marketing Manager</span>
                                         <br />
@@ -86,9 +86,9 @@ const Contact = () => {
                                         <span>E-mail: panderson@cara.com</span>
                                     </div>
                                 </div>
-                                <div className="staff mb-5">
-                                    <img src="img/people/2.png" alt="person" />
-                                    <div className="info">
+                                <div className='staff mb-5'>
+                                    <img src='img/people/2.png' alt='person' />
+                                    <div className='info'>
                                         <p>Jack Miles</p>
                                         <span>Sales Director</span>
                                         <br />
@@ -97,9 +97,9 @@ const Contact = () => {
                                         <span>E-mail: jakemiles@cara.com</span>
                                     </div>
                                 </div>
-                                <div className="staff mb-5">
-                                    <img src="img/people/3.png" alt="person" />
-                                    <div className="info">
+                                <div className='staff mb-5'>
+                                    <img src='img/people/3.png' alt='person' />
+                                    <div className='info'>
                                         <p>Sarah Perkins</p>
                                         <span>Social Media Manager</span>
                                         <br />
