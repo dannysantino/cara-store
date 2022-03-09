@@ -21,12 +21,12 @@ app.use('/api/users', userRoute);
 
 app.all('*', (req, res, next) => {
     next(new Error('Page not found', 404));
-})
+});
 
 app.use((err, req, res, next) => {
     const { statusCode = 500, message = 'An error has been encountered' } = err;
     res.status(statusCode).json(message);
-})
+});
 
 app.listen(process.env.PORT || 5000, () => {
     console.log('Express server running');

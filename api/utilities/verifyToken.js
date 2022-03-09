@@ -22,12 +22,22 @@ const verifyToken = (req, res, next) => {
 
 const verifyTokenAndAuth = (req, res, next) => {
     verifyToken(req, res, () => {
-        if (req.params.id === req.user.id) {
+        if (req.params.id === req.user.id || req.user.isAdmin) {
             next();
         } else {
             throw new AuthenticationError('Action Unauthorised', 403);
         }
-    })
+    });
 }
 
-module.exports = { verifyToken, verifyTokenAndAuth }
+const verifyTokenAndAdmin = (req, res, next) => {
+    verifyToken(req, res, () => {
+        if (req.user.isAdmin) {
+            next();
+        } else {
+            throw new AuthenticationError('Action Unauthorised', 403);
+        }
+    });
+}
+
+module.exports = { verifyToken, verifyTokenAndAuth, verifyTokenAndAdmin }
