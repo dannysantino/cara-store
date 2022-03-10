@@ -6,6 +6,9 @@ const orderSchema = new Schema({
         required: true
     },
     products: [{
+        _id: {
+            id: false
+        },
         productId: {
             type: String
         },
