@@ -18,20 +18,20 @@ router.get('/', catchAsync(async (req, res) => {
     res.status(200).json(products);
 }));
 
-router.post('/add', verifyTokenAndAdmin, catchAsync(async (req, res) => {
+router.post('/admin/add', verifyTokenAndAdmin, catchAsync(async (req, res) => {
     const product = new Product(req.body);
     const newProduct = await product.save();
     res.status(200).json(newProduct);
 }));
 
-router.put('/update/:id', verifyTokenAndAdmin, catchAsync(async (req, res) => {
+router.put('/admin/update/:id', verifyTokenAndAdmin, catchAsync(async (req, res) => {
     const product = await Product.findByIdAndUpdate(req.params.id, {
         $set: req.body
     }, { new: true });
     res.status(200).json(product);
 }));
 
-router.delete('/:id', verifyTokenAndAdmin, catchAsync(async (req, res) => {
+router.delete('/admin/:id', verifyTokenAndAdmin, catchAsync(async (req, res) => {
     await Product.findByIdAndDelete(req.params.id);
     res.status(200).json('Product has been deleted.');
 }));
