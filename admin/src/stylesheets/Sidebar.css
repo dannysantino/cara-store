@@ -1,0 +1,23 @@
+#sidebar {
+    height: 100%;
+    border-right: 1px solid #eee;
+}
+
+#sidebar .menu h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: rgb(187, 187, 187);
+    margin-bottom: .8rem;
+}
+
+#sidebar .nav a {
+    color: #555;
+}
+
+#sidebar .nav a.active, #sidebar .nav a:hover {
+    background-color: rgb(235, 235, 250);
+}
+
+#sidebar .nav a i {
+    margin-right: .5rem;
+}

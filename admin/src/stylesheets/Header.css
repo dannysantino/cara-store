@@ -1,0 +1,32 @@
+.navbar .navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: darkblue;
+}
+
+.navbar .navbar-nav {
+    align-items: center;
+}
+
+.navbar .navbar-nav a {
+    margin-left: .7rem;
+}
+
+.navbar .navbar-nav a:nth-child(1) {
+    position: relative;
+}
+
+.navbar .navbar-nav a:nth-child(1) span {
+    top: -3px;
+    right: -3px;
+    position: absolute;
+}
+
+.navbar .navbar-nav i {
+    font-size: 1.3rem;
+}
+
+.navbar .navbar-nav img {
+    width: 40px;
+    height: 40px;
+}

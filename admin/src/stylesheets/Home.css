@@ -1,0 +1,136 @@
+#topstats .card {
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+#topstats .card:hover {
+    background-color: rgb(248, 249, 250);
+}
+
+#topstats .card-body h4 {
+    font-weight: 600;
+}
+
+#topstats .stats {
+    display: flex;
+    align-items: center;
+    margin: .6rem 0;
+}
+
+#topstats .stats .amount {
+    font-size: 1.9rem;
+    font-weight: 700;
+}
+
+#topstats .stats .rate i {
+    color: #080;
+    font-size: 1rem;
+    margin-left: .5rem;
+}
+
+#topstats .stats .rate i.neg {
+    color: #f00;
+}
+
+#topstats .card-body footer {
+    font-size: 1rem;
+    color: gray;
+}
+
+#chart h4,
+#widgets h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+#widgets .widget-sm ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#widgets .widget-sm ul li {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: .5rem 0;
+}
+
+#widgets .widget-sm ul li img,
+#widgets .widget-lg table tbody td img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+#widgets .widget-sm ul li .user {
+    display: flex;
+    flex-direction: column;
+}
+
+#widgets .widget-sm ul li .username {
+    font-weight: 600;
+}
+
+#widgets .widget-sm ul li .job-title {
+    font-weight: 300;
+}
+
+#widgets .widget-sm ul li button {
+    color: #555;
+    padding: 7px 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #eeeef7;
+}
+
+#widgets .widget-sm ul li button:hover {
+    background-color: rgb(235, 235, 250);
+}
+
+#widgets .widget-sm ul li button i {
+    font-size: 1rem;
+}
+
+#widgets .widget-lg {
+    height: 100%;
+}
+
+#widgets .widget-lg table {
+    border-collapse: separate;
+    border-spacing: 1.2rem;
+}
+
+#widgets .widget-lg thead td {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+#widgets .widget-lg tbody td img {
+    margin-right: 1.5rem;
+}
+
+#widgets .widget-lg tbody .username {
+    font-weight: 600;
+}
+
+#widgets .widget-lg tbody button {
+    padding: 5px 7px;
+    border: none;
+    border-radius: 6px;
+}
+
+#widgets .widget-lg tbody button.approved {
+    color: #3bb077;
+    background-color: #e5faf2;
+}
+
+#widgets .widget-lg tbody button.declined {
+    color: #d95087;
+    background-color: #fff0f1;
+}
+
+#widgets .widget-lg tbody button.pending {
+    color: #2a7ade;
+    background-color: #ebf1fe;
+}
