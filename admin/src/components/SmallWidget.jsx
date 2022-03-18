@@ -13,7 +13,7 @@ const SmallWidget = () => {
                             </div>
                             <button>
                                 <i className='fa-solid fa-eye me-0 me-xxl-2'></i>
-                                <span className="d-none d-xxl-inline">Display</span>
+                                <span className='d-none d-xxl-inline'>Display</span>
                             </button>
                         </li>
 
@@ -25,7 +25,7 @@ const SmallWidget = () => {
                             </div>
                             <button>
                                 <i className='fa-solid fa-eye me-0 me-xxl-2'></i>
-                                <span className="d-none d-xxl-inline">Display</span>
+                                <span className='d-none d-xxl-inline'>Display</span>
                             </button>
                         </li>
 
@@ -37,7 +37,7 @@ const SmallWidget = () => {
                             </div>
                             <button>
                                 <i className='fa-solid fa-eye me-0 me-xxl-2'></i>
-                                <span className="d-none d-xxl-inline">Display</span>
+                                <span className='d-none d-xxl-inline'>Display</span>
                             </button>
                         </li>
 
@@ -49,7 +49,7 @@ const SmallWidget = () => {
                             </div>
                             <button>
                                 <i className='fa-solid fa-eye me-0 me-xxl-2'></i>
-                                <span className="d-none d-xxl-inline">Display</span>
+                                <span className='d-none d-xxl-inline'>Display</span>
                             </button>
                         </li>
 
@@ -61,7 +61,7 @@ const SmallWidget = () => {
                             </div>
                             <button>
                                 <i className='fa-solid fa-eye me-0 me-xxl-2'></i>
-                                <span className="d-none d-xxl-inline">Display</span>
+                                <span className='d-none d-xxl-inline'>Display</span>
                             </button>
                         </li>
 

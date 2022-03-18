@@ -1,0 +1,29 @@
+#users .wrapper .user {
+    display: flex;
+    align-items: center;
+}
+
+#users .wrapper .user img {
+    width: 50px;
+    height: 50px;
+    margin-right: 1rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#users .wrapper .actions {
+    display: flex;
+    align-items: center;
+}
+
+#users .wrapper .actions a {
+    color: #fff;
+    padding: 5px 10px;
+    margin-right: 1.5rem;
+}
+
+#users .wrapper .actions i {
+    color: crimson;
+    font-size: 1.2rem;
+    cursor: pointer;
+}

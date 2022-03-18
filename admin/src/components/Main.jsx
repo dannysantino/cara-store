@@ -1,5 +1,8 @@
+import { Routes, Route } from 'react-router-dom'
+
 import Sidebar from './Sidebar'
 import Home from '../pages/Home'
+import Users from '../pages/Users'
 
 const Main = () => {
     return (
@@ -9,7 +12,10 @@ const Main = () => {
                     <Sidebar />
                 </div>
                 <div className='col-9 col-xxl-10 px-4'>
-                    <Home />
+                    <Routes>
+                        <Route exact path='/' element={<Home />} />
+                        <Route exact path='users' element={<Users />} />
+                    </Routes>
                 </div>
             </div>
         </main>

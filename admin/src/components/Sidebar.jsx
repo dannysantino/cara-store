@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import '../stylesheets/Sidebar.css'
 
 const Sidebar = () => {
@@ -7,22 +8,22 @@ const Sidebar = () => {
                 <h3>Dashboard</h3>
                 <ul className='nav nav-pills flex-column'>
                     <li>
-                        <a href='#' className='nav-link active'>
+                        <NavLink to='/' className={({ isActive }) => (isActive ? 'active nav-link' : 'inactive nav-link')}>
                             <i className='fa-solid fa-house-user'></i>
                             Home
-                        </a>
+                        </NavLink>
                     </li>
                     <li>
-                        <a href='#' className='nav-link'>
+                        <NavLink to='analytics' className={({ isActive }) => (isActive ? 'active nav-link' : 'inactive nav-link')}>
                             <i className='fa-solid fa-chart-bar'></i>
                             Analytics
-                        </a>
+                        </NavLink>
                     </li>
                     <li>
-                        <a href='#' className='nav-link'>
+                        <NavLink to='sales' className={({ isActive }) => (isActive ? 'active nav-link' : 'inactive nav-link')}>
                             <i className='fa-solid fa-arrow-trend-up'></i>
                             Sales
-                        </a>
+                        </NavLink>
                     </li>
                 </ul>
             </div>
@@ -31,28 +32,28 @@ const Sidebar = () => {
                 <h3>Quick Menu</h3>
                 <ul className='nav nav-pills flex-column'>
                     <li>
-                        <a href='#' className='nav-link'>
-                            <i className="fa-solid fa-users"></i>
+                        <NavLink to='users' className={({ isActive }) => (isActive ? 'active nav-link' : 'inactive nav-link')}>
+                            <i className='fa-solid fa-users'></i>
                             Users
-                        </a>
+                        </NavLink>
                     </li>
                     <li>
-                        <a href='#' className='nav-link'>
-                            <i className="fa-solid fa-store"></i>
+                        <NavLink to='products' className={({ isActive }) => (isActive ? 'active nav-link' : 'inactive nav-link')}>
+                            <i className='fa-solid fa-store'></i>
                             Products
-                        </a>
+                        </NavLink>
                     </li>
                     <li>
-                        <a href='#' className='nav-link'>
-                            <i className="fa-solid fa-dollar-sign"></i>
+                        <NavLink to='transactions' className={({ isActive }) => (isActive ? 'active nav-link' : 'inactive nav-link')}>
+                            <i className='fa-solid fa-dollar-sign'></i>
                             Transactions
-                        </a>
+                        </NavLink>
                     </li>
                     <li>
-                        <a href='#' className='nav-link'>
-                            <i className="fa-solid fa-chart-column"></i>
+                        <NavLink to='reports' className={({ isActive }) => (isActive ? 'active nav-link' : 'inactive nav-link')}>
+                            <i className='fa-solid fa-chart-column'></i>
                             Reports
-                        </a>
+                        </NavLink>
                     </li>
                 </ul>
             </div>
@@ -60,22 +61,22 @@ const Sidebar = () => {
                 <h3>Notifications</h3>
                 <ul className='nav nav-pills flex-column'>
                     <li>
-                        <a href='#' className='nav-link'>
-                            <i className="fa-solid fa-envelope-open-text"></i>
+                        <NavLink to='mail' className={({ isActive }) => (isActive ? 'active nav-link' : 'inactive nav-link')}>
+                            <i className='fa-solid fa-envelope-open-text'></i>
                             Mail
-                        </a>
+                        </NavLink>
                     </li>
                     <li>
-                        <a href='#' className='nav-link'>
-                            <i className="fa-regular fa-thumbs-up"></i>
+                        <NavLink to='feedback' className={({ isActive }) => (isActive ? 'active nav-link' : 'inactive nav-link')}>
+                            <i className='fa-regular fa-thumbs-up'></i>
                             Feedback
-                        </a>
+                        </NavLink>
                     </li>
                     <li>
-                        <a href='#' className='nav-link'>
-                            <i className="fa-regular fa-message"></i>
+                        <NavLink to='messages' className={({ isActive }) => (isActive ? 'active nav-link' : 'inactive nav-link')}>
+                            <i className='fa-regular fa-message'></i>
                             Messages
-                        </a>
+                        </NavLink>
                     </li>
                 </ul>
             </div>
@@ -83,22 +84,22 @@ const Sidebar = () => {
                 <h3>Staff</h3>
                 <ul className='nav nav-pills flex-column'>
                     <li>
-                        <a href='#' className='nav-link'>
-                            <i className="fa-solid fa-briefcase"></i>
+                        <NavLink to='staff/manage' className={({ isActive }) => (isActive ? 'active nav-link' : 'inactive nav-link')}>
+                            <i className='fa-solid fa-briefcase'></i>
                             Manage
-                        </a>
+                        </NavLink>
                     </li>
                     <li>
-                        <a href='#' className='nav-link'>
+                        <NavLink to='staff/analytics' className={({ isActive }) => (isActive ? 'active nav-link' : 'inactive nav-link')}>
                             <i className='fa-solid fa-chart-bar'></i>
                             Analytics
-                        </a>
+                        </NavLink>
                     </li>
                     <li>
-                        <a href='#' className='nav-link'>
-                            <i className="fa-regular fa-file-lines"></i>
+                        <NavLink to='staff/reports' className={({ isActive }) => (isActive ? 'active nav-link' : 'inactive nav-link')}>
+                            <i className='fa-regular fa-file-lines'></i>
                             Reports
-                        </a>
+                        </NavLink>
                     </li>
                 </ul>
             </div>
