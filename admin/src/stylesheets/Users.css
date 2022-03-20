@@ -18,12 +18,17 @@
 
 #users .wrapper .actions a {
     color: #fff;
-    padding: 5px 10px;
-    margin-right: 1.5rem;
+    padding: 3px 5px;
+    margin-right: 2rem;
 }
 
 #users .wrapper .actions i {
-    color: crimson;
-    font-size: 1.2rem;
+    color: rgb(240, 53, 90);
+    font-size: 1.5rem;
     cursor: pointer;
+    transition: .3s ease;
+}
+
+#users .wrapper .actions i:hover {
+    color: crimson;
 }

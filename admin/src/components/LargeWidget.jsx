@@ -3,7 +3,7 @@ const LargeWidget = () => {
 
     return (
         <div className='col-8'>
-            <div className='widget-lg card shadow-sm'>
+            <div className='card widget-lg shadow-sm'>
                 <div className='card-body p-xxl-4'>
                     <h4 className='card-title'>Latest Transactions</h4>
                     <table width='100%'>

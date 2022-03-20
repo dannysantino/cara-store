@@ -18,7 +18,7 @@ const Navbar = () => {
                         </NavLink>
                         <NavLink to='global' className={({ isActive }) => (isActive ? 'active nav-link' : 'nav-link')}><i className='fa-solid fa-globe'></i></NavLink>
                         <NavLink to='settings' className={({ isActive }) => (isActive ? 'active nav-link' : 'nav-link')}><i className='fa-solid fa-gear'></i></NavLink>
-                        <NavLink to='user' className='nav-link'><img src='img/users/1.png' alt='user-avatar' /></NavLink>
+                        <NavLink to='user' className='nav-link'><img src='/img/users/1.png' alt='user-avatar' /></NavLink>
                     </div>
                 </div>
             </div>
