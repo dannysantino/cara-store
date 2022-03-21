@@ -22,10 +22,10 @@ const productSchema = new Schema({
         type: Array
     },
     size: {
-        type: String
+        type: Array
     },
     color: {
-        type: String
+        type: Array
     },
     countInStock: {
         type: Number,
