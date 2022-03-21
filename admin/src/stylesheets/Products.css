@@ -1,10 +1,10 @@
-#users .wrapper .user,
-#users .wrapper .actions {
+#products .wrapper .product,
+#products .wrapper .actions {
     display: flex;
     align-items: center;
 }
 
-#users .wrapper .user img {
+#products .wrapper .product img {
     width: 50px;
     height: 50px;
     margin-right: 1rem;
@@ -12,19 +12,19 @@
     object-fit: cover;
 }
 
-#users .wrapper .actions a {
+#products .wrapper .actions a {
     color: #fff;
     padding: 3px 5px;
     margin-right: 2rem;
 }
 
-#users .wrapper .actions i {
+#products .wrapper .actions i {
     color: rgb(240, 53, 90);
     font-size: 1.5rem;
     cursor: pointer;
     transition: .3s ease;
 }
 
-#users .wrapper .actions i:hover {
+#products .wrapper .actions:hover {
     color: crimson;
 }

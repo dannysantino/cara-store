@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { DataGrid } from '@mui/x-data-grid'
 
-import { userRows } from '../demoData'
+import { productRows } from '../demoData'
 
-import '../stylesheets/Users.css'
+import '../stylesheets/Products.css'
 
-const Users = () => {
-    const [rows, setRows] = useState(userRows);
+const Products = () => {
+    const [rows, setRows] = useState(productRows);
     const handleDelete = id => setRows(rows.filter(e => e.id !== id));
     const columns = [
         {
@@ -16,46 +16,45 @@ const Users = () => {
             width: 80
         },
         {
-            field: 'user',
-            headerName: 'User',
-            width: 350,
+            field: 'product',
+            headerName: 'Product',
+            width: 400,
             renderCell: params => (
-                <div className='user'>
-                    <img src={params.row.avatar} alt='user-avatar' />
-                    {params.row.username}
+                <div className='product'>
+                    <img src={params.row.img} alt={params.row.name} />
+                    {params.row.name}
                 </div>
             )
         },
         {
-            field: 'email',
-            headerName: 'Email',
-            width: 350
+            field: 'countInStock',
+            headerName: 'Stock',
+            width: 180
         },
         {
             field: 'status',
             headerName: 'Status',
-            width: 160
+            width: 180
         },
         {
-            field: 'transaction',
-            headerName: 'Transaction Volume',
-            width: 160
+            field: 'price',
+            headerName: 'Price',
+            width: 180
         },
         {
             field: 'action',
             headerName: 'Action',
-            width: 160,
+            width: 250,
             renderCell: params => (
                 <div className='actions'>
-                    <Link to={`/user/${params.row.id}`} className='btn btn-info'>Edit</Link>
+                    <Link to={`/product/${params.row.id}`} className='btn btn-info'>Edit</Link>
                     <i className='fa-solid fa-trash' onClick={() => handleDelete(params.row.id)}></i>
                 </div>
             )
         }
-    ];
-
+    ]
     return (
-        <section className='wrapper' id='users'>
+        <section className='wrapper' id='products'>
             <div className='row'>
                 <div className='col-12'>
                     <div className='wrapper' style={{ height: 800, width: '100%' }}>
@@ -75,4 +74,4 @@ const Users = () => {
     )
 }
 
-export default Users
+export default Products

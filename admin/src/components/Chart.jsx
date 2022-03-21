@@ -1,9 +1,9 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 
-const Chart = ({ title, data, dataKey, grid }) => {
+const Chart = ({ title, data, dataKey, grid, span }) => {
     return (
         <>
-            <div className='col-12'>
+            <div className={span ? span : 'col-12'}>
                 <div className='card shadow-sm'>
                     <div className='card-body pt-4 ps-4'>
                         <h4 className='card-title mb-3'>{title}</h4>
@@ -14,7 +14,7 @@ const Chart = ({ title, data, dataKey, grid }) => {
                                 <Line type='monotone' dataKey={dataKey} stroke='#222' />
                                 <Tooltip />
                                 <Legend />
-                                {grid && <CartesianGrid stroke='#e0dfdf' strokeDasharray='5 5' />}
+                                {grid && <CartesianGrid stroke='#E0DFDF' strokeDasharray='5 5' />}
                             </LineChart>
                         </ResponsiveContainer>
                     </div>

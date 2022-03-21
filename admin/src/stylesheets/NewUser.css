@@ -1,0 +1,38 @@
+#newuser .wrapper header h1 {
+    font-weight: 700;
+}
+
+#newuser form .user-data label {
+    font-weight: 600;
+}
+
+#newuser form .user-data input,
+#newuser form .user-data select {
+    padding: .75rem;
+}
+
+#newuser form .user-data input[type=radio] {
+    padding: .6rem;
+}
+
+#newuser form .gender > div > label {
+    color: #555;
+    font-weight: 500;
+    margin-left: .5rem;
+}
+
+#newuser form button {
+    width: 100%;
+    color: aliceblue;
+    padding: .5rem;
+    margin: 3rem 0;
+    border: none;
+    border-radius: .25rem;
+    text-transform: uppercase;
+    background-color: darkblue;
+    transition: .3s ease;
+}
+
+#newuser form button:hover {
+    background-color: rgb(12, 12, 167);
+}

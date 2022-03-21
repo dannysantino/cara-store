@@ -4,14 +4,15 @@ import '../stylesheets/User.css'
 
 const User = () => {
     return (
-        <div className='wrapper' id='user'>
+        <section className='wrapper' id='user'>
             <div className='row'>
                 <div className='col-12'>
                     <div className='wrapper'>
                         <header>
                             <h1>Edit User</h1>
-                            <Link to='newuser' className='btn'>Create</Link>
+                            <Link to='/newuser' className='btn'>Create New</Link>
                         </header>
+
                         <div className='row'>
                             <div className='col-4'>
                                 <div className='card bio shadow-sm'>
@@ -50,10 +51,11 @@ const User = () => {
                                     </div>
                                 </div>
                             </div>
+
                             <div className='col-8'>
                                 <div className='card shadow-sm'>
                                     <div className='card-body user-update pt-4'>
-                                        <h3>Edit</h3>
+                                        <h3 className='card-title'>Edit</h3>
                                         <form action='' className='mt-4'>
                                             <div className='row'>
                                                 <div className='col-7'>
@@ -80,8 +82,8 @@ const User = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div className='offset-1 col-3'>
-                                                    <div className='wrapper upload'>
+                                                <div className='col-3 offset-1'>
+                                                    <div className='upload'>
                                                         <div className='img-upload text-center'>
                                                             <img src='/img/users/3.png' alt='user-avatar' />
                                                             <label htmlFor='upload'><i className='fa-solid fa-upload'></i></label>
@@ -96,10 +98,11 @@ const User = () => {
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

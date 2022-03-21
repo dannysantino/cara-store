@@ -1,0 +1,28 @@
+#newproduct .wrapper header h1 {
+    font-weight: 700;
+}
+
+#newproduct form .item-data label {
+    font-weight: 600;
+}
+
+#newproduct form .item-data input[type=text],
+#newproduct form .item-data select {
+    padding: .75rem;
+}
+
+#newproduct form button {
+    width: 50%;
+    color: aliceblue;
+    padding: 0.5rem;
+    margin: 3rem 0;
+    border: none;
+    border-radius: .25rem;
+    text-transform: uppercase;
+    background-color: darkblue;
+    transition: .3s ease;
+}
+
+#newproduct form button:hover {
+    background-color: rgb(12, 12, 167);
+}
