@@ -1,0 +1,23 @@
+#logister {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100vh - 72px);
+    background-size: cover;
+    background-color: #4050a3;
+    background-position: center;
+    background-image: url("../../public/img/about/banner.png");
+}
+
+#logister .card .login-img {
+    max-height: 200px;
+    object-fit: cover;
+}
+
+#logister .card-body h3 {
+    font-weight: 700;
+}
+
+#logister .card-body a {
+    text-decoration: none;
+}
