@@ -2,13 +2,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 6rem;
+    padding: 1rem 6rem;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
     left: 0;
-    background-color: #e3e6f3;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, .06);
+    background-color: #d4d9ed;
     z-index: 99;
 }
 
@@ -59,7 +58,7 @@
 
 @media (max-width: 991px) {
     #nav {
-        padding: 1.5rem;
+        padding: 1rem 1.5rem;
     }
     #navbar {
         flex-direction: column;
@@ -71,7 +70,7 @@
         position: fixed;
         top: 0;
         right: -300px;
-        background-color: #e3e6f3;
+        background-color: #d4d9ed;
         box-shadow: 0 40px 60px rgba(0, 0, 0, .1);
         transition: .3s ease;
     }
@@ -89,14 +88,14 @@
     }
     #menu-btn i {
         color: #1a1a1a;
-        font-size: 24px;
+        font-size: 1.2rem;
         padding-left: 30px;
         cursor: pointer;
     }
     #close-btn {
         display: initial;
         color: #222;
-        font-size: 24px;
+        font-size: 1.2rem;
         position: absolute;
         top: 30px;
         left: 30px;
