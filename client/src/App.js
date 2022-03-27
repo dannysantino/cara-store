@@ -1,15 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
+import ScrollToTop from './utils/ScrollToTop';
+import Layout from './pages/Layout';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Product from './pages/Product';
 import Cart from './pages/Cart';
+import Contact from './pages/Contact';
 import About from './pages/About';
 import Blog from './pages/Blog';
-import Contact from './pages/Contact';
-import Newsletter from './components/Newsletter';
-import Footer from './components/Footer';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 import './App.css';
 
@@ -17,17 +19,21 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Routes>
-        <Route exact path='/' element={<Home />} />
-        <Route exact path='shop' element={<Shop />} />
-        <Route exact path='product' element={<Product />} />
-        <Route exact path='cart' element={<Cart />} />
-        <Route exact path='contact' element={<Contact />} />
-        <Route exact path='about' element={<About />} />
-        <Route exact path='blog' element={<Blog />} />
-      </Routes>
-      <Newsletter />
-      <Footer />
+      <ScrollToTop>
+        <Routes>
+          <Route path='/' element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path='shop/:category' element={<Shop />} />
+            <Route path='product/:id' element={<Product />} />
+            <Route path='cart' element={<Cart />} />
+            <Route path='contact' element={<Contact />} />
+            <Route path='about' element={<About />} />
+            <Route path='blog' element={<Blog />} />
+          </Route>
+          <Route path='login' element={<Login />} />
+          <Route path='register' element={<Register />} />
+        </Routes>
+      </ScrollToTop>
     </Router>
   );
 }
