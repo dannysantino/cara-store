@@ -2,7 +2,7 @@
     background-color: #041e42;
     background-position: 20% 30%;
     background-repeat: no-repeat;
-    background-image: url("../../public/img/banner/b14.png");
+    background-image: url(../assets/img/banner/b14.png);
 }
 
 #newsletter > div > div {

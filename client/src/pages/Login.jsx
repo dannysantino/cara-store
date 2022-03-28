@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 
+import a5 from '../assets/img/about/a5.jpg'
 import '../stylesheets/Logister.css'
 
 const Login = () => {
@@ -19,7 +20,7 @@ const Login = () => {
                     <div className='row'>
                         <div className='col-md-6 offset-md-3 col-xl-4 offset-xl-4 my-4'>
                             <div className='card shadow'>
-                                <img src='/img/about/a5.jpg' className='card-img-top login-img' alt='illustration of woman thinking about shopping' />
+                                <img src={a5} className='card-img-top login-img' alt='illustration of woman thinking about shopping' />
                                 <div className='card-body'>
                                     <h3 className='card-title'>Log in</h3>
                                     <form action='/login' method='post' className='validate-form' onSubmit={handleValidation} noValidate>

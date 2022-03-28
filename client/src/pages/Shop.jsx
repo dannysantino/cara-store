@@ -1,8 +1,13 @@
+import { Link } from 'react-router-dom'
+
 import Pagination from '../components/Pagination'
+import importImages from '../utils/importImages'
 
 import '../stylesheets/Shop.css'
 
 const Shop = () => {
+    const images = importImages(require.context('../assets/img/products', false, /\.jpg/));
+
     return (
         <>
             <section id='shop-header' className='page-header'>
@@ -33,7 +38,7 @@ const Shop = () => {
                         <div className='row px-4 px-xl-5'>
                             <div className='col-12 col-sm-6 col-lg-3'>
                                 <div className='product'>
-                                    <img src='img/products/f1.jpg' alt='t-shirt' />
+                                    <img src={images['f1.jpg']} alt='t-shirt' />
                                     <div className='desc'>
                                         <span>hermes</span>
                                         <h5>T-Shirt - Flowery Design</h5>
@@ -46,13 +51,13 @@ const Shop = () => {
                                         </div>
                                         <h4>$127.99</h4>
                                     </div>
-                                    <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
+                                    <Link to='#'><i className='fa-solid fa-cart-plus cart-p'></i></Link>
                                 </div>
                             </div>
 
                             <div className='col-12 col-sm-6 col-lg-3'>
                                 <div className='product'>
-                                    <img src='img/products/f2.jpg' alt='t-shirt' />
+                                    <img src={images['f2.jpg']} alt='t-shirt' />
                                     <div className='desc'>
                                         <span>hermes</span>
                                         <h5>T-Shirt - Flowery Design</h5>
@@ -65,13 +70,13 @@ const Shop = () => {
                                         </div>
                                         <h4>$127.99</h4>
                                     </div>
-                                    <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
+                                    <Link to='#'><i className='fa-solid fa-cart-plus cart-p'></i></Link>
                                 </div>
                             </div>
 
                             <div className='col-12 col-sm-6 col-lg-3'>
                                 <div className='product'>
-                                    <img src='img/products/f3.jpg' alt='t-shirt' />
+                                    <img src={images['f3.jpg']} alt='t-shirt' />
                                     <div className='desc'>
                                         <span>hermes</span>
                                         <h5>T-Shirt - Flowery Design</h5>
@@ -84,13 +89,13 @@ const Shop = () => {
                                         </div>
                                         <h4>$127.99</h4>
                                     </div>
-                                    <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
+                                    <Link to='#'><i className='fa-solid fa-cart-plus cart-p'></i></Link>
                                 </div>
                             </div>
 
                             <div className='col-12 col-sm-6 col-lg-3'>
                                 <div className='product'>
-                                    <img src='img/products/f4.jpg' alt='t-shirt' />
+                                    <img src={images['f4.jpg']} alt='t-shirt' />
                                     <div className='desc'>
                                         <span>hermes</span>
                                         <h5>T-Shirt - Flowery Design</h5>
@@ -103,13 +108,13 @@ const Shop = () => {
                                         </div>
                                         <h4>$127.99</h4>
                                     </div>
-                                    <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
+                                    <Link to='#'><i className='fa-solid fa-cart-plus cart-p'></i></Link>
                                 </div>
                             </div>
 
                             <div className='col-12 col-sm-6 col-lg-3'>
                                 <div className='product'>
-                                    <img src='img/products/f5.jpg' alt='t-shirt' />
+                                    <img src={images['f5.jpg']} alt='t-shirt' />
                                     <div className='desc'>
                                         <span>hermes</span>
                                         <h5>T-Shirt - Flowery Design</h5>
@@ -122,13 +127,13 @@ const Shop = () => {
                                         </div>
                                         <h4>$127.99</h4>
                                     </div>
-                                    <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
+                                    <Link to='#'><i className='fa-solid fa-cart-plus cart-p'></i></Link>
                                 </div>
                             </div>
 
                             <div className='col-12 col-sm-6 col-lg-3'>
                                 <div className='product'>
-                                    <img src='img/products/f6.jpg' alt='t-shirt' />
+                                    <img src={images['f6.jpg']} alt='t-shirt' />
                                     <div className='desc'>
                                         <span>hermes</span>
                                         <h5>T-Shirt - Flowery Design</h5>
@@ -141,13 +146,13 @@ const Shop = () => {
                                         </div>
                                         <h4>$127.99</h4>
                                     </div>
-                                    <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
+                                    <Link to='#'><i className='fa-solid fa-cart-plus cart-p'></i></Link>
                                 </div>
                             </div>
 
                             <div className='col-12 col-sm-6 col-lg-3'>
                                 <div className='product'>
-                                    <img src='img/products/f7.jpg' alt='t-shirt' />
+                                    <img src={images['f7.jpg']} alt='t-shirt' />
                                     <div className='desc'>
                                         <span>hermes</span>
                                         <h5>T-Shirt - Flowery Design</h5>
@@ -160,13 +165,13 @@ const Shop = () => {
                                         </div>
                                         <h4>$127.99</h4>
                                     </div>
-                                    <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
+                                    <Link to='#'><i className='fa-solid fa-cart-plus cart-p'></i></Link>
                                 </div>
                             </div>
 
                             <div className='col-12 col-sm-6 col-lg-3'>
                                 <div className='product'>
-                                    <img src='img/products/f8.jpg' alt='t-shirt' />
+                                    <img src={images['f8.jpg']} alt='t-shirt' />
                                     <div className='desc'>
                                         <span>hermes</span>
                                         <h5>T-Shirt - Flowery Design</h5>
@@ -179,13 +184,13 @@ const Shop = () => {
                                         </div>
                                         <h4>$127.99</h4>
                                     </div>
-                                    <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
+                                    <Link to='#'><i className='fa-solid fa-cart-plus cart-p'></i></Link>
                                 </div>
                             </div>
 
                             <div className='col-12 col-sm-6 col-lg-3'>
                                 <div className='product'>
-                                    <img src='img/products/n1.jpg' alt='t-shirt' />
+                                    <img src={images['n1.jpg']} alt='t-shirt' />
                                     <div className='desc'>
                                         <span>hermes</span>
                                         <h5>T-Shirt - Flowery Design</h5>
@@ -198,13 +203,13 @@ const Shop = () => {
                                         </div>
                                         <h4>$127.99</h4>
                                     </div>
-                                    <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
+                                    <Link to='#'><i className='fa-solid fa-cart-plus cart-p'></i></Link>
                                 </div>
                             </div>
 
                             <div className='col-12 col-sm-6 col-lg-3'>
                                 <div className='product'>
-                                    <img src='img/products/n2.jpg' alt='t-shirt' />
+                                    <img src={images['n2.jpg']} alt='t-shirt' />
                                     <div className='desc'>
                                         <span>hermes</span>
                                         <h5>T-Shirt - Flowery Design</h5>
@@ -217,13 +222,13 @@ const Shop = () => {
                                         </div>
                                         <h4>$127.99</h4>
                                     </div>
-                                    <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
+                                    <Link to='#'><i className='fa-solid fa-cart-plus cart-p'></i></Link>
                                 </div>
                             </div>
 
                             <div className='col-12 col-sm-6 col-lg-3'>
                                 <div className='product'>
-                                    <img src='img/products/n3.jpg' alt='t-shirt' />
+                                    <img src={images['n3.jpg']} alt='t-shirt' />
                                     <div className='desc'>
                                         <span>hermes</span>
                                         <h5>T-Shirt - Flowery Design</h5>
@@ -236,13 +241,13 @@ const Shop = () => {
                                         </div>
                                         <h4>$127.99</h4>
                                     </div>
-                                    <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
+                                    <Link to='#'><i className='fa-solid fa-cart-plus cart-p'></i></Link>
                                 </div>
                             </div>
 
                             <div className='col-12 col-sm-6 col-lg-3'>
                                 <div className='product'>
-                                    <img src='img/products/n4.jpg' alt='t-shirt' />
+                                    <img src={images['n4.jpg']} alt='t-shirt' />
                                     <div className='desc'>
                                         <span>hermes</span>
                                         <h5>T-Shirt - Flowery Design</h5>
@@ -255,13 +260,13 @@ const Shop = () => {
                                         </div>
                                         <h4>$127.99</h4>
                                     </div>
-                                    <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
+                                    <Link to='#'><i className='fa-solid fa-cart-plus cart-p'></i></Link>
                                 </div>
                             </div>
 
                             <div className='col-12 col-sm-6 col-lg-3'>
                                 <div className='product'>
-                                    <img src='img/products/n5.jpg' alt='t-shirt' />
+                                    <img src={images['n5.jpg']} alt='t-shirt' />
                                     <div className='desc'>
                                         <span>hermes</span>
                                         <h5>T-Shirt - Flowery Design</h5>
@@ -274,13 +279,13 @@ const Shop = () => {
                                         </div>
                                         <h4>$127.99</h4>
                                     </div>
-                                    <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
+                                    <Link to='#'><i className='fa-solid fa-cart-plus cart-p'></i></Link>
                                 </div>
                             </div>
 
                             <div className='col-12 col-sm-6 col-lg-3'>
                                 <div className='product'>
-                                    <img src='img/products/n6.jpg' alt='t-shirt' />
+                                    <img src={images['n6.jpg']} alt='t-shirt' />
                                     <div className='desc'>
                                         <span>hermes</span>
                                         <h5>T-Shirt - Flowery Design</h5>
@@ -293,13 +298,13 @@ const Shop = () => {
                                         </div>
                                         <h4>$127.99</h4>
                                     </div>
-                                    <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
+                                    <Link to='#'><i className='fa-solid fa-cart-plus cart-p'></i></Link>
                                 </div>
                             </div>
 
                             <div className='col-12 col-sm-6 col-lg-3'>
                                 <div className='product'>
-                                    <img src='img/products/n7.jpg' alt='t-shirt' />
+                                    <img src={images['n7.jpg']} alt='t-shirt' />
                                     <div className='desc'>
                                         <span>hermes</span>
                                         <h5>T-Shirt - Flowery Design</h5>
@@ -312,13 +317,13 @@ const Shop = () => {
                                         </div>
                                         <h4>$127.99</h4>
                                     </div>
-                                    <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
+                                    <Link to='#'><i className='fa-solid fa-cart-plus cart-p'></i></Link>
                                 </div>
                             </div>
 
                             <div className='col-12 col-sm-6 col-lg-3'>
                                 <div className='product'>
-                                    <img src='img/products/n8.jpg' alt='t-shirt' />
+                                    <img src={images['n8.jpg']} alt='t-shirt' />
                                     <div className='desc'>
                                         <span>hermes</span>
                                         <h5>T-Shirt - Flowery Design</h5>
@@ -331,7 +336,7 @@ const Shop = () => {
                                         </div>
                                         <h4>$127.99</h4>
                                     </div>
-                                    <a href='#'><i className='fa-solid fa-cart-plus cart-p'></i></a>
+                                    <Link to='#'><i className='fa-solid fa-cart-plus cart-p'></i></Link>
                                 </div>
                             </div>
 

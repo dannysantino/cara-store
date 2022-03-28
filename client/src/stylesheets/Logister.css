@@ -6,7 +6,7 @@
     background-size: cover;
     background-color: #4050a3;
     background-position: center;
-    background-image: url("../../public/img/about/banner.png");
+    background-image: url(../assets/img/about/banner.png);
 }
 
 #logister .card .login-img {

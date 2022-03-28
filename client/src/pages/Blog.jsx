@@ -19,7 +19,7 @@ const Blog = () => {
                 </div>
             </section>
 
-            <section id='blogs' className='py-5 mt-5'>
+            <section id='blogs' className='pt-5 mt-5'>
                 <div className='container'>
                     <Blogpost />
                 </div>

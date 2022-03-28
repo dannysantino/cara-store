@@ -1,3 +1,6 @@
+import avatar1 from '../assets/img/people/1.png'
+import avatar2 from '../assets/img/people/2.png'
+import avatar3 from '../assets/img/people/3.png'
 import '../stylesheets/Contact.css'
 
 const Contact = () => {
@@ -76,7 +79,7 @@ const Contact = () => {
                             <div className='wrapper contact-staff ms-lg-5'>
                                 <h2>Contact Staff</h2>
                                 <div className='staff mb-5'>
-                                    <img src='img/people/1.png' alt='person' />
+                                    <img src={avatar1} alt='male-person' />
                                     <div className='info'>
                                         <p>Phil Anderson</p>
                                         <span>Senior Marketing Manager</span>
@@ -87,7 +90,7 @@ const Contact = () => {
                                     </div>
                                 </div>
                                 <div className='staff mb-5'>
-                                    <img src='img/people/2.png' alt='person' />
+                                    <img src={avatar2} alt='male-person' />
                                     <div className='info'>
                                         <p>Jack Miles</p>
                                         <span>Sales Director</span>
@@ -98,7 +101,7 @@ const Contact = () => {
                                     </div>
                                 </div>
                                 <div className='staff mb-5'>
-                                    <img src='img/people/3.png' alt='person' />
+                                    <img src={avatar3} alt='female-person' />
                                     <div className='info'>
                                         <p>Sarah Perkins</p>
                                         <span>Social Media Manager</span>

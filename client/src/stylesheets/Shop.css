@@ -1,3 +1,7 @@
 #shop-header {
-    background-image: url("../../public/img/banner/b1.jpg");
+    background-image: url(../assets/img/banner/b1.jpg);
+}
+
+#shop .filters {
+    justify-content: space-between;
 }

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 
+import b16 from '../assets/img/banner/b16.jpg'
 import '../stylesheets/Logister.css'
 
 const Register = () => {
@@ -19,7 +20,7 @@ const Register = () => {
                     <div className='row'>
                         <div className='col-md-8 offset-md-2 my-4'>
                             <div className='card shadow'>
-                                <img src='/img/banner/b16.jpg' className='card-img-top mb-2' alt='hand holding shopping bags' />
+                                <img src={b16} className='card-img-top mb-2' alt='hand holding shopping bags' />
                                 <div className='card-body'>
                                     <h3 className='card-title mb-3'>Create an account</h3>
                                     <form action='/register' method='post' className='row validate-form' onSubmit={handleValidation} noValidate>

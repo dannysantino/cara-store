@@ -1,4 +1,10 @@
+import { Link } from 'react-router-dom'
+
+import importImages from '../utils/importImages';
+
 const Blogpost = () => {
+    const images = importImages(require.context('../assets/img/blog', false, /\.jpg/));
+
     return (
         <>
             {
@@ -6,7 +12,7 @@ const Blogpost = () => {
                     <div className='row blog pb-5 mb-5' key={e + 1}>
                         <div className='col-12 col-sm-5 mb-4'>
                             <div className='wrapper image'>
-                                <img src={`img/blog/b${e + 1}.jpg`} alt='fashion-trend' />
+                                <img src={images[`b${e + 1}.jpg`]} alt='fashion-trend' />
                             </div>
                         </div>
                         <div className='col-12 col-sm-6'>
@@ -15,7 +21,7 @@ const Blogpost = () => {
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus incidunt ipsa placeat
                                     veritatis quibusdam id nisi voluptate! Minus cumque eius cupiditate suscipit totam
                                     reiciendis placeat saepe, quam atque quae aperiam!</p>
-                                <a href='#'>CONTINUE READING</a>
+                                <Link to='#'>CONTINUE READING</Link>
                             </div>
                         </div>
                         <h1>12/01</h1>

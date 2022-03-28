@@ -4,10 +4,10 @@
     justify-content: center;
     align-items: flex-start;
     width: 100%;
-    height: 96vh;
+    height: calc(100vh - 72px);
     background-size: cover;
     background-position: top 25% right 0;
-    background-image: url("../../public/img/hero4.png");
+    background-image: url(../assets/img/hero4.png);
 }
 
 #hero h4 {
@@ -31,7 +31,7 @@
     padding: 14px 80px 14px 65px;
     background-color: transparent;
     background-repeat: no-repeat;
-    background-image: url("../../public/img/button.png");
+    background-image: url(../assets/img/button.png);
 }
 
 #featured .fea-wrapper {
@@ -96,7 +96,7 @@
     width: 100%;
     background-size: cover;
     background-position: center;
-    background-image: url("../../public/img/banner/b2.jpg");
+    background-image: url(../assets/img/banner/b2.jpg);
 }
 
 #banner h4 {
@@ -113,11 +113,6 @@
     color: #ef3636;
 }
 
-#banner button:hover {
-    color: #fff;
-    background-color: #088178;
-}
-
 #explore .banner-box {
     display: flex;
     flex-direction: column;
@@ -125,11 +120,11 @@
     align-items: flex-start;
     background-size: cover;
     background-position: center;
-    background-image: url("../../public/img/banner/b17.jpg");
+    background-image: url(../assets/img/banner/b17.jpg);
 }
 
 #explore .banner-box.spring {
-    background-image: url("../../public/img/banner/b10.jpg");
+    background-image: url(../assets/img/banner/b10.jpg);
 }
 
 #explore h4 {
@@ -164,7 +159,7 @@
     height: 30vh;
     background-size: cover;
     background-position: top center;
-    background-image: url("../../public/img/banner/b7.jpg");
+    background-image: url(../assets/img/banner/b7.jpg);
 }
 
 #sale h3 {
@@ -174,11 +169,11 @@
 }
 
 #sale .banner-box.jacket {
-    background-image: url("../../public/img/banner/b4.jpg");
+    background-image: url(../assets/img/banner/b4.jpg);
 }
 
 #sale .banner-box.dresses {
-    background-image: url("../../public/img/banner/b18.jpg");
+    background-image: url(../assets/img/banner/b18.jpg);
 }
 
 @media (max-width: 1199px) {

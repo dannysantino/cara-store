@@ -1,8 +1,11 @@
+import importImages from '../utils/importImages'
 import Featured from '../components/Featured'
 
 import '../stylesheets/Home.css'
 
 const Home = () => {
+    const images = importImages(require.context('../assets/img/features', false, /\.png/));
+
     return (
         <>
             <section id='hero'>
@@ -26,37 +29,37 @@ const Home = () => {
                     <div className='row'>
                         <div className='fea-wrapper col-6 col-sm-4 col-lg-2'>
                             <div className='fea-box'>
-                                <img src='img/features/f1.png' alt='png-file' />
+                                <img src={images['f1.png']} alt='png-file' />
                                 <h6>Free Shipping</h6>
                             </div>
                         </div>
                         <div className='fea-wrapper col-6 col-sm-4 col-lg-2'>
                             <div className='fea-box'>
-                                <img src='img/features/f2.png' alt='png-file' />
+                                <img src={images['f2.png']} alt='png-file' />
                                 <h6>Order Online</h6>
                             </div>
                         </div>
                         <div className='fea-wrapper col-6 col-sm-4 col-lg-2'>
                             <div className='fea-box'>
-                                <img src='img/features/f3.png' alt='png-file' />
+                                <img src={images['f3.png']} alt='png-file' />
                                 <h6>Save Money</h6>
                             </div>
                         </div>
                         <div className='fea-wrapper col-6 col-sm-4 col-lg-2'>
                             <div className='fea-box'>
-                                <img src='img/features/f4.png' alt='png-file' />
+                                <img src={images['f4.png']} alt='png-file' />
                                 <h6>Promotions</h6>
                             </div>
                         </div>
                         <div className='fea-wrapper col-6 col-sm-4 col-lg-2'>
                             <div className='fea-box'>
-                                <img src='img/features/f5.png' alt='png-file' />
+                                <img src={images['f5.png']} alt='png-file' />
                                 <h6>Happy Clients</h6>
                             </div>
                         </div>
                         <div className='fea-wrapper col-6 col-sm-4 col-lg-2'>
                             <div className='fea-box'>
-                                <img src='img/features/f6.png' alt='png-file' />
+                                <img src={images['f6.png']} alt='png-file' />
                                 <h6>24/7 Support</h6>
                             </div>
                         </div>

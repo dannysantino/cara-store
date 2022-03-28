@@ -1,5 +1,9 @@
+import { Link } from 'react-router-dom'
+
 import Featured from '../components/Featured'
 
+import a6 from '../assets/img/about/a6.jpg'
+import vid from '../assets/img/about/1.mp4'
 import '../stylesheets/About.css'
 
 const About = () => {
@@ -23,7 +27,7 @@ const About = () => {
                     <div className='row'>
                         <div className='col-12 col-lg-6'>
                             <div className='wrapper image'>
-                                <img src='img/about/a6.jpg' alt='shopping illustration' />
+                                <img src={a6} alt='shopping illustration' />
                             </div>
                         </div>
                         <div className='col-12 col-lg-6 mt-4 mt-lg-0'>
@@ -52,12 +56,12 @@ const About = () => {
             <section id='app'>
                 <div className='container'>
                     <div className='heading text-center'>
-                        <h2>Download Our <a href='#'>App</a></h2>
+                        <h2>Download Our <Link to='#'>App</Link></h2>
                     </div>
                     <div className='row mt-4'>
                         <div className='col-12 col-lg-8 offset-lg-2'>
                             <div className='wrapper video'>
-                                <video src='img/about/1.mp4' autoPlay muted loop></video>
+                                <video src={vid} autoPlay muted loop></video>
                             </div>
                         </div>
                     </div>

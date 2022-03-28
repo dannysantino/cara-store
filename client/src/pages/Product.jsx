@@ -1,5 +1,6 @@
 import Featured from '../components/Featured'
 
+import f1 from '../assets/img/products/f1.jpg'
 import '../stylesheets/Product.css'
 
 const Product = () => {
@@ -10,7 +11,7 @@ const Product = () => {
                     <div className='row'>
                         <div className='col-12 col-lg-6'>
                             <div className='wrapper image'>
-                                <img src='img/products/f1.jpg' alt='t-shirt' />
+                                <img src={f1} alt='t-shirt' />
                             </div>
                         </div>
 

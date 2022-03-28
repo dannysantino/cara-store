@@ -1,3 +1,9 @@
+import { Link } from 'react-router-dom'
+
+import logo from '../assets/img/logo.png'
+import app from '../assets/img/pay/app.jpg'
+import play from '../assets/img/pay/play.jpg'
+import pay from '../assets/img/pay/pay.png'
 import '../stylesheets/Footer.css'
 
 const Footer = () => {
@@ -7,10 +13,10 @@ const Footer = () => {
                 <div className='row px-4 px-xl-5'>
                     <div className='col-12 col-md-6 col-lg-4'>
                         <div className='contact'>
-                            <img src='img/logo.png' className='mb-4' alt='logo' />
+                            <img src={logo} className='mb-4' alt='logo' />
                             <h4>Contact</h4>
                             <address><strong>Address:</strong>
-                                <span>1101, Shrewsbury Road, Baker's Street, Chicago, IL</span>
+                                <span> 1101, Shrewsbury Road, Baker's Street, Chicago, IL</span>
                             </address>
                             <p><strong>Phone:</strong> 1-800-SHOP-CARA / 1-800-SUPPORT-CARA</p>
                             <p><strong>Hours:</strong> 09:00 - 18:00, Mon - Fri</p>
@@ -31,11 +37,11 @@ const Footer = () => {
                         <div className='about'>
                             <h4>About</h4>
                             <ul className='list-unstyled plain-anchor'>
-                                <li><a href='#'>About us</a></li>
-                                <li><a href='#'>Delivery Information</a></li>
-                                <li><a href='#'>Terms & Conditions</a></li>
-                                <li><a href='#'>Privacy Policy</a></li>
-                                <li><a href='#'>Contact us</a></li>
+                                <li><Link to='#'>About us</Link></li>
+                                <li><Link to='#'>Delivery Information</Link></li>
+                                <li><Link to='#'>Terms & Conditions</Link></li>
+                                <li><Link to='#'>Privacy Policy</Link></li>
+                                <li><Link to='#'>Contact us</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -44,11 +50,11 @@ const Footer = () => {
                         <div className='account'>
                             <h4>My Account</h4>
                             <ul className='list-unstyled plain-anchor'>
-                                <li><a href='#'>Sign In</a></li>
-                                <li><a href='#'>View Cart</a></li>
-                                <li><a href='#'>My Wishlist</a></li>
-                                <li><a href='#'>Track My Order</a></li>
-                                <li><a href='#'>Help</a></li>
+                                <li><Link to='#'>Sign In</Link></li>
+                                <li><Link to='#'>View Cart</Link></li>
+                                <li><Link to='#'>My Wishlist</Link></li>
+                                <li><Link to='#'>Track My Order</Link></li>
+                                <li><Link to='#'>Help</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -58,11 +64,11 @@ const Footer = () => {
                             <h4>Install App</h4>
                             <p>From App Store or Google Pay</p>
                             <div className='my-3'>
-                                <img src='img/pay/app.jpg' alt='apple-store' />
-                                <img src='img/pay/play.jpg' alt='app-store' />
+                                <img src={app} alt='apple-store' />
+                                <img src={play} alt='app-store' />
                             </div>
                             <p>Secure Payment Gateways</p>
-                            <img src='img/pay/pay.png' alt='payment-gateway ' />
+                            <img src={pay} alt='payment-gateway ' />
                         </div>
                     </div>
                 </div>
@@ -70,7 +76,7 @@ const Footer = () => {
                 <div className='row px-4 mt-5'>
                     <div className='col-12 col-sm-6 offset-sm-3'>
                         <div className='copyright text-center'>
-                            <p>Copyright &copy; 2022 | <a href='http://dannysantino.com' target='_blank'>Danny Santino</a></p>
+                            <p>Copyright &copy; 2022 | <Link to='../../../http://dannysantino.com' target='_blank'>Danny Santino</Link></p>
                         </div>
                     </div>
                 </div>

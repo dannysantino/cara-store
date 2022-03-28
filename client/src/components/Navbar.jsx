@@ -1,5 +1,6 @@
 import { Link, NavLink } from 'react-router-dom'
 
+import logo from '../assets/img/logo.png'
 import '../stylesheets/Navbar.css'
 
 const Navbar = () => {
@@ -14,7 +15,7 @@ const Navbar = () => {
 
     return (
         <nav className='shadow' id='nav'>
-            <Link to='/'><img src='/img/logo.png' className='logo' alt='cara-store-logo' /></Link>
+            <Link to='/'><img src={logo} className='logo' alt='cara-store-logo' /></Link>
             <div className='wrapper'>
                 <ul id='navbar'>
                     <li>
