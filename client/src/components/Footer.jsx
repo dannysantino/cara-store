@@ -76,7 +76,7 @@ const Footer = () => {
                 <div className='row px-4 mt-5'>
                     <div className='col-12 col-sm-6 offset-sm-3'>
                         <div className='copyright text-center'>
-                            <p>Copyright &copy; 2022 | <Link to='../../../http://dannysantino.com' target='_blank'>Danny Santino</Link></p>
+                            <p>Copyright &copy; 2022 | <a href='http://dannysantino.com' rel='noopener noreferrer' target='_blank'>Danny Santino</a></p>
                         </div>
                     </div>
                 </div>
