@@ -28,7 +28,7 @@ const Navbar = () => {
                     </li>
                     <li>
                         <NavLink
-                            to='/shop/cat'
+                            to='/shop'
                             className={({ isActive }) => (isActive ? 'active' : '')}
                         >
                             Shop
