@@ -2,6 +2,39 @@
     background-image: url(../assets/img/banner/b1.jpg);
 }
 
-#shop .filters {
+#shop .heading hr {
+    width: 80%;
+    margin: 1rem auto;
+}
+
+#shop .category {
     justify-content: space-between;
+}
+
+#shop .category .filter,
+#shop .category .sort {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#shop .category h4 {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+#shop .category select {
+    display: inline-block;
+}
+
+#shop .category .filter select.color {
+    width: 30%;
+}
+
+#shop .category .filter select.size {
+    width: 25%;
+}
+
+#shop .category .sort select.val {
+    width: 50%;
 }
