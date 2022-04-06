@@ -2,6 +2,10 @@
     text-align: center;
 }
 
+.products a {
+    text-decoration: none;
+}
+
 .products .product {
     padding: 10px 12px;
     margin: 15px 0;

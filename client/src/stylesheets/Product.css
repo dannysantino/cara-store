@@ -2,10 +2,32 @@
     width: 100%;
 }
 
-#product .details input {
-    width: 50px;
-    height: 48px;
+#product .details h6 {
     font-size: 1rem;
-    padding-left: 10px;
-    margin-right: 10px;
+    font-weight: normal;
+}
+
+#product .details .color {
+    display: flex;
+    align-items: center;
+}
+
+#product .details span.item-color {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid rgb(153, 203, 196);
+    cursor: pointer;
+}
+
+#product .details select.size {
+    width: 80%;
+}
+
+#product .details select.qty {
+    width: 70px;
+    height: 55px;
+    display: inline-block;
+    margin-right: 1rem;
 }

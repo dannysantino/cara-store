@@ -33,7 +33,9 @@
 }
 
 #navbar li a:hover,
-#navbar li a.active {
+#navbar li a.active,
+#menu-btn a:hover,
+#menu-btn a:active {
     color: #088178;
 }
 
@@ -46,6 +48,16 @@
     position: absolute;
     bottom: -4px;
     left: 20px;
+}
+
+#nav-cart a {
+    position: relative;
+}
+
+#nav-cart a span.qty {
+    position: absolute;
+    top: -10px;
+    left: 10px;
 }
 
 #close-btn {
@@ -85,12 +97,21 @@
     }
     #menu-btn {
         display: flex;
+        z-index: -10;
+    }
+    #menu-btn a {
+        position: relative;
     }
     #menu-btn i {
         color: #1a1a1a;
         font-size: 1.2rem;
         padding-left: 30px;
         cursor: pointer;
+    }
+    #menu-btn a span.qty {
+        position: absolute;
+        top: -10px;
+        left: 40px;
     }
     #close-btn {
         display: initial;
