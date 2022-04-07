@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import axios from 'axios'
 
+import { publicRequest } from '../utils/requestMethods'
 import ShopItem from '../components/ShopItem'
 import Pagination from '../components/Pagination'
 
@@ -12,14 +12,15 @@ const Shop = () => {
 
     const [filters, setFilters] = useState({});
     const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
     // sort all products
     const [sortAProducts, setSortAProducts] = useState([]);
     // sort filtered products
     const [sortFProducts, setSortFProducts] = useState([]);
-    const [filteredProducts, setFilteredProducts] = useState([]);
 
     const checkFilters = Object.keys(filters).length;
     const fProdLength = filteredProducts.length;
+    const renderItems = d => <ShopItem data={d} key={d._id} />;
 
     const handleFilters = e => {
         const value = e.target.value;
@@ -65,7 +66,7 @@ const Shop = () => {
     useEffect(() => {
         const getProducts = async () => {
             try {
-                const { data } = await axios.get(
+                const { data } = await publicRequest.get(
                     searchParams.has('category')
                         ? `http://localhost:5000/api/products?category=${searchParams.get('category')}`
                         : 'http://localhost:5000/api/products'
@@ -95,7 +96,7 @@ const Shop = () => {
                     <div className='row'>
                         <div className='col'>
                             <div className='wrapper text-center'>
-                                <h2>#stayhome</h2>
+                                <h2>#stayfrosty</h2>
                                 <p>Browse our extensive catalog of hottest fashion trends!</p>
                             </div>
                         </div>
@@ -155,18 +156,18 @@ const Shop = () => {
                         <div className='row px-4 px-xl-5'>
                             {
                                 sortFProducts.length && fProdLength
-                                    ? sortFProducts.map(e => <ShopItem data={e} key={e._id} />)
+                                    ? sortFProducts.map(e => renderItems(e))
                                     : sortAProducts.length && checkFilters === 0
-                                        ? sortAProducts.map(e => <ShopItem data={e} key={e._id} />)
+                                        ? sortAProducts.map(e => renderItems(e))
                                         : checkFilters && fProdLength
-                                            ? filteredProducts.map(e => <ShopItem data={e} key={e._id} />)
+                                            ? filteredProducts.map(e => renderItems(e))
                                             : checkFilters && fProdLength === 0
                                                 ? <h3>
                                                     No items found for selected filter(s)
                                                     <br />
                                                     Clear all filters and try again...
                                                 </h3>
-                                                : products.map(e => <ShopItem data={e} key={e._id} />)
+                                                : products.map(e => renderItems(e))
                             }
                         </div>
                     </div>
