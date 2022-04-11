@@ -4,20 +4,15 @@ const Order = require('../models/Order');
 const catchAsync = require('../utilities/catchAsync');
 const { verifyTokenAndAuth, verifyTokenAndAdmin } = require('../utilities/verifyToken');
 
-router.get('/:userId', verifyTokenAndAuth, catchAsync(async (req, res) => {
-    const orders = await Order.find({ userId: req.params.userId });
-    res.status(200).json(orders);
+router.post('/new', verifyTokenAndAuth, catchAsync(async (req, res) => {
+    const order = new Order(req.body);
+    const newOrder = await order.save();
+    res.status(200).json(newOrder);
 }));
 
 router.get('/admin/userorders', verifyTokenAndAdmin, catchAsync(async (req, res) => {
     const orders = await Order.find();
     res.status(200).json(orders);
-}));
-
-router.post('/new', verifyTokenAndAuth, catchAsync(async (req, res) => {
-    const order = new Order(req.body);
-    const newOrder = await order.save();
-    res.status(200).json(newOrder);
 }));
 
 router.put('/admin/edit/:id', verifyTokenAndAdmin, catchAsync(async (req, res) => {
@@ -56,6 +51,11 @@ router.get('/admin/income', verifyTokenAndAdmin, catchAsync(async (req, res) => 
 router.delete('/admin/:id', verifyTokenAndAdmin, catchAsync(async (req, res) => {
     await Order.findByIdAndDelete(req.params.id);
     res.status(200).json('Order has been deleted!');
+}));
+
+router.get('/:userId', verifyTokenAndAuth, catchAsync(async (req, res) => {
+    const orders = await Order.find({ userId: req.params.userId });
+    res.status(200).json(orders);
 }));
 
 module.exports = router

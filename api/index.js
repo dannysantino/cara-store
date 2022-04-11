@@ -3,6 +3,7 @@ if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const authRoute = require('./routes/auth');
 const userRoute = require('./routes/user');
@@ -18,12 +19,16 @@ mongoose.connect(process.env.MONGO_URI, {
     .then(() => console.log('Database successfully connected'))
     .catch(e => console.error('Error connecting to database', e));
 
+const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001'];
+const corsOptions = {
+    origin: (origin, callback) => allowedOrigins.indexOf(origin) !== -1
+        ? callback(null, true)
+        : callback(new Error('Request blocked by CORS policy. Unauthorised origin')),
+    allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'token']
+}
+
 app.use(express.json());
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, token');
-    next();
-});
+app.use(cors(corsOptions));
 
 app.use('/api/auth', authRoute);
 app.use('/api/users', userRoute);
