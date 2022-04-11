@@ -63,6 +63,12 @@
     color: aliceblue;
 }
 
+#navbar li.auth-li button {
+    font-size: 12px;
+    font-weight: 600;
+    color: aliceblue;
+}
+
 #nav-cart a {
     position: relative;
 }

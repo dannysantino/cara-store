@@ -1,10 +1,13 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
+
+import { logout } from '../redux/userRedux'
 
 import logo from '../assets/img/logo.png'
 import '../stylesheets/Navbar.css'
 
 const Navbar = () => {
+    const dispatch = useDispatch();
     const { cart, user } = useSelector(state => state);
 
     const handleClick = e => {
@@ -42,16 +45,24 @@ const Navbar = () => {
                             <span className='badge rounded-pill bg-danger qty'>{cart.quantity}</span>
                         </NavLink>
                     </li>
-                    {!user.currentUser && (
-                        <>
-                            <li className='auth-li'>
-                                <Link to='/login' className='btn btn-success'>LOGIN</Link>
-                            </li>
-                            <li className='auth-li'>
-                                <Link to='/register' className='btn btn-primary'>REGISTER</Link>
-                            </li>
-                        </>
-                    )}
+                    {
+                        user.currentUser
+                            ? (
+                                <li className='auth-li'>
+                                    <button className='btn btn-info' onClick={() => dispatch(logout())}>LOG OUT</button>
+                                </li>
+                            )
+                            : (
+                                <>
+                                    <li className='auth-li'>
+                                        <Link to='/login' className='btn btn-success'>LOG IN</Link>
+                                    </li>
+                                    <li className='auth-li'>
+                                        <Link to='/register' className='btn btn-primary'>REGISTER</Link>
+                                    </li>
+                                </>
+                            )
+                    }
                     <i className='fa-regular fa-circle-xmark' id='close-btn' onClick={handleClick}></i>
                 </ul>
             </div>
