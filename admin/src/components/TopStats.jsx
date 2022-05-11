@@ -1,15 +1,50 @@
-const Featured = () => {
+import { useEffect, useRef, useState } from 'react'
+
+import { userRequest, setError } from '../utils/requestMethods'
+
+const TopStats = () => {
+    const revenue = useRef(0);
+    const sales = useRef(0);
+    const expenses = useRef(0);
+    const [income, setIncome] = useState([]);
+
+    const findPercentage = (val1, val2) => ((val1 - val2) / val2) * 100;
+
+    useEffect(() => {
+        if (income.length > 1) {
+            revenue.current = findPercentage((0.45 * income[1]?.total), (0.4 * income[0]?.total));
+            sales.current = findPercentage(income[1].total, income[0].total);
+            expenses.current = findPercentage((0.25 * income[1]?.total), (0.2 * income[0]?.total));
+        }
+    }, [income]);
+
+    useEffect(() => {
+        const getIncome = async () => {
+            try {
+                const { data } = await userRequest.get('/orders/admin/income');
+                setIncome(data.sort((a, b) => a._id - b._id));
+
+            } catch (err) {
+                console.error(setError(err));
+            }
+        }
+        getIncome();
+    }, []);
+
     return (
         <>
-            <article className='col-4'>
+            <article className='col-sm-4 mb-3 mb-sm-0'>
                 <div className='card shadow-sm'>
-                    <div className='card-body'>
+                    <div className='card-body p-sm-2 p-lg-3'>
                         <h4>Revenue</h4>
                         <div className='stats'>
-                            <span className='amount'>$2,418</span>
+                            <span className='amount'>${(0.4 * income[1]?.total) + income[1]?.total}</span>
                             <span className='rate ms-3'>
-                                -9.8
-                                <i className='fa-solid fa-arrow-down neg'></i>
+                                {revenue.current}
+                                {revenue.current < 0
+                                    ? <i className='fa-solid fa-arrow-down neg'></i>
+                                    : <i className='fa-solid fa-arrow-up'></i>
+                                }
                             </span>
                         </div>
                         <footer>Compared to previous month</footer>
@@ -17,15 +52,18 @@ const Featured = () => {
                 </div>
             </article>
 
-            <article className='col-4'>
+            <article className='col-sm-4 mb-3 mb-sm-0'>
                 <div className='card shadow-sm'>
-                    <div className='card-body'>
+                    <div className='card-body p-sm-2 p-lg-3'>
                         <h4>Sales</h4>
                         <div className='stats'>
-                            <span className='amount'>$11,048</span>
+                            <span className='amount'>${income[1]?.total}</span>
                             <span className='rate ms-3'>
-                                -4.2
-                                <i className='fa-solid fa-arrow-down neg'></i>
+                                {sales.current}
+                                {sales.current < 0
+                                    ? <i className='fa-solid fa-arrow-down neg'></i>
+                                    : <i className='fa-solid fa-arrow-up'></i>
+                                }
                             </span>
                         </div>
                         <footer>Compared to previous month</footer>
@@ -33,15 +71,18 @@ const Featured = () => {
                 </div>
             </article>
 
-            <article className='col-4'>
+            <article className='col-sm-4'>
                 <div className='card shadow-sm'>
-                    <div className='card-body'>
-                        <h4>Cost</h4>
+                    <div className='card-body p-sm-2 p-lg-3'>
+                        <h4>Expenses</h4>
                         <div className='stats'>
-                            <span className='amount'>$1,098</span>
+                            <span className='amount'>${(0.25 * income[1]?.total)}</span>
                             <span className='rate ms-3'>
-                                6.9
-                                <i className='fa-solid fa-arrow-up'></i>
+                                {expenses.current}
+                                {expenses.current < 0
+                                    ? <i className='fa-solid fa-arrow-down'></i>
+                                    : <i className='fa-solid fa-arrow-up neg'></i>
+                                }
                             </span>
                         </div>
                         <footer>Compared to previous month</footer>
@@ -53,4 +94,4 @@ const Featured = () => {
     )
 }
 
-export default Featured
+export default TopStats

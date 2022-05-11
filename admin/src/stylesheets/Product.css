@@ -9,18 +9,6 @@
     font-weight: 700;
 }
 
-#product .wrapper header a {
-    width: 6rem;
-    color: #fff;
-    font-size: 1rem;
-    padding: .5rem;
-    background-color: #088178;
-}
-
-#product .wrapper header a:hover {
-    filter: brightness(.9);
-}
-
 #product .item {
     height: 100%;
 }
@@ -39,6 +27,7 @@
 #product .item .details img {
     width: 50px;
     height: 50px;
+    padding: 2px;
     margin-right: 1.5rem;
     border-radius: 50%;
     object-fit: cover;
@@ -53,6 +42,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin-bottom: .8rem;
 }
 
@@ -66,15 +56,28 @@
     margin-bottom: 1rem;
 }
 
-#product .product-update .item-update > input {
+#product .product-update .item-update.split {
+    width: 85%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#product .product-update .item-update input {
     width: 85%;
     height: 2rem;
     border: none;
     border-bottom: 1px solid #dad8d8;
 }
 
-#product .product-update .item-update > select {
-    width: 85%;
+#product .product-update .item-update .left,
+#product .product-update .item-update .right {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+#product .product-update .item-update.split input {
+    width: 100%;
 }
 
 #product .product-update .upload {
@@ -84,29 +87,32 @@
     justify-content: space-between;
 }
 
+#product .product-update .img-upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #product .product-update .img-upload img {
-    width: 100px;
-    height: 100px;
-    border-radius: 100px;
-    object-fit: cover;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
     margin-right: 1.5rem;
+    object-fit: cover;
 }
 
 #product .product-update .img-upload label i {
-    font-size: 1.5rem;
     cursor: pointer;
 }
 
 #product .product-update .upload button {
     color: aliceblue;
-    padding: .5rem;
     margin-bottom: 1rem;
-    border: none;
-    border-radius: .25rem;
-    background-color: darkblue;
-    transition: .3s ease;
 }
 
-#product .product-update .upload button:hover {
-    background-color: rgb(12, 12, 167);
+@media only screen and (max-width: 768px) {
+    #product .product-update .item-update input,
+    #product .product-update .item-update.split {
+        width: 100%;
+    }
 }

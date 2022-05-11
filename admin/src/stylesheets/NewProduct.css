@@ -1,28 +1,52 @@
-#newproduct .wrapper header h1 {
+#newproduct header h1 {
     font-weight: 700;
+    margin-bottom: 1.5rem;
 }
 
 #newproduct form .item-data label {
     font-weight: 600;
 }
 
-#newproduct form .item-data input[type=text],
-#newproduct form .item-data select {
-    padding: .75rem;
+#newproduct form .upload {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#newproduct form .img-upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#newproduct form .img-upload img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+    object-fit: cover;
+}
+
+#newproduct form .img-upload img.valid {
+    border-color: #198754;
+}
+
+#newproduct form .img-upload img.not-valid {
+    border-color: #dc3545;
+}
+
+#newproduct form .img-upload label i {
+    cursor: pointer;
 }
 
 #newproduct form button {
-    width: 50%;
     color: aliceblue;
-    padding: 0.5rem;
-    margin: 3rem 0;
-    border: none;
-    border-radius: .25rem;
-    text-transform: uppercase;
-    background-color: darkblue;
-    transition: .3s ease;
 }
 
-#newproduct form button:hover {
-    background-color: rgb(12, 12, 167);
+@media only screen and (max-width: 1199px) {
+    #newproduct form .img-upload img {
+        width: 150px;
+        height: 150px;
+    }
 }

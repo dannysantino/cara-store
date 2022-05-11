@@ -1,6 +1,16 @@
-#sidebar {
-    height: 100%;
-    border-right: 1px solid #eee;
+#sidebar .sidebar-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+}
+
+#sidebar .navbar-toggler:focus {
+    box-shadow: 0 0 0 .25rem rgb(13 110 253 / 25%);
+}
+
+#sidebar .navbar-toggler-icon i {
+    font-size: 1.8rem;
 }
 
 #sidebar .menu h3 {
@@ -20,4 +30,23 @@
 
 #sidebar .nav a i {
     margin-right: .5rem;
+}
+
+@media only screen and (max-width: 575px) {
+    #sidebar .sidebar-brand,
+    #sidebar .navbar-toggler-icon i {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #sidebar {
+        height: 100%;
+        display: block;
+        border-right: 1px solid #eee;
+        overflow-y: auto;
+    }
+    #sidebar .offcanvas .offcanvas-body {
+        display: block;
+    }
 }

@@ -30,3 +30,36 @@
     width: 40px;
     height: 40px;
 }
+
+.navbar .navbar-nav button {
+    color: aliceblue;
+    margin-left: 2rem;
+}
+
+@media only screen and (max-width: 575px) {
+    .navbar .navbar-brand {
+        font-size: 1.6rem;
+    }
+    .navbar-toggler {
+        font-size: 1rem;
+        padding: .2rem .5rem;
+    }
+    .navbar-toggler-icon {
+        width: 1.2em;
+        height: 1.2em;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    #navbarNavAltMarkup .navbar-nav {
+        justify-content: flex-end;
+        align-items: flex-end;
+        margin: 1rem;
+    }
+    #navbarNavAltMarkup .navbar-nav a {
+        margin: .3rem 0 0 0;
+    }
+    #navbarNavAltMarkup .navbar-nav button {
+        margin: 1rem 0 0 0;
+    }
+}

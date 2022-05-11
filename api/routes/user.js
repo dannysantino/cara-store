@@ -1,15 +1,19 @@
+const router = require('express').Router();
 const CryptoJS = require('crypto-js');
+const multer = require('multer');
 
 const User = require('../models/User');
 const catchAsync = require('../utilities/catchAsync');
+const { userStorage } = require('../cloudinary');
 const { verifyTokenAndAuth, verifyTokenAndAdmin } = require('../utilities/verifyToken');
 
-const router = require('express').Router();
+const upload = multer({ storage: userStorage });
 
 router.get('/admin/useraccounts', verifyTokenAndAdmin, catchAsync(async (req, res) => {
     const users = req.query.new
-        ? await User.find().sort({ _id: -1 }).limit(5)
-        : await User.find();
+        ? await User.find().lean().sort({ _id: -1 }).limit(5)
+        : await User.find().lean();
+    users.forEach(e => delete e.password);
     res.status(200).json(users);
 }));
 
@@ -37,18 +41,28 @@ router.get('/admin/stats', verifyTokenAndAdmin, catchAsync(async (req, res) => {
     res.status(200).json(data);
 }));
 
+router.post('/admin/add', verifyTokenAndAdmin, catchAsync(async (req, res) => {
+    const user = new User(req.body);
+    const newUser = await user.save();
+    res.status(200).json(newUser);
+}));
+
 router.get('/admin/:id', verifyTokenAndAdmin, catchAsync(async (req, res) => {
     const user = await User.findById(req.params.id);
     const { password, ...rest } = user._doc;
     res.status(200).json(rest);
 }));
 
-router.put('/update/:id', verifyTokenAndAuth, catchAsync(async (req, res) => {
-    const { password: userPassword } = req.body;
-    userPassword && (req.body.password = CryptoJS.AES.encrypt(userPassword, process.env.CRYPTO_JS_SECRET).toString());
-    const updatedUser = await User.findByIdAndUpdate(req.user.id, {
+router.put('/update/:id', verifyTokenAndAuth, upload.single('img'), catchAsync(async (req, res) => {
+    req.body.password && (req.body.password = CryptoJS.AES.encrypt(
+        userPassword, process.env.CRYPTO_JS_SECRET
+    ).toString());
+
+    req.file && (req.body.img = req.file.path);
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, {
         $set: req.body
     }, { new: true });
+
     const { password, ...rest } = updatedUser._doc;
     res.status(200).json(rest);
 }));

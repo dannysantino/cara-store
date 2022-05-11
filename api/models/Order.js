@@ -1,8 +1,9 @@
 const { Schema, model } = require('mongoose');
 
 const orderSchema = new Schema({
-    userId: {
-        type: String,
+    customer: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
         required: true
     },
     products: [{
@@ -11,6 +12,21 @@ const orderSchema = new Schema({
         },
         productId: {
             type: String
+        },
+        name: {
+            type: String
+        },
+        price: {
+            type: Number
+        },
+        img: {
+            type: String
+        },
+        size: {
+            type: String
+        },
+        color: {
+            String
         },
         quantity: {
             type: Number,

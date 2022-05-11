@@ -1,27 +1,15 @@
-#user .wrapper header {
+#user header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5rem;
 }
 
-#user .wrapper header h1 {
+#user header h1 {
     font-weight: 700;
 }
 
-#user .wrapper header a {
-    width: 6rem;
-    color: #fff;
-    font-size: 1rem;
-    padding: .5rem;
-    background-color: #088178;
-}
-
-#user .wrapper header a:hover {
-    filter: brightness(.9);
-}
-
-#user .wrapper .bio {
+#user .bio {
     height: 100%;
 }
 
@@ -47,7 +35,7 @@
     font-weight: 600;
 }
 
-#user .user-details .user .job-title {
+#user .user-details .user .role {
     font-weight: 300;
 }
 
@@ -62,6 +50,7 @@
     align-items: center;
     color: #444;
     margin: 1.5rem 0;
+    flex-wrap: wrap;
 }
 
 #user .account-details .info i {
@@ -92,29 +81,38 @@
     justify-content: space-between;
 }
 
+#user .user-update .upload .img-upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #user .user-update .img-upload img {
-    width: 100px;
-    height: 100px;
-    border-radius: 5px;
-    object-fit: cover;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
     margin-right: 1.5rem;
+    object-fit: cover;
 }
 
 #user .user-update .img-upload label i {
-    font-size: 1.5rem;
     cursor: pointer;
 }
 
 #user .user-update .upload button {
     color: aliceblue;
-    padding: .5rem;
     margin-bottom: 1rem;
-    border: none;
-    border-radius: .25rem;
-    background-color: darkblue;
-    transition: .3s ease;
 }
 
-#user .user-update .upload button:hover {
-    background-color: rgb(12, 12, 167);
+@media only screen and (max-width: 1199px) {
+    #user .user-update .img-upload img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    #user .user-update .bio-update > input {
+        width: 100%;
+    }
 }
