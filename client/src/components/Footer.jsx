@@ -8,10 +8,10 @@ import '../stylesheets/Footer.css'
 
 const Footer = () => {
     return (
-        <footer id='footer' className='pt-5 mt-5'>
+        <footer id='footer' className='pt-md-5 mt-5'>
             <div className='container-fluid'>
                 <div className='row px-4 px-xl-5'>
-                    <div className='col-12 col-md-6 col-lg-4'>
+                    <div className='col-md-6 col-lg-4'>
                         <div className='contact'>
                             <img src={logo} className='mb-4' alt='logo' />
                             <h4>Contact</h4>
@@ -37,11 +37,11 @@ const Footer = () => {
                         <div className='about'>
                             <h4>About</h4>
                             <ul className='list-unstyled plain-anchor'>
-                                <li><Link to='#'>About us</Link></li>
+                                <li><Link to='/about'>About us</Link></li>
                                 <li><Link to='#'>Delivery Information</Link></li>
                                 <li><Link to='#'>Terms & Conditions</Link></li>
                                 <li><Link to='#'>Privacy Policy</Link></li>
-                                <li><Link to='#'>Contact us</Link></li>
+                                <li><Link to='/contact'>Contact us</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -50,16 +50,16 @@ const Footer = () => {
                         <div className='account'>
                             <h4>My Account</h4>
                             <ul className='list-unstyled plain-anchor'>
-                                <li><Link to='#'>Sign In</Link></li>
-                                <li><Link to='#'>View Cart</Link></li>
+                                <li><Link to='/login'>Sign In</Link></li>
+                                <li><Link to='/cart'>View Cart</Link></li>
                                 <li><Link to='#'>My Wishlist</Link></li>
                                 <li><Link to='#'>Track My Order</Link></li>
-                                <li><Link to='#'>Help</Link></li>
+                                <li><Link to='/contact#contact-form'>Help</Link></li>
                             </ul>
                         </div>
                     </div>
 
-                    <div className='col-8 col-lg-4 mt-5 mt-lg-0'>
+                    <div className='col-md-8 col-lg-4 mt-5 mt-lg-0'>
                         <div className='app'>
                             <h4>Install App</h4>
                             <p>From App Store or Google Pay</p>
