@@ -73,7 +73,7 @@ const About = () => {
                     <h2>Featured Products</h2>
                     <p>Updated Summer Collection</p>
                     <div className='row px-4 px-xl-5'>
-                        <Featured context={'f'} />
+                        <Featured index={[0, 4]} />
                     </div>
                 </div>
             </section>

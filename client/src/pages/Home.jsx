@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import importImages from '../utils/importImages'
 import Featured from '../components/Featured'
 
@@ -17,7 +19,7 @@ const Home = () => {
                                 <h2>Super value deals</h2>
                                 <h1>On all products</h1>
                                 <p>Save more with coupons, up to 70% off!</p>
-                                <button>Shop Now</button>
+                                <Link to='../shop'>Shop Now</Link>
                             </div>
                         </div>
                     </div>
@@ -72,7 +74,7 @@ const Home = () => {
                     <h2>Featured Products</h2>
                     <p>Updated Summer Collection</p>
                     <div className='row px-4 px-xl-5'>
-                        <Featured context={'f'} />
+                        <Featured index={[4, 8]} />
                     </div>
                 </div>
             </section>
@@ -96,7 +98,7 @@ const Home = () => {
                     <h2>New Arrivals</h2>
                     <p>New and Exclusive Drops every Wednesday!</p>
                     <div className='row px-4 px-xl-5'>
-                        <Featured context={'n'} />
+                        <Featured index={[0, 4]} />
                     </div>
                 </div>
             </section>
