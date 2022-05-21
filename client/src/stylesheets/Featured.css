@@ -2,22 +2,21 @@
     text-align: center;
 }
 
-.products a {
-    text-decoration: none;
-}
-
 .products .product {
     padding: 10px 12px;
     margin: 15px 0;
     border: 1px solid #cce7d0;
     box-shadow: 20px 20px 30px rgba(0, 0, 0, .02);
-    cursor: pointer;
     position: relative;
     transition: .3s ease;
 }
 
 .products .product:hover {
     box-shadow: 20px 20px 30px rgba(0, 0, 0, .06);
+}
+
+.products a {
+    text-decoration: none;
 }
 
 .products .product img {
@@ -52,6 +51,10 @@
     padding-top: 7px;
 }
 
+.products .product button {
+    border: none;
+}
+
 .products .product .cart-p {
     width: 40px;
     height: 40px;
@@ -64,4 +67,9 @@
     position: absolute;
     bottom: 20px;
     right: 10px;
+    transition: .3s ease;
+}
+
+.products .product .cart-p:hover {
+    background-color: #cce7d0;
 }

@@ -113,3 +113,26 @@
     padding: 10px;
     border: 1px solid #e2e9e1;
 }
+
+#subtotal .cart-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+#subtotal .cart-actions .clear-cart {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+@media only screen and (max-width: 991px) {
+    #subtotal .cart-actions {
+        flex-direction: column;
+    }
+    #subtotal .cart-actions .base {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}

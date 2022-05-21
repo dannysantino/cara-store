@@ -19,16 +19,17 @@
 }
 
 #hero p {
-    margin: 15px;
+    margin: 15px 0 30px 0;
 }
 
-#hero button {
+#hero a {
     color: #088178;
     font-size: 15px;
     font-weight: 700;
     border: 0;
     cursor: pointer;
     padding: 14px 80px 14px 65px;
+    text-decoration: none;
     background-color: transparent;
     background-repeat: no-repeat;
     background-image: url(../assets/img/button.png);
@@ -176,7 +177,34 @@
     background-image: url(../assets/img/banner/b18.jpg);
 }
 
-@media (max-width: 1199px) {
+@media only screen and (max-width: 768px) {
+    #hero .offer h2 {
+        font-size: 25px;
+        line-height: normal;
+    }
+    #hero .offer h1 {
+        font-size: 40px;
+        line-height: normal;
+    }
+    #hero .offer p {
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #hero .offer h4 {
+        font-size: 1rem;
+    }
+    #hero .offer h2 {
+        font-size: 20px;
+    }
+    #hero .offer h1 {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 1199px) {
     #hero {
         background-position: top 30% right 30%;
     }

@@ -7,12 +7,16 @@
     font-weight: normal;
 }
 
+#product .details .color-size {
+    display: flex;
+}
+
 #product .details .color {
     display: flex;
     align-items: center;
 }
 
-#product .details span.item-color {
+#product .details button.item-color {
     width: 20px;
     height: 20px;
     display: inline-block;
@@ -21,8 +25,8 @@
     cursor: pointer;
 }
 
-#product .details select.size {
-    width: 80%;
+#product .details button.item-color:focus {
+    filter: brightness(.8);
 }
 
 #product .details select.qty {
