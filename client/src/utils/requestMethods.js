@@ -1,22 +1,25 @@
 import axios from 'axios'
+import jwt_decode from 'jwt-decode'
 
 const BASE_URL = 'http://localhost:5000/api';
-
-const TOKEN = localStorage.getItem('persist:root')
-    ? JSON.parse(
-        JSON.parse(
-            localStorage.getItem('persist:root')
-        ).user
-    ).currentUser.token
-    : '';
 
 export const publicRequest = axios.create({
     baseURL: BASE_URL
 });
 
 export const userRequest = axios.create({
-    baseURL: BASE_URL,
-    headers: {
-        token: `Bearer ${TOKEN}`
-    }
+    baseURL: BASE_URL
 });
+
+export const setError = e => e.response && e.response.data
+    ? e.response.data
+    : e.message;
+
+export const verifyToken = () => {
+    const token = localStorage.getItem('userToken');
+    if (token) {
+        return jwt_decode(token).exp * 1000 < Date.now() ? false : true;
+    } else {
+        return false;
+    }
+}
