@@ -1,23 +1,38 @@
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import StripeCheckout from 'react-stripe-checkout'
 
-import a6 from '../assets/img/about/a6.jpg'
-import importImages from '../utils/importImages'
+import { removeFromCart, updateCartItem } from '../redux/actions/cartActions'
+import { clearCart } from '../redux/reducers/cartReducers'
+import { userAlert } from '../utils/alerts'
 import { userRequest } from '../utils/requestMethods'
 
+import a6 from '../assets/img/about/a6.jpg'
 import '../stylesheets/Cart.css'
 
 const Cart = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const cart = useSelector(state => state.cart);
+
+    const [products, setProducts] = useState([]);
     const [stripeToken, setStripeToken] = useState(null);
 
     const onToken = token => setStripeToken(token);
     const STRIPE_KEY = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
 
-    const images = importImages(require.context('../assets/img/products', false, /\.jpg/));
+    const handleRemove = product => {
+        removeFromCart(dispatch, product)
+            .then(e => userAlert('info', 'Item removed from your cart: ', e))
+            .catch(() => userAlert('danger', 'An error occurred. Please try again', ''));
+    }
+
+    const handleQty = item => {
+        updateCartItem(dispatch, item)
+            .then(e => userAlert('info', 'Cart item updated: ', e))
+            .catch(() => userAlert('danger', 'An error occurred. Please try again', ''));
+    }
 
     useEffect(() => {
         const payRequest = async () => {
@@ -32,7 +47,11 @@ const Cart = () => {
             }
         }
         stripeToken && payRequest();
-    }, [stripeToken, cart.total, navigate])
+    }, [stripeToken, cart.total, navigate]);
+
+    useEffect(() => {
+        setProducts(cart.products);
+    }, [cart.products]);
 
     return (
         <>
@@ -68,7 +87,7 @@ const Cart = () => {
                     )
                     : (
                         <>
-                            <section id='cart' className='py-5 mt-5'>
+                            <section id='cart' className='py-5 mt-md-5'>
                                 <div className='container'>
                                     <div className='row'>
                                         <div className='col-12'>
@@ -86,32 +105,36 @@ const Cart = () => {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {cart.products.map((e, i) => (
+                                                    {products.map((p, i) => (
                                                         <tr key={i}>
                                                             <td>
-                                                                <button>
+                                                                <button onClick={() => handleRemove({ ...p, index: i })}>
                                                                     <i className='fa-regular fa-circle-xmark'></i>
                                                                 </button>
                                                             </td>
                                                             <td>
-                                                                <img src={images[e.img]} alt={e.name} />
+                                                                <img src={p.img} alt={p.name} />
                                                             </td>
                                                             <td>
-                                                                <Link to={`../product/${e._id}`}>{e.name}</Link>
+                                                                <Link to={`../product/${p._id}`}>{p.name}</Link>
                                                             </td>
                                                             <td>
-                                                                <span className='item-color' style={{ backgroundColor: e.color }} />
+                                                                <span className='item-color' style={{ backgroundColor: p.color }} />
                                                             </td>
-                                                            <td><b>{e.size}</b></td>
-                                                            <td>${e.price}</td>
+                                                            <td><b>{p.size}</b></td>
+                                                            <td>${p.price}</td>
                                                             <td>
-                                                                <select className='form-select qty' defaultValue={e.qty}>
-                                                                    {[...Array(e.countInStock).keys()].map(n => (
+                                                                <select
+                                                                    className='form-select qty'
+                                                                    value={p.qty}
+                                                                    onChange={e => handleQty({ ...p, index: i, qty: e.target.value })}
+                                                                >
+                                                                    {[...Array(p.countInStock).keys()].map(n => (
                                                                         <option value={n + 1} key={n + 1}>{n + 1}</option>
                                                                     ))}
                                                                 </select>
                                                             </td>
-                                                            <td>${(e.price * e.qty).toFixed(2)}</td>
+                                                            <td>${(p.price * p.qty).toFixed(2)}</td>
                                                         </tr>
                                                     ))}
                                                 </tbody>
@@ -153,18 +176,26 @@ const Cart = () => {
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                                <StripeCheckout
-                                                    name='Cara Online Store'
-                                                    image={a6}
-                                                    description='The one-stop shop for all your fashion needs!'
-                                                    amount={Number(((cart.total + 12) * 100).toFixed(0))}
-                                                    currency='USD'
-                                                    stripeKey={STRIPE_KEY}
-                                                    shippingAddress
-                                                    token={onToken}
-                                                >
-                                                    <button className='base'>Proceed to checkout</button>
-                                                </StripeCheckout>
+                                                <div className='cart-actions'>
+                                                    <StripeCheckout
+                                                        name='Cara Online Store'
+                                                        image={a6}
+                                                        description='The one-stop shop for all your fashion needs!'
+                                                        amount={Number(((cart.total + 12) * 100).toFixed(0))}
+                                                        currency='USD'
+                                                        stripeKey={STRIPE_KEY}
+                                                        shippingAddress
+                                                        token={onToken}
+                                                    >
+                                                        <button className='base'>Proceed to checkout</button>
+                                                    </StripeCheckout>
+                                                    <button
+                                                        className='btn btn-danger clear-cart'
+                                                        onClick={() => dispatch(clearCart())}
+                                                    >
+                                                        CLEAR CART
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
