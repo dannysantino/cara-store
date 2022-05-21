@@ -16,7 +16,7 @@ const convertToNum = obj => {
 
 router.get('/', catchAsync(async (req, res) => {
     const products = req.query.new
-        ? await Product.find().sort({ createdAt: -1 }).limit(1)
+        ? await Product.find().sort({ createdAt: -1 }).limit(8)
         : req.query.category
             ? await Product.find({ categories: { $in: [req.query.category] } })
             : await Product.find();

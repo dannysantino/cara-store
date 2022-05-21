@@ -7,8 +7,10 @@ const { verifyTokenAndAuth, verifyTokenAndAdmin } = require('../utilities/verify
 
 router.post('/new', verifyTokenAndAuth, catchAsync(async (req, res) => {
     const order = new Order(req.body);
-    const user = await User.findById(req.body.userId, '_id');
+    const user = await User.findById(req.body.userId);
     order.customer = user;
+    user.orders.push(order);
+    await user.save();
     const newOrder = await order.save();
     res.status(200).json(newOrder);
 }));

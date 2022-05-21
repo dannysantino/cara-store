@@ -14,11 +14,16 @@ const generateToken = user => {
 }
 
 router.post('/register', catchAsync(async (req, res) => {
-    const { username, email, password } = req.body;
+    const { name, username, email, password, phone } = req.body;
+    if (await User.findOne({ username })) {
+        throw new UserInputError('Username already taken. Please select another one...');
+    }
     const newUser = new User({
+        name,
         username,
         email,
-        password: CryptoJS.AES.encrypt(password, process.env.CRYPTO_JS_SECRET).toString()
+        password: CryptoJS.AES.encrypt(password, process.env.CRYPTO_JS_SECRET).toString(),
+        phone
     });
     const user = await newUser.save();
     res.status(201).json(user);
