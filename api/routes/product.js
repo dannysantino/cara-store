@@ -5,6 +5,7 @@ const Product = require('../models/Product');
 const catchAsync = require('../utilities/catchAsync');
 const { productStorage } = require('../cloudinary');
 const { verifyTokenAndAdmin } = require('../utilities/verifyToken');
+const { UserInputError } = require('../utilities/appError');
 
 const upload = multer({ storage: productStorage });
 
@@ -25,6 +26,7 @@ router.get('/', catchAsync(async (req, res) => {
 
 router.get('/:id', catchAsync(async (req, res) => {
     const product = await Product.findById(req.params.id);
+    if (!product) throw new UserInputError('Product not found', 404);
     res.status(200).json(product);
 }));
 

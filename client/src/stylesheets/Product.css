@@ -29,9 +29,13 @@
     filter: brightness(.8);
 }
 
-#product .details select.qty {
+#product .details .add-to-cart {
+    display: flex;
+}
+
+#product .details .add-to-cart select.qty {
     width: 70px;
-    height: 55px;
+    height: 51px;
     display: inline-block;
     margin-right: 1rem;
 }

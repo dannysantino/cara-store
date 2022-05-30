@@ -1,0 +1,79 @@
+#loader {
+    width: 18.75rem;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+#loader .circle {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    position: relative;
+}
+
+#loader .circle:nth-child(1) {
+    background-color: red;
+}
+
+#loader .circle:nth-child(2) {
+    background-color: orange;
+}
+
+#loader .circle:nth-child(3) {
+    background-color: yellow;
+}
+
+#loader .circle:nth-child(4) {
+    background-color: green;
+}
+
+#loader .circle:nth-child(5) {
+    background-color: blue;
+}
+
+#loader .circle::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    opacity: .5;
+    position: absolute;
+    animation: flash 1.5s ease-out infinite;
+}
+
+#loader .circle:nth-child(1)::before {
+    background-color: red;
+}
+
+#loader .circle:nth-child(2)::before {
+    background-color: orange;
+    animation-delay: .2s;
+}
+
+#loader .circle:nth-child(3)::before {
+    background-color: yellow;
+    animation-delay: .3s;
+}
+
+#loader .circle:nth-child(4)::before {
+    background-color: green;
+    animation-delay: .4s;
+}
+
+#loader .circle:nth-child(5)::before {
+    background-color: blue;
+    animation-delay: .5s;
+}
+
+@keyframes flash {
+    0% {
+        transform: scale(1);
+    }
+    50%, 75% {
+        transform: scale(2.5);
+    }
+    80%, 100% {
+        opacity: 0;
+    }
+}

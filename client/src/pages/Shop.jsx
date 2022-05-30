@@ -1,17 +1,20 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { publicRequest } from '../utils/requestMethods'
+import { getProducts } from '../redux/actions/productActions'
+import Loader from '../components/Loader'
 import ShopItem from '../components/ShopItem'
 import Pagination from '../components/Pagination'
 
 import '../stylesheets/Shop.css'
 
 const Shop = () => {
-    const [searchParams, setSearchParams] = useSearchParams();
+    const dispatch = useDispatch();
+    const [searchParams] = useSearchParams();
+    const { fetching, error, products } = useSelector(state => state.products);
 
     const [filters, setFilters] = useState({});
-    const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
     // sort all products
     const [sortAProducts, setSortAProducts] = useState([]);
@@ -64,20 +67,11 @@ const Shop = () => {
     }
 
     useEffect(() => {
-        const getProducts = async () => {
-            try {
-                const { data } = await publicRequest.get(
-                    searchParams.has('category')
-                        ? `http://localhost:5000/api/products?category=${searchParams.get('category')}`
-                        : 'http://localhost:5000/api/products'
-                );
-                setProducts(data);
-            } catch (err) {
-                console.error(err);
-            }
-        }
-        getProducts();
-    }, [searchParams]);
+        let url = searchParams.has('category')
+            ? `/products?category=${searchParams.get('category')}`
+            : '/products';
+        getProducts(dispatch, url);
+    }, [searchParams, dispatch]);
 
     useEffect(() => {
         const filterProducts = products => products.filter(e => Object.entries(filters).every(([k, v]) => e[k].includes(v)));
@@ -97,7 +91,7 @@ const Shop = () => {
                         <div className='col'>
                             <div className='wrapper text-center'>
                                 <h2>#stayfrosty</h2>
-                                <p>Browse our extensive catalog of hottest fashion trends!</p>
+                                <p>Browse our extensive catalog of the coolest fashion trends!</p>
                             </div>
                         </div>
                     </div>
@@ -109,16 +103,22 @@ const Shop = () => {
                     <div className='row'>
                         <div className='col'>
                             <div className='heading text-center'>
-                                <h2>All Products</h2>
+                                <h2>
+                                    {
+                                        searchParams.has('category')
+                                            ? searchParams.get('category')
+                                            : 'All Products'
+                                    }
+                                </h2>
                                 <hr />
                             </div>
                         </div>
                     </div>
 
-                    <div className='row category px-4 px-lg-5 pt-4'>
-                        <div className='col-12 col-md-6 col-lg-5 col-xl-4'>
+                    <div className='row selections px-4 px-lg-5 pt-4'>
+                        <div className='col-md-6 col-lg-5 col-xl-4'>
                             <div className='filter'>
-                                <h4>Filter Items</h4>
+                                <h4>Filter</h4>
                                 <select name='color' className='form-select color' onChange={handleFilters}>
                                     <option value='clear' defaultChecked>Color</option>
                                     <option value='white'>White</option>
@@ -139,9 +139,9 @@ const Shop = () => {
                                 </select>
                             </div>
                         </div>
-                        <div className='col-12 col-md-6 col-lg-4 col-xl-3 mt-3 mt-md-0'>
+                        <div className='col-md-6 col-lg-4 col-xl-3 mt-3 mt-md-0'>
                             <div className='sort'>
-                                <h4>Sort Items</h4>
+                                <h4>Sort</h4>
                                 <select name='val' className='form-select val' onChange={handleSort}>
                                     <option value='clear'>None</option>
                                     <option value='newest'>Newest</option>
@@ -155,19 +155,27 @@ const Shop = () => {
                     <div className='products pt-5'>
                         <div className='row px-4 px-xl-5'>
                             {
-                                sortFProducts.length && fProdLength
-                                    ? sortFProducts.map(e => renderItems(e))
-                                    : sortAProducts.length && checkFilters === 0
-                                        ? sortAProducts.map(e => renderItems(e))
-                                        : checkFilters && fProdLength
-                                            ? filteredProducts.map(e => renderItems(e))
-                                            : checkFilters && fProdLength === 0
-                                                ? <h3>
-                                                    No items found for selected filter(s)
-                                                    <br />
-                                                    Clear all filters and try again...
-                                                </h3>
-                                                : products.map(e => renderItems(e))
+                                fetching
+                                    ? <Loader />
+                                    : error
+                                        ? <h4 className='text-danger'>
+                                            An error occurred. Please reload
+                                            <br />
+                                            the page or check your internet connection...
+                                        </h4>
+                                        : sortFProducts.length && fProdLength
+                                            ? sortFProducts.map(e => renderItems(e))
+                                            : sortAProducts.length && checkFilters === 0
+                                                ? sortAProducts.map(e => renderItems(e))
+                                                : checkFilters && fProdLength
+                                                    ? filteredProducts.map(e => renderItems(e))
+                                                    : checkFilters && fProdLength === 0
+                                                        ? <h4>
+                                                            No items found for selected filter(s)
+                                                            <br />
+                                                            Clear all filters and try again...
+                                                        </h4>
+                                                        : products.map(e => renderItems(e))
                             }
                         </div>
                     </div>

@@ -2,39 +2,49 @@
     background-image: url(../assets/img/banner/b1.jpg);
 }
 
+#shop .heading h2 {
+    text-transform: capitalize;
+}
+
 #shop .heading hr {
     width: 80%;
     margin: 1rem auto;
 }
 
-#shop .category {
+#shop .selections {
     justify-content: space-between;
 }
 
-#shop .category .filter,
-#shop .category .sort {
+#shop .selections .filter,
+#shop .selections .sort {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-#shop .category h4 {
+#shop .selections h4 {
     display: inline-block;
     margin-bottom: 0;
 }
 
-#shop .category select {
+#shop .selections select {
     display: inline-block;
 }
 
-#shop .category .filter select.color {
-    width: 30%;
+#shop .selections .filter select.color {
+    width: 35%;
 }
 
-#shop .category .filter select.size {
-    width: 25%;
+#shop .selections .filter select.size {
+    width: 35%;
 }
 
-#shop .category .sort select.val {
-    width: 50%;
+#shop .selections .sort select.val {
+    width: 60%;
+}
+
+@media only screen and (max-width: 767px) {
+    #shop .selections h4 {
+        font-size: 1rem;
+    }
 }

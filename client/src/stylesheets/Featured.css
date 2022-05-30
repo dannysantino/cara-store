@@ -19,6 +19,10 @@
     text-decoration: none;
 }
 
+.products a:hover {
+    text-decoration: underline;
+}
+
 .products .product img {
     width: 100%;
     border-radius: 20px;
@@ -29,15 +33,21 @@
     text-align: start;
 }
 
+.products .product .desc .categories a {
+    margin-right: 8px;
+}
+
 .products .product .desc span {
-    color: #606063;
     font-size: 12px;
 }
 
 .products .product .desc h5 {
-    color: #1a1a1a;
     font-size: 14px;
     padding-top: 7px;
+}
+
+.products .product .desc h5 a {
+    color: #1a1a1a;
 }
 
 .products .product .desc i {

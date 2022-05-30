@@ -23,15 +23,19 @@ const ShopItem = ({ data }) => {
             <div className='product'>
                 <Link to={`../product/${data._id}`}>
                     <img src={data.img} alt={data.name} />
-                    <div className='desc'>
-                        <span>{data.categories.join(', ')}</span>
-                        <h5>{data.name}</h5>
-                        <div className='star'>
-                            {[...Array(5).keys()].map(e => <i className='fa-solid fa-star' key={e}></i>)}
-                        </div>
-                        <h4>${data.price}</h4>
-                    </div>
                 </Link>
+                <div className='desc'>
+                    <div className='categories'>
+                        {data.categories.map(e => (
+                            <Link to={`../shop?category=${e}`} key={e}><span>{e}</span></Link>
+                        ))}
+                    </div>
+                    <h5><Link to={`../product/${data._id}`}>{data.name}</Link></h5>
+                    <div className='star'>
+                        {[...Array(5).keys()].map(e => <i className='fa-solid fa-star' key={e}></i>)}
+                    </div>
+                    <h4>${data.price}</h4>
+                </div>
                 <button onClick={() => handleClick(data)} disabled={!data.countInStock}>
                     <i className='fa-solid fa-cart-plus cart-p'></i>
                 </button>
