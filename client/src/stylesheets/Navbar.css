@@ -52,12 +52,12 @@
 
 #navbar li.login,
 #navbar li.image {
-    padding: 0 5px 0 45px;
+    padding: 0 5px 0 25px;
 }
 
 #navbar li.register,
 #navbar li.logout {
-    padding: 0 0 0 15px;
+    padding: 0 0 0 10px;
 }
 
 #navbar li.auth-li img {
@@ -66,8 +66,11 @@
     border-radius: 50%;
 }
 
-#navbar li.auth-li a {
-    font-size: 12px;
+#navbar li.login a,
+#navbar li.register a {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 0.375rem;
     color: aliceblue;
 }
 
@@ -134,6 +137,9 @@
     }
     #navbar li {
         margin-bottom: 3rem;
+    }
+    #navbar li.image {
+        margin-bottom: 2.5rem;
     }
     #navbar li:nth-child(7),
     #navbar li:nth-child(8) {

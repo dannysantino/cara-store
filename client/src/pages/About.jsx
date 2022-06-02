@@ -22,7 +22,7 @@ const About = () => {
                 </div>
             </section>
 
-            <section id='about' className='py-sm-5 my-5'>
+            <section id='about' className='py-lg-5 my-5'>
                 <div className='container'>
                     <div className='row'>
                         <div className='col-12 col-lg-6'>
@@ -31,7 +31,7 @@ const About = () => {
                             </div>
                         </div>
                         <div className='col-12 col-lg-6 mt-4 mt-lg-0'>
-                            <div className='wrapper story pt-4 ps-0 ps-lg-3'>
+                            <div className='wrapper story pt-4 ps-0 pt-lg-0 ps-lg-3'>
                                 <h2 className='text-center text-lg-start'>Who We Are</h2>
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum perspiciatis soluta
@@ -41,12 +41,14 @@ const About = () => {
                                     dignissimos quaerat quod vero cumque. Recusandae necessitatibus sapiente nam magnam unde
                                     quos asperiores nisi vel? Aspernatur, ullam.
                                 </p>
-                                <abbr>Create stunning images with as much or as little control as you like thanks to a choice of
+                                <abbr className='d-lg-none d-xl-block mb-4'>Create stunning images with as much or as little control as you like thanks to a choice of
                                     Basic and Creative modes</abbr>
-                                <br /><br />
-                                <marquee bgcolor='#ccc' loop='-1' scrollamount='5' width='100%'>Create stunning images with as
-                                    much or as little control as you like thanks to a choice of Basic and Creative modes
-                                </marquee>
+                                <div className='marquee'>
+                                    <p className='lead mb-0'>
+                                        Create stunning images with as
+                                        much or as little control as you like thanks to a choice of Basic and Creative modes
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>

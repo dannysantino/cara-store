@@ -112,7 +112,7 @@ const Navbar = () => {
                                         </li>
                                         <li className='auth-li register'>
                                             <Link to='/register' className='btn btn-primary'>
-                                                REGISTER
+                                                SIGN UP
                                             </Link>
                                         </li>
                                     </>

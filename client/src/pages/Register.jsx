@@ -42,7 +42,9 @@ const Register = () => {
                             throw new Error(e.message);
                         });
                 } catch (err) {
-                    setErr(setError(err));
+                    err.response && err.response.status === 500
+                        ? setErr('Internal server error')
+                        : setErr(setError(err));
                 }
             }
         }
