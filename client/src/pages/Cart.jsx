@@ -127,7 +127,7 @@ const Cart = () => {
                                                                 <select
                                                                     className='form-select qty'
                                                                     value={p.qty}
-                                                                    onChange={e => handleQty({ ...p, index: i, qty: e.target.value })}
+                                                                    onChange={e => handleQty({ ...p, index: i, qty: Number(e.target.value) })}
                                                                 >
                                                                     {[...Array(p.countInStock).keys()].map(n => (
                                                                         <option value={n + 1} key={n + 1}>{n + 1}</option>

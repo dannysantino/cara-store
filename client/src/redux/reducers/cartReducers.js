@@ -6,6 +6,8 @@ const initialState = {
     total: 0
 }
 
+const getTotal = products => products.reduce((price, e) => (e.qty * e.price) + price, 0);
+
 const cartSlice = createSlice({
     name: 'cart',
     initialState,
@@ -13,16 +15,16 @@ const cartSlice = createSlice({
         addProduct: (state, action) => {
             state.quantity += 1;
             state.products.push(action.payload);
-            state.total = Number(((action.payload.price * action.payload.qty) + state.total).toFixed(2));
+            state.total = getTotal(state.products);
         },
         removeProduct: (state, action) => {
             state.quantity -= 1;
             state.products = state.products.filter((_, i) => i !== action.payload.index);
-            state.total = Number((state.total - (action.payload.price * action.payload.qty)).toFixed(2));
+            state.total = getTotal(state.products);
         },
         updateProduct: (state, action) => {
-            state.products[state.products.findIndex((_, i) => i === action.payload.index)].qty = Number(action.payload.qty);
-            state.total = Number(((action.payload.price * action.payload.qty) + state.total).toFixed(2));
+            state.products[state.products.findIndex((_, i) => i === action.payload.index)].qty = action.payload.qty;
+            state.total = getTotal(state.products);
         },
         clearCart: () => initialState
     }

@@ -15,7 +15,7 @@ const ShopItem = ({ data }) => {
             qty: 1
         })
             .then(e => userAlert('info', 'Item added to your cart: ', e))
-            .catch(() => userAlert('danger', 'An error occurred. Please try again'));
+            .catch(() => userAlert('danger', 'An error occurred. Please try again', ''));
     }
 
     return (
