@@ -18,6 +18,9 @@
     font-weight: 700;
 }
 
-#logister .card-body a {
-    text-decoration: none;
+#logister .card-body .login,
+#logister .card-body .register {
+    color: #0d6efd;
+    background: none;
+    border: none;
 }

@@ -50,34 +50,34 @@
     left: 20px;
 }
 
-#navbar li.login,
-#navbar li.image {
+#navbar li.image-li,
+#navbar li.login-li {
     padding: 0 5px 0 25px;
 }
 
-#navbar li.register,
-#navbar li.logout {
+#navbar li.logout-li,
+#navbar li.register-li {
     padding: 0 0 0 10px;
 }
 
-#navbar li.auth-li img {
+#navbar li.image-li img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
 }
 
-#navbar li.login a,
-#navbar li.register a {
-    font-size: 10px;
-    font-weight: 700;
-    padding: 0.375rem;
-    color: aliceblue;
-}
-
-#navbar li.auth-li button {
+#navbar .logout-li .logout {
     font-size: 10px;
     font-weight: 700;
     padding: 10px 6px;
+    color: aliceblue;
+}
+
+#navbar .login-li .login,
+#navbar .register-li .register {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 0.375rem;
     color: aliceblue;
 }
 
@@ -138,7 +138,7 @@
     #navbar li {
         margin-bottom: 3rem;
     }
-    #navbar li.image {
+    #navbar li.image-li {
         margin-bottom: 2.5rem;
     }
     #navbar li:nth-child(7),

@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { userRequest, verifyToken } from '../utils/requestMethods'
+import { verifyToken } from '../utils/requestMethods'
 import { logout } from '../redux/actions/userActions'
 import { userAlert } from '../utils/alerts'
 
@@ -11,9 +11,9 @@ import '../stylesheets/Navbar.css'
 
 const Navbar = () => {
     const location = useLocation();
+    const navigate = useNavigate()
     const dispatch = useDispatch();
-    const { cart, user } = useSelector(state => state);
-    const [isVerified, setIsVerified] = useState(verifyToken());
+    const { cart, user: { currentUser } } = useSelector(state => state);
 
     const handleClick = e => {
         const nav = document.getElementById('navbar');
@@ -24,26 +24,23 @@ const Navbar = () => {
         }
     }
 
-    const logUserOut = () => {
+    const handleLogout = () => {
         logout(dispatch);
         userAlert('info', 'You have logged out', '');
     }
 
-    useEffect(() => {
-        setIsVerified(verifyToken());
-    }, [location]);
+    const handleNavigate = path => navigate(path, {
+        state: location.state
+            ? location.state
+            : { from: location }
+    });
 
     useEffect(() => {
-        if (user.currentUser && !verifyToken()) {
+        if (currentUser && !verifyToken()) {
             logout(dispatch);
             userAlert('warning', 'Your session has expired and you have been logged out', '');
-        } else if (user.currentUser && isVerified) {
-            userRequest.interceptors.request.use(config => {
-                config.headers['token'] = `Bearer ${localStorage.getItem('userToken')}`;
-                return config;
-            });
         }
-    }, [user.currentUser, isVerified, dispatch, location]);
+    }, [currentUser, dispatch, location]);
 
     return (
         <>
@@ -57,21 +54,11 @@ const Navbar = () => {
                 </Link>
                 <div className='wrapper'>
                     <ul id='navbar'>
-                        <li className='nav-li'>
-                            <NavLink to='/'>Home</NavLink>
-                        </li>
-                        <li className='nav-li'>
-                            <NavLink to='/shop'>Shop</NavLink>
-                        </li>
-                        <li className='nav-li'>
-                            <NavLink to='/blog'>Blog</NavLink>
-                        </li>
-                        <li className='nav-li'>
-                            <NavLink to='/about'>About Us</NavLink>
-                        </li>
-                        <li className='nav-li'>
-                            <NavLink to='/contact'>Contact</NavLink>
-                        </li>
+                        <li className='nav-li'><NavLink to='/'>Home</NavLink></li>
+                        <li className='nav-li'><NavLink to='/shop'>Shop</NavLink></li>
+                        <li className='nav-li'><NavLink to='/blog'>Blog</NavLink></li>
+                        <li className='nav-li'><NavLink to='/about'>About Us</NavLink></li>
+                        <li className='nav-li'><NavLink to='/contact'>Contact</NavLink></li>
                         <li id='nav-cart'>
                             <NavLink to='/cart'>
                                 <i className='fa-solid fa-cart-shopping'></i>
@@ -81,22 +68,22 @@ const Navbar = () => {
                             </NavLink>
                         </li>
                         {
-                            user.currentUser
+                            currentUser
                                 ? (
                                     <>
-                                        <li className='auth-li image'>
-                                            <Link to={`/profile/${user.currentUser._id}`}>
+                                        <li className='auth-li image-li'>
+                                            <Link to={`/profile/${currentUser._id}`}>
                                                 <img
-                                                    src={user.currentUser.img}
-                                                    className='img-thumbnail'
-                                                    alt={user.currentUser.name}
+                                                    src={currentUser.img}
+                                                    className='user-img img-thumbnail'
+                                                    alt={currentUser.name}
                                                 />
                                             </Link>
                                         </li>
-                                        <li className='auth-li logout'>
+                                        <li className='auth-li logout-li'>
                                             <button
-                                                className='btn btn-info'
-                                                onClick={() => logUserOut()}
+                                                className='btn btn-info logout'
+                                                onClick={() => handleLogout()}
                                             >
                                                 LOG OUT
                                             </button>
@@ -105,15 +92,21 @@ const Navbar = () => {
                                 )
                                 : (
                                     <>
-                                        <li className='auth-li login'>
-                                            <Link to='/login' className='btn btn-success'>
+                                        <li className='auth-li login-li'>
+                                            <button
+                                                className='btn btn-success login'
+                                                onClick={() => handleNavigate('/login')}
+                                            >
                                                 LOG IN
-                                            </Link>
+                                            </button>
                                         </li>
-                                        <li className='auth-li register'>
-                                            <Link to='/register' className='btn btn-primary'>
+                                        <li className='auth-li register-li'>
+                                            <button
+                                                className='btn btn-primary register'
+                                                onClick={() => handleNavigate('/register')}
+                                            >
                                                 SIGN UP
-                                            </Link>
+                                            </button>
                                         </li>
                                     </>
                                 )

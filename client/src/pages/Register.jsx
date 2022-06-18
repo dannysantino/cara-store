@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { login } from '../redux/actions/userActions'
@@ -10,11 +10,12 @@ import b16 from '../assets/img/banner/b16.jpg'
 import '../stylesheets/Logister.css'
 
 const Register = () => {
+    const { state } = useLocation();
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const isVerified = useRef(verifyToken());
-    const [err, setErr] = useState('');
+    const path = useRef(state ? state.from.pathname : '/');
+    const [status, setStatus] = useState({ loading: false, error: '' });
 
     const { currentUser } = useSelector(state => state.user);
 
@@ -26,35 +27,45 @@ const Register = () => {
             form.classList.add('was-validated');
         } else {
             const inputs = {};
+            setStatus({ loading: true, error: '' });
             Array.from(document.querySelectorAll('input')).forEach(e => inputs[e.name] = e.value);
+
             if (inputs.password !== inputs.confirmPassword) {
-                setErr('Passwords do not match! Please ensure that both passwords match...');
+                setStatus({
+                    loading: false,
+                    error: 'Passwords do not match! Please ensure that both passwords match...'
+                });
             } else {
                 try {
                     await publicRequest.post('/auth/register', inputs);
                     login(dispatch, { username: inputs.username, password: inputs.password })
                         .then(res => {
-                            isVerified.current = true;
                             localStorage.setItem('userToken', res.token);
                             userAlert('success', 'Your account has been successfully created, ', `${res.user}!`);
+                            setStatus({ loading: false, error: '' });
                         })
                         .catch(e => {
-                            throw new Error(e.message);
+                            console.error(e.message);
+                            setStatus({ loading: false, error: '' });
+                            userAlert('info', 'An error occurred. Please enter your details to log in', '');
+                            navigate('/login', state && { state: state });
                         });
                 } catch (err) {
-                    err.response && err.response.status === 500
-                        ? setErr('Internal server error')
-                        : setErr(setError(err));
+                    err.response && err.response.status >= 500
+                        ? setStatus({ loading: false, error: 'Internal server error' })
+                        : setStatus({ loading: false, error: setError(err) });
                 }
             }
         }
     }
 
     useEffect(() => {
-        if (currentUser && isVerified.current) {
-            navigate(-1, { replace: true });
+        if (currentUser && verifyToken()) {
+            state?.from?.search &&
+                (path.current = state.from.pathname + state.from.search);
+            navigate(path.current, { replace: true });
         }
-    }, [currentUser, navigate]);
+    }, [currentUser, state, navigate]);
 
     return (
         <>
@@ -77,7 +88,7 @@ const Register = () => {
                                                 onSubmit={handleSubmit}
                                                 noValidate
                                             >
-                                                {err && <span className='text-danger d-inline-block mb-3'>{err}</span>}
+                                                {status.error && <span className='text-danger d-inline-block mb-3'>{status.error}</span>}
                                                 <div className='col-md-6 mb-3'>
                                                     <label htmlFor='name' className='form-label'>Full Name</label>
                                                     <input
@@ -143,6 +154,7 @@ const Register = () => {
                                                     <button
                                                         type='submit'
                                                         className='btn btn-success w-100'
+                                                        disabled={status.loading}
                                                     >
                                                         CREATE
                                                     </button>
@@ -150,7 +162,20 @@ const Register = () => {
                                             </form>
                                             <div className='mt-4'>
                                                 <p className='mb-1'>
-                                                    Already have an account? <Link to='/login'>Log in</Link>
+                                                    Already have an account?
+                                                    <button
+                                                        className='login ms-2'
+                                                        onClick={() => navigate('/login', state && { state: state })}
+                                                    >
+                                                        {status.loading &&
+                                                            <span
+                                                                className='spinner-border spinner-border-sm me-3'
+                                                                role='status'
+                                                                aria-hidden='true'
+                                                            />
+                                                        }
+                                                        Log in
+                                                    </button>
                                                 </p>
                                             </div>
                                         </div>

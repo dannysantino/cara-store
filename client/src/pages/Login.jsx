@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { verifyToken } from '../utils/requestMethods'
@@ -14,7 +14,7 @@ const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const path = useRef(-1);
+    const path = useRef(state ? state.from.pathname : '/');
     const isVerified = useRef(verifyToken());
     const [error, setError] = useState('');
 
@@ -31,9 +31,9 @@ const Login = () => {
             Array.from(document.querySelectorAll('input')).forEach(e => inputs[e.name] = e.value);
             login(dispatch, inputs)
                 .then(res => {
-                    isVerified.current = true;
                     localStorage.setItem('userToken', res.token);
                     userAlert('success', 'Welcome, ', res.user);
+                    isVerified.current = true;
                 })
                 .catch(e => setError(e.message));
         }
@@ -41,11 +41,11 @@ const Login = () => {
 
     useEffect(() => {
         if (currentUser && isVerified.current) {
-            state && (path.current = state.from.pathname);
+            state?.from?.search &&
+                (path.current = state.from.pathname + state.from.search);
             navigate(path.current, { replace: true });
         } else if (state && state.errorMessage && !error) {
             logout(dispatch);
-            userAlert('warning', 'Your session timed out and you have been logged out', '');
             setError(state.errorMessage);
         }
     }, [currentUser, state, navigate, error, dispatch]);
@@ -105,7 +105,13 @@ const Login = () => {
                                             </form>
                                             <div className='mt-4'>
                                                 <p className='mb-1'>
-                                                    Don't have an account? <Link to='/register'>Register</Link>
+                                                    Don't have an account?
+                                                    <button
+                                                        className='register ms-2'
+                                                        onClick={() => navigate('/register', state && { state: state })}
+                                                    >
+                                                        Register
+                                                    </button>
                                                 </p>
                                             </div>
                                         </div>
