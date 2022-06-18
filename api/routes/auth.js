@@ -16,7 +16,9 @@ const generateToken = user => {
 router.post('/register', catchAsync(async (req, res) => {
     const { name, username, email, password, phone } = req.body;
     if (await User.findOne({ username })) {
-        throw new UserInputError('Username already taken. Please select another one...');
+        throw new UserInputError('Username already taken. Please select another one...', 409);
+    } else if (await User.findOne({ email })) {
+        throw new UserInputError('Only one account allowed per email.', 409);
     }
     const newUser = new User({
         name,

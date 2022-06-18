@@ -34,7 +34,7 @@ function App() {
           </Route>
           <Route path='login' element={<Login />} />
           <Route path='register' element={<Register />} />
-          <Route path='success' element={<Success />} />
+          <Route path='success' element={<AuthRoute><Success /></AuthRoute>} />
         </Routes>
       </ScrollToTop>
     </Router>

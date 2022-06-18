@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { addToCart } from '../redux/actions/cartActions'
@@ -14,7 +14,7 @@ const Product = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
 
-    const foundProduct = useSelector(state => state.products.products.find(e => e._id === id))
+    const foundProduct = useSelector(state => state.products.products.find(e => e._id === id));
 
     const [selections, setSelections] = useState({});
     const [product, setProduct] = useState({});
@@ -88,7 +88,17 @@ const Product = () => {
 
                                             <div className='col-lg-6 mt-4 mt-lg-0'>
                                                 <div className='wrapper details pt-3'>
-                                                    <h6>{product.categories.join(', ')}</h6>
+                                                    <h6>
+                                                        {product.categories.map(e => (
+                                                            <Link
+                                                                to={`../shop?category=${e}`}
+                                                                key={e}
+                                                                className='text-decoration-none me-3'
+                                                            >
+                                                                {e}
+                                                            </Link>
+                                                        ))}
+                                                    </h6>
                                                     <h4 className='my-4'>{product.name}</h4>
                                                     <h3 className='fw-bold'>${product.price}</h3>
                                                     <div className='color-size'>

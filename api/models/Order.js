@@ -1,50 +1,61 @@
 const { Schema, model } = require('mongoose');
 
 const orderSchema = new Schema({
-    customer: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
+    userId: {
+        type: String,
         required: true
     },
-    products: [{
-        _id: {
-            id: false
-        },
-        productId: {
-            type: String
-        },
-        name: {
-            type: String
-        },
-        price: {
-            type: Number
-        },
-        img: {
-            type: String
-        },
-        size: {
-            type: String
-        },
-        color: {
-            String
-        },
-        quantity: {
-            type: Number,
-            default: 1
-        }
-    }],
-    amount: {
-        type: Number,
+    name: {
+        type: String,
+        required: true
+    },
+    paymentId: {
+        type: String,
         required: true
     },
     address: {
         type: Object,
         required: true
     },
+    total: {
+        type: Number,
+        required: true
+    },
     status: {
         type: String,
         default: 'pending'
-    }
+    },
+    products: [{
+        _id: {
+            id: false,
+            type: String
+        },
+        name: {
+            type: String,
+            required: true
+        },
+        price: {
+            type: Number,
+            required: true
+        },
+        img: {
+            type: String,
+            required: true
+        },
+        size: {
+            type: String,
+            required: true
+        },
+        color: {
+            type: String,
+            required: true
+        },
+        qty: {
+            type: Number,
+            required: true,
+            default: 1
+        }
+    }]
 }, { timestamps: true });
 
 module.exports = model('Order', orderSchema);

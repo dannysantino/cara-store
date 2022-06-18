@@ -6,7 +6,7 @@ const initialState = {
     total: 0
 }
 
-const getTotal = products => products.reduce((price, e) => (e.qty * e.price) + price, 0);
+const getTotal = products => Number(products.reduce((price, e) => (e.qty * e.price) + price, 0).toFixed(2));
 
 const cartSlice = createSlice({
     name: 'cart',

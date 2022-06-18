@@ -1,53 +1,69 @@
 import { useEffect, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
-import StripeCheckout from 'react-stripe-checkout'
 
 import { removeFromCart, updateCartItem } from '../redux/actions/cartActions'
 import { clearCart } from '../redux/reducers/cartReducers'
 import { userAlert } from '../utils/alerts'
-import { userRequest } from '../utils/requestMethods'
+import { setError, userRequest, verifyToken } from '../utils/requestMethods'
 
-import a6 from '../assets/img/about/a6.jpg'
 import '../stylesheets/Cart.css'
+import { updateUser } from '../redux/reducers/userReducers'
 
 const Cart = () => {
+    const location = useLocation();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const cart = useSelector(state => state.cart);
+    const { cart, user: { currentUser } } = useSelector(state => state);
 
+    const [loading, setLoading] = useState(false);
     const [products, setProducts] = useState([]);
-    const [stripeToken, setStripeToken] = useState(null);
 
-    const onToken = token => setStripeToken(token);
-    const STRIPE_KEY = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
+    const errorMessage = 'An error occurred. Please try again';
 
     const handleRemove = product => {
         removeFromCart(dispatch, product)
             .then(e => userAlert('info', 'Item removed from your cart: ', e))
-            .catch(() => userAlert('danger', 'An error occurred. Please try again', ''));
+            .catch(() => userAlert('danger', errorMessage, ''));
     }
 
     const handleQty = item => {
         updateCartItem(dispatch, item)
             .then(e => userAlert('info', 'Cart item updated: ', e))
-            .catch(() => userAlert('danger', 'An error occurred. Please try again', ''));
+            .catch(() => userAlert('danger', errorMessage, ''));
     }
 
-    useEffect(() => {
-        const payRequest = async () => {
+    const checkout = async () => {
+        if (!verifyToken()) {
+            navigate('/login', {
+                state: {
+                    from: location,
+                    errorMessage: 'You must log in to continue...'
+                }
+            });
+        } else if (verifyToken()) {
+            setLoading(true);
+            const { _id, name, email, customerId, token } = currentUser;
             try {
-                const res = await userRequest.post('/checkout/pay', {
-                    tokenId: stripeToken.id,
-                    amount: Number(((cart.total + 12) * 100).toFixed(0))
-                });
-                navigate('/success', { state: res.data });
+                const { data } = await userRequest.post(`/checkout/session/${_id}`, {
+                    products,
+                    user: {
+                        name,
+                        email,
+                        customerId
+                    }
+                }, { headers: { token: `Bearer ${token}` } });
+                setLoading(false);
+                !customerId &&
+                    dispatch(updateUser({ ...currentUser, customerId: data.customerId }));
+                window.location.assign(data.url);
             } catch (err) {
-                console.error(err);
+                setLoading(false);
+                console.error(setError(err));
+                userAlert('danger', errorMessage, '');
             }
         }
-        stripeToken && payRequest();
-    }, [stripeToken, cart.total, navigate]);
+    }
 
     useEffect(() => {
         setProducts(cart.products);
@@ -164,7 +180,7 @@ const Cart = () => {
                                                     <tbody>
                                                         <tr>
                                                             <td>Cart Subtotal</td>
-                                                            <td>$ {(cart.total).toFixed(2)}</td>
+                                                            <td>$ {cart.total}</td>
                                                         </tr>
                                                         <tr>
                                                             <td>Shipping</td>
@@ -172,23 +188,25 @@ const Cart = () => {
                                                         </tr>
                                                         <tr>
                                                             <td><b>Total</b></td>
-                                                            <td><b>$ {(cart.total + 12).toFixed(2)}</b></td>
+                                                            <td><b>$ {cart.total + 12}</b></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
                                                 <div className='cart-actions'>
-                                                    <StripeCheckout
-                                                        name='Cara Online Store'
-                                                        image={a6}
-                                                        description='The one-stop shop for all your fashion needs!'
-                                                        amount={Number(((cart.total + 12) * 100).toFixed(0))}
-                                                        currency='USD'
-                                                        stripeKey={STRIPE_KEY}
-                                                        shippingAddress
-                                                        token={onToken}
+                                                    <button
+                                                        className='base'
+                                                        disabled={loading}
+                                                        onClick={checkout}
                                                     >
-                                                        <button className='base'>Proceed to checkout</button>
-                                                    </StripeCheckout>
+                                                        {loading &&
+                                                            <span
+                                                                className='spinner-border spinner-border-sm me-2'
+                                                                role='status'
+                                                                aria-hidden='true'
+                                                            />
+                                                        }
+                                                        Proceed to checkout
+                                                    </button>
                                                     <button
                                                         className='btn btn-danger clear-cart'
                                                         onClick={() => dispatch(clearCart())}

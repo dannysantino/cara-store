@@ -19,6 +19,11 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    customerId: {
+        type: String,
+        unique: true,
+        default: null
+    },
     isAdmin: {
         type: Boolean,
         default: false
@@ -39,13 +44,7 @@ const userSchema = new Schema({
     role: {
         type: String,
         default: 'Customer'
-    },
-    orders: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Order'
-        }
-    ]
+    }
 }, { timestamps: true });
 
 module.exports = model('User', userSchema);
