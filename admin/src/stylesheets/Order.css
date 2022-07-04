@@ -1,0 +1,95 @@
+#order header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+#order header h1,
+#order h3 {
+    font-weight: 700;
+}
+
+#order header button {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#order header button i {
+    color: rgb(240, 53, 90);
+    font-size: 1.5rem;
+    cursor: pointer;
+    vertical-align: text-bottom;
+    transition: .3s ease;
+}
+
+#order header button i:hover {
+    color: crimson;
+}
+
+#order .d-inline-block {
+    max-width: 484px;
+}
+
+#order .row .col-md-8 .card {
+    height: 100%;
+}
+
+#order .order-details tbody td img {
+    width: 70px;
+    min-width: 60px;
+}
+
+#order .order-details tbody td a,
+#order .delivery-details a {
+    text-decoration: none;
+}
+
+#order .order-details tbody td span {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid rgb(153, 203, 196);
+}
+
+#order .order-details tbody td:nth-child(5) {
+    min-width: 75px;
+}
+
+#order .order-details tbody td:nth-child(6) {
+    padding-left: 2rem;
+}
+
+#order h4 {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+#order .delivery-details .status select {
+    width: 114px;
+    display: inline;
+    vertical-align: middle;
+}
+
+@media only screen and (max-width: 634px) {
+    #order .order-details tbody td a {
+        font-size: calc(.6rem + .6vw);
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    #order header button {
+        font-size: 1rem;
+    }
+    #order header button i {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #order h4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+}

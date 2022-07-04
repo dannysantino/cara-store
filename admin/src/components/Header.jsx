@@ -37,18 +37,18 @@ const Header = () => {
                         {
                             adminUser && isVerified && (
                                 <>
-                                    <NavLink to='notifications' className='nav-link'>
+                                    <NavLink to='notifications' className='nav-link disabled'>
                                         <i className='fa-regular fa-bell'></i>
                                         <span className='badge rounded-pill bg-danger'>8</span>
                                     </NavLink>
                                     <NavLink
                                         to='global'
-                                        className='nav-link'>
+                                        className='nav-link disabled'>
                                         <i className='fa-solid fa-globe'></i>
                                     </NavLink>
                                     <NavLink
                                         to='settings'
-                                        className='nav-link'>
+                                        className='nav-link disabled'>
                                         <i className='fa-solid fa-gear'></i>
                                     </NavLink>
                                     <NavLink

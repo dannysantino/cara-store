@@ -32,100 +32,94 @@ const Sidebar = () => {
                     </button>
                 </div>
                 <div className='offcanvas-body'>
-                    <div className='menu mb-4'>
+                    <div className='menu mb-3'>
                         <h3>Dashboard</h3>
                         <ul className='nav nav-pills flex-column'>
                             <li>
                                 <NavLink to='/' className='nav-link'>
-                                    <i className='fa-solid fa-house-user'></i>
+                                    <i className='fa-solid fa-house-user fa-fw'></i>
                                     Home
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to='analytics' className='nav-link'>
-                                    <i className='fa-solid fa-chart-bar'></i>
+                                <NavLink to='analytics' className='nav-link no-route'>
+                                    <i className='fa-solid fa-chart-bar fa-fw'></i>
                                     Analytics
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to='sales' className='nav-link'>
-                                    <i className='fa-solid fa-arrow-trend-up'></i>
+                                <NavLink to='sales' className='nav-link no-route'>
+                                    <i className='fa-solid fa-arrow-trend-up fa-fw'></i>
                                     Sales
                                 </NavLink>
                             </li>
                         </ul>
                     </div>
 
-                    <div className='menu mb-4'>
-                        <h3>Quick Menu</h3>
+                    <div className='menu mb-3'>
+                        <h3>Menu</h3>
                         <ul className='nav nav-pills flex-column'>
                             <li>
                                 <NavLink to='users' className='nav-link'>
-                                    <i className='fa-solid fa-users'></i>
+                                    <i className='fa-solid fa-users fa-fw'></i>
                                     Users
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to='products' className='nav-link'>
-                                    <i className='fa-solid fa-store'></i>
+                                    <i className='fa-solid fa-store fa-fw'></i>
                                     Products
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to='orders' className='nav-link'>
-                                    <i className='fa-solid fa-dollar-sign'></i>
+                                    <i className='fa-solid fa-dollar-sign fa-fw'></i>
                                     Orders
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink to='reports' className='nav-link'>
-                                    <i className='fa-solid fa-chart-column'></i>
-                                    Reports
                                 </NavLink>
                             </li>
                         </ul>
                     </div>
-                    <div className='menu mb-4'>
+                    <div className='menu mb-3'>
                         <h3>Notifications</h3>
                         <ul className='nav nav-pills flex-column'>
                             <li>
-                                <NavLink to='mail' className='nav-link'>
-                                    <i className='fa-solid fa-envelope-open-text'></i>
+                                <NavLink to='mail' className='nav-link no-route'>
+                                    <i className='fa-solid fa-envelope-open-text fa-fw'></i>
                                     Mail
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to='feedback' className='nav-link'>
-                                    <i className='fa-regular fa-thumbs-up'></i>
+                                <NavLink to='feedback' className='nav-link no-route'>
+                                    <i className='fa-regular fa-thumbs-up fa-fw'></i>
                                     Feedback
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to='messages' className='nav-link'>
-                                    <i className='fa-regular fa-message'></i>
+                                <NavLink to='messages' className='nav-link no-route'>
+                                    <i className='fa-regular fa-message fa-fw'></i>
                                     Messages
                                 </NavLink>
                             </li>
                         </ul>
                     </div>
-                    <div className='menu mb-4'>
+                    <div className='menu'>
                         <h3>Staff</h3>
                         <ul className='nav nav-pills flex-column'>
                             <li>
-                                <NavLink to='staff/manage' className='nav-link'>
-                                    <i className='fa-solid fa-briefcase'></i>
+                                <NavLink to='staff/manage' className='nav-link no-route'>
+                                    <i className='fa-solid fa-briefcase fa-fw'></i>
                                     Manage
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to='staff/analytics' className='nav-link'>
-                                    <i className='fa-solid fa-chart-bar'></i>
+                                <NavLink to='staff/analytics' className='nav-link no-route'>
+                                    <i className='fa-solid fa-chart-bar fa-fw'></i>
                                     Analytics
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to='staff/reports' className='nav-link'>
-                                    <i className='fa-regular fa-file-lines'></i>
+                                <NavLink to='staff/reports' className='nav-link no-route'>
+                                    <i className='fa-regular fa-file-lines fa-fw'></i>
                                     Reports
                                 </NavLink>
                             </li>

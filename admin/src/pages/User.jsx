@@ -52,18 +52,17 @@ const User = () => {
 
     return (
         <section className='wrapper' id='user'>
-            <div className='row'>
+            <div className='row mb-3 mb-lg-5'>
                 <header>
                     <h1>Edit User</h1>
                     <button className='btn btn-success' disabled>Create New</button>
                 </header>
-
                 {
                     user && (
                         <>
                             <div className='col-md-4 mb-3 mb-md-0'>
                                 <div className='card bio shadow-sm'>
-                                    <div className='card-body pt-4'>
+                                    <div className='card-body pt-4 px-lg-2 px-xl-3'>
                                         <div className='user-details'>
                                             <img src={user.img} className='img-thumbnail' alt={user.name} />
                                             <div className='user'>

@@ -1,16 +1,19 @@
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { format } from 'timeago.js'
 
 import { getOrders } from '../redux/actions/orderActions'
+import { getUsers } from '../redux/actions/usersActions'
 
 const LargeWidget = () => {
     const dispatch = useDispatch();
-    const { orders } = useSelector(state => state.orders);
+    const { orders: { orders }, users: { users } } = useSelector(state => state);
 
     useEffect(() => {
+        !users.length && getUsers(dispatch);
         !orders.length && getOrders(dispatch);
-    }, [orders, dispatch]);
+    }, [users, orders, dispatch]);
 
     const Button = ({ type }) => <button className={type.toLowerCase()}>{type}</button>;
 
@@ -31,14 +34,20 @@ const LargeWidget = () => {
                             </thead>
                             <tbody>
                                 {
-                                    orders.length && orders.map(e => (
+                                    orders.length && users.length && orders.slice(-6).reverse().map(e => (
                                         <tr key={e._id}>
                                             <td>
-                                                <img src='img/users/3.png' className='img-thumbnail' alt='user-avatar' />
-                                                <span className='name'>{e.userId}</span>
+                                                <img
+                                                    src={users.find(u => u._id === e.userId).img}
+                                                    className='img-thumbnail'
+                                                    alt='user-avatar'
+                                                />
+                                                <Link to={`/order/${e._id}`}>
+                                                    <span className='name'>{e.name}</span>
+                                                </Link>
                                             </td>
                                             <td>{format(e.createdAt)}</td>
-                                            <td>${e.amount}</td>
+                                            <td>$ <b>{e.total}</b></td>
                                             <td><Button type={e.status} /></td>
                                         </tr>
                                     ))

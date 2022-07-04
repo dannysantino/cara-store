@@ -1,3 +1,7 @@
+label {
+    font-weight: 600;
+}
+
 @media only screen and (max-width: 991px) {
     #main .sidebar-col {
         padding-top: 78px;
@@ -9,7 +13,7 @@
 
 @media only screen and (min-width: 992px) {
     #main .sidebar-col {
-        height: calc(100vh - 48px);
+        height: calc(100vh - 28px);
         padding-top: 122px;
         position: sticky;
         top: 0;

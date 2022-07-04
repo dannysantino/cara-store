@@ -13,6 +13,10 @@
     font-size: 1.8rem;
 }
 
+#sidebar .offcanvas {
+    width: 300px;
+}
+
 #sidebar .menu h3 {
     font-size: 1.2rem;
     font-weight: 700;
@@ -22,6 +26,13 @@
 
 #sidebar .nav a {
     color: #555;
+    padding: .4rem 1rem;
+}
+
+#sidebar .nav a.no-route {
+    opacity: .5;
+    cursor: default;
+    pointer-events: none;
 }
 
 #sidebar .nav a.active, #sidebar .nav a:hover {

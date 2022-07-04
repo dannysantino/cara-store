@@ -22,6 +22,9 @@ export const login = async (dispatch, user) => {
         }
     } catch (err) {
         dispatch(loginFailure(setError(err)));
+        if (err.response && err.response.status >= 500) {
+            throw new Error('Internal server error');
+        }
         throw new Error(setError(err));
     }
 }

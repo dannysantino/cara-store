@@ -21,6 +21,11 @@ const orderSlice = createSlice({
             state.error = '';
             state.orders = action.payload;
         },
+        updateOrderSuccess: (state, action) => {
+            state.fetching = false;
+            state.error = '';
+            state.orders[state.orders.findIndex(e => e._id === action.payload.id)] = action.payload.data;
+        },
         cancelOrderSuccess: (state, action) => {
             state.fetching = false;
             state.error = '';
@@ -33,6 +38,7 @@ export const {
     actionInit,
     actionFailure,
     getOrdersSuccess,
+    updateOrderSuccess,
     cancelOrderSuccess
 } = orderSlice.actions;
 

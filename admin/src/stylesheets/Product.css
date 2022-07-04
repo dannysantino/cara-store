@@ -28,14 +28,13 @@
     width: 50px;
     height: 50px;
     padding: 2px;
-    margin-right: 1.5rem;
     border-radius: 50%;
     object-fit: cover;
 }
 
 #product .item .details .name,
 #product .item .data .info span:nth-child(1) {
-    font-weight: 600;
+    font-weight: 700;
 }
 
 #product .item .data .info {
@@ -44,6 +43,10 @@
     justify-content: space-between;
     flex-wrap: wrap;
     margin-bottom: .8rem;
+}
+
+#product .item .data .info:nth-child(1) span:nth-child(2) {
+    word-break: break-all;
 }
 
 #product .product-update h3 {

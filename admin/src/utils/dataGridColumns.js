@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { store } from '../redux/store'
 
 export const useProductRows = callback => {
     return {
@@ -27,7 +28,7 @@ export const useProductRows = callback => {
             {
                 field: 'status',
                 headerName: 'In Stock',
-                width: 180,
+                width: 100,
                 renderCell: params => (
                     <div className='status'>
                         <span>
@@ -39,17 +40,17 @@ export const useProductRows = callback => {
             {
                 field: 'countInStock',
                 headerName: 'Count',
-                width: 180
+                width: 100
             },
             {
                 field: 'price',
                 headerName: 'Price',
-                width: 180
+                width: 120
             },
             {
                 field: 'action',
                 headerName: 'Action',
-                width: 250,
+                width: 200,
                 renderCell: params => (
                     <div className='actions'>
                         <Link
@@ -58,10 +59,12 @@ export const useProductRows = callback => {
                         >
                             Edit
                         </Link>
-                        <i
-                            className='fa-solid fa-trash'
+                        <button
+                            className='btn'
                             onClick={() => callback(params.row._id)}
-                        ></i>
+                        >
+                            <i className='fa-solid fa-trash'></i>
+                        </button>
                     </div>
                 )
             }
@@ -101,12 +104,12 @@ export const useUserRows = callback => {
             {
                 field: 'email',
                 headerName: 'Email',
-                width: 280
+                width: 220
             },
             {
                 field: 'isAdmin',
                 headerName: 'Admin',
-                width: 160
+                width: 120
             },
             {
                 field: 'action',
@@ -120,10 +123,12 @@ export const useUserRows = callback => {
                         >
                             Edit
                         </Link>
-                        <i
-                            className='fa-solid fa-trash'
+                        <button
+                            className='btn'
                             onClick={() => callback(params.row._id)}
-                        ></i>
+                        >
+                            <i className='fa-solid fa-trash'></i>
+                        </button>
                     </div>
                 )
             }
@@ -132,6 +137,7 @@ export const useUserRows = callback => {
 }
 
 export const useOrderRows = callback => {
+    const { users: { users } } = store.getState();
     return {
         columns: [
             {
@@ -142,15 +148,18 @@ export const useOrderRows = callback => {
             {
                 field: 'customer',
                 headerName: 'Customer',
-                width: 400,
+                width: 350,
                 renderCell: params => (
                     <div className='customer'>
-                        <img src={params.row.customer.img} alt={params.row.customer.name} />
+                        <img
+                            src={users.find(e => e._id === params.row.userId).img}
+                            alt={params.row.name}
+                        />
                         <Link
                             to={`/order/${params.row._id}`}
                             className='text-decoration-none'
                         >
-                            {params.row.customer.name}
+                            {params.row.name}
                         </Link>
                     </div>
                 )
@@ -158,33 +167,52 @@ export const useOrderRows = callback => {
             {
                 field: 'quantity',
                 headerName: 'Quantity',
-                width: 180,
+                width: 100,
                 renderCell: params => (
                     <div className='quantity'>
-                        <span>{params.row.products.quantity}</span>
+                        <span>{params.row.products.length}</span>
                     </div>
                 )
             },
             {
                 field: 'amount',
                 headerName: 'Amount',
-                width: 180
+                width: 120,
+                renderCell: params => (
+                    <div className='amount'>
+                        <span>$ <b>{params.row.total}</b></span>
+                    </div>
+                )
             },
             {
                 field: 'status',
                 headerName: 'Status',
-                width: 180
+                width: 120,
+                renderCell: params => (
+                    <div className='status'>
+                        <span
+                            className={`rounded p-2 ${params.row.status === 'pending'
+                                ? 'bg-warning'
+                                : 'text-white bg-success'}`}
+                        >
+                            {params.row.status}
+                        </span>
+                    </div>
+                )
             },
             {
                 field: 'action',
                 headerName: 'Cancel Order',
-                width: 180,
+                width: 100,
                 renderCell: params => (
                     <div className='actions'>
-                        <i
-                            className='fa-solid fa-ban'
+                        <button
+                            className='btn'
                             onClick={() => callback(params.row._id)}
-                        ></i>
+                            disabled={params.row.status === 'delivered'}
+                        >
+                            <i className='fa-solid fa-ban'></i>
+                        </button>
                     </div>
                 )
             }

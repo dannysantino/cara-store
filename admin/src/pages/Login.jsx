@@ -11,7 +11,7 @@ const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const path = useRef(-1);
+    const path = useRef(state ? state.from.pathname : '/');
     const isVerified = useRef(verifyToken());
     const [error, setError] = useState('');
 
@@ -47,7 +47,6 @@ const Login = () => {
 
     useEffect(() => {
         if (adminUser && isVerified.current) {
-            state && (path.current = state.from.pathname);
             navigate(path.current, { replace: true });
         } else if (state && state.errorMessage && !error) {
             dispatch(logout());
@@ -98,6 +97,13 @@ const Login = () => {
                                                         className='btn btn-success w-100'
                                                         disabled={fetching}
                                                     >
+                                                        {fetching &&
+                                                            <span
+                                                                className="spinner-border spinner-border-sm me-2"
+                                                                role='status'
+                                                                aria-hidden='true'
+                                                            />
+                                                        }
                                                         LOGIN
                                                     </button>
                                                 </div>

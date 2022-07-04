@@ -95,7 +95,6 @@ const Product = () => {
                             <h1>Edit Product</h1>
                             <Link to='/newproduct' className='btn btn-success'>Create New</Link>
                         </header>
-
                         {
                             product && (
                                 <>
@@ -104,13 +103,17 @@ const Product = () => {
                                             title='Sales Performance'
                                             data={prodStats}
                                             dataKey={'Sales'}
-                                            span='col-lg-8 col-xl-9 mb-3 mb-lg-0'
+                                            span='col-md-8 col-xl-9 mb-3 mb-md-0'
                                         />
-                                        <div className='col-lg-4 col-xl-3'>
+                                        <div className='col-md-4 col-xl-3'>
                                             <div className='card item shadow-sm'>
-                                                <div className='card-body px-sm-5 pt-sm-4 px-lg-2 pt-lg-3 p-xxl-4'>
+                                                <div className='card-body px-sm-5 pt-sm-4 px-md-3 pt-lg-3 p-xxl-4'>
                                                     <div className='details mb-3'>
-                                                        <img src={product.img} className='img-thumbnail' alt={product.name} />
+                                                        <img
+                                                            src={product.img}
+                                                            className='img-thumbnail me-3'
+                                                            alt={product.name}
+                                                        />
                                                         <span className='name'>{product.name}</span>
                                                     </div>
                                                     <div className='data'>

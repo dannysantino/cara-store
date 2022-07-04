@@ -33,63 +33,68 @@ const TopStats = () => {
 
     return (
         <>
-            <article className='col-sm-4 mb-3 mb-sm-0'>
-                <div className='card shadow-sm'>
-                    <div className='card-body p-sm-2 p-lg-3'>
-                        <h4>Revenue</h4>
-                        <div className='stats'>
-                            <span className='amount'>${(0.4 * income[1]?.total) + income[1]?.total}</span>
-                            <span className='rate ms-3'>
-                                {revenue.current}
-                                {revenue.current < 0
-                                    ? <i className='fa-solid fa-arrow-down neg'></i>
-                                    : <i className='fa-solid fa-arrow-up'></i>
-                                }
-                            </span>
-                        </div>
-                        <footer>Compared to previous month</footer>
-                    </div>
-                </div>
-            </article>
+            {
+                income.length && (
+                    <>
+                        <article className='col-sm-4 mb-3 mb-sm-0'>
+                            <div className='card shadow-sm'>
+                                <div className='card-body p-sm-2 p-lg-3'>
+                                    <h4>Revenue</h4>
+                                    <div className='stats'>
+                                        <span className='amount'>${((0.4 * income[1]?.total) + income[1]?.total).toFixed(2)}</span>
+                                        <span className='rate ms-3'>
+                                            {(revenue.current).toFixed(0)}%
+                                            {revenue.current < 0
+                                                ? <i className='fa-solid fa-arrow-down neg'></i>
+                                                : <i className='fa-solid fa-arrow-up'></i>
+                                            }
+                                        </span>
+                                    </div>
+                                    <footer>Compared to previous month</footer>
+                                </div>
+                            </div>
+                        </article>
 
-            <article className='col-sm-4 mb-3 mb-sm-0'>
-                <div className='card shadow-sm'>
-                    <div className='card-body p-sm-2 p-lg-3'>
-                        <h4>Sales</h4>
-                        <div className='stats'>
-                            <span className='amount'>${income[1]?.total}</span>
-                            <span className='rate ms-3'>
-                                {sales.current}
-                                {sales.current < 0
-                                    ? <i className='fa-solid fa-arrow-down neg'></i>
-                                    : <i className='fa-solid fa-arrow-up'></i>
-                                }
-                            </span>
-                        </div>
-                        <footer>Compared to previous month</footer>
-                    </div>
-                </div>
-            </article>
+                        <article className='col-sm-4 mb-3 mb-sm-0'>
+                            <div className='card shadow-sm'>
+                                <div className='card-body p-sm-2 p-lg-3'>
+                                    <h4>Sales</h4>
+                                    <div className='stats'>
+                                        <span className='amount'>${(income[1]?.total).toFixed(2)}</span>
+                                        <span className='rate ms-3'>
+                                            {(sales.current).toFixed(0)}%
+                                            {sales.current < 0
+                                                ? <i className='fa-solid fa-arrow-down neg'></i>
+                                                : <i className='fa-solid fa-arrow-up'></i>
+                                            }
+                                        </span>
+                                    </div>
+                                    <footer>Compared to previous month</footer>
+                                </div>
+                            </div>
+                        </article>
 
-            <article className='col-sm-4'>
-                <div className='card shadow-sm'>
-                    <div className='card-body p-sm-2 p-lg-3'>
-                        <h4>Expenses</h4>
-                        <div className='stats'>
-                            <span className='amount'>${(0.25 * income[1]?.total)}</span>
-                            <span className='rate ms-3'>
-                                {expenses.current}
-                                {expenses.current < 0
-                                    ? <i className='fa-solid fa-arrow-down'></i>
-                                    : <i className='fa-solid fa-arrow-up neg'></i>
-                                }
-                            </span>
-                        </div>
-                        <footer>Compared to previous month</footer>
-                    </div>
-                </div>
-            </article>
-
+                        <article className='col-sm-4'>
+                            <div className='card shadow-sm'>
+                                <div className='card-body p-sm-2 p-lg-3'>
+                                    <h4>Expenses</h4>
+                                    <div className='stats'>
+                                        <span className='amount'>${(0.25 * income[1]?.total).toFixed(2)}</span>
+                                        <span className='rate ms-3'>
+                                            {(expenses.current).toFixed(0)}%
+                                            {expenses.current < 0
+                                                ? <i className='fa-solid fa-arrow-down'></i>
+                                                : <i className='fa-solid fa-arrow-up neg'></i>
+                                            }
+                                        </span>
+                                    </div>
+                                    <footer>Compared to previous month</footer>
+                                </div>
+                            </div>
+                        </article>
+                    </>
+                )
+            }
         </>
     )
 }
