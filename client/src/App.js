@@ -15,6 +15,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Success from './pages/Success';
 import Order from './pages/Order';
+import Profile from './pages/Profile';
 
 import './App.css';
 
@@ -37,6 +38,7 @@ function App() {
           <Route path='register' element={<Register />} />
           <Route path='success' element={<AuthRoute><Success /></AuthRoute>} />
           <Route path='order/:id' element={<AuthRoute><Order /></AuthRoute>} />
+          <Route path='profile/:id' element={<AuthRoute><Profile /></AuthRoute>} />
         </Routes>
       </ScrollToTop>
     </Router>

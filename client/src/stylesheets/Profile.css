@@ -1,0 +1,202 @@
+#profile-header {
+    height: 30vh;
+    background-image: url(../assets//img/banner/b2.jpg);
+}
+
+.img-name {
+    position: relative;
+}
+
+.img-name .wrapper {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: -50px;
+}
+
+.img-name .wrapper img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+}
+
+.img-name .wrapper i {
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #0dcaf0;
+    position: absolute;
+    bottom: 20px;
+    left: 140px;
+    cursor: pointer;
+}
+
+.img-name .wrapper .name h5 {
+    font-weight: 700;
+}
+
+#profile {
+    margin-top: 180px;
+}
+
+#profile .col-md-7 .wrapper > span {
+    display: inline-block;
+    margin-bottom: 32px;
+}
+
+#profile .wrapper h3 {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+#profile form .user-info {
+    display: flex;
+    align-items: center;
+}
+
+#profile form .user-info i {
+    vertical-align: middle;
+}
+
+#profile form .user-info input {
+    width: calc(100% - 64px);
+    padding: 10px 15px;
+    outline: none;
+    border: 1px solid #e1e1e1;
+}
+
+#profile form .update {
+    display: flex;
+}
+
+#profile form .update .update {
+    font-weight: 600;
+    margin-left: 64px;
+}
+
+#profile form .update .delete {
+    font-weight: 600;
+    padding: 10px 20px;
+    margin-left: auto;
+}
+
+#profile .col-md-5 .wrapper {
+    margin-top: 56px;
+}
+
+#profile .col-md-5 .wrapper h3 {
+    margin-bottom: 1rem;
+}
+
+#profile .col-md-5 .wrapper p a {
+    text-decoration: none;
+}
+
+#profile .wrapper .orders {
+    font-size: 15px;
+}
+
+#profile .wrapper .order:hover h4 {
+    color: #0a58ca;
+    text-decoration: underline;
+}
+
+#profile .wrapper .order h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0d6efd;
+    margin-bottom: 1rem;
+}
+
+#profile .wrapper .order .date-status,
+#profile .wrapper .order .qty-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .4rem;
+}
+
+#profile .order .date-status span:nth-child(2) {
+    font-weight: 500;
+    padding: .2rem .3rem;
+}
+
+#profile .order .date-status span:nth-child(2).pending {
+    background-color: rgb(243, 181, 25);
+}
+
+#profile .order .date-status span:nth-child(2).delivered {
+    background-color: #088178;
+}
+
+@media only screen and (max-width: 767px) {
+    .img-name .wrapper {
+        top: -40px;
+    }
+    .img-name .wrapper img {
+        width: 150px;
+        height: 150px;
+    }
+    .img-name .wrapper i {
+        left: 120px;
+    }
+    #profile {
+        margin-top: 160px;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .img-name .wrapper {
+        top: -30px;
+    }
+    .img-name .wrapper img {
+        width: 120px;
+        height: 120px;
+    }
+    .img-name .wrapper i {
+        padding: 7px;
+        bottom: 10px;
+        left: 90px;
+    }
+    #profile {
+        margin-top: 130px;
+    }
+    #profile .col-md-7 .wrapper span {
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .img-name .name {
+        margin-left: .7rem !important;
+    }
+    .img-name .name h5 {
+        font-size: 1rem;
+        margin-bottom: .25rem;
+    }
+    .img-name .name span,
+    #profile .wrapper .orders {
+        font-size: 14px;
+    }
+    #profile .col-md-7 .wrapper span {
+        margin-bottom: 1rem;
+    }
+    #profile form .user-info i {
+        font-size: 1.7em;
+    }
+    #profile form .user-info input {
+        font-size: .8rem;
+        width: calc(100% - 58px);
+        padding: 5px 10px;
+    }
+    #profile form .update button {
+        font-size: 12px;
+        padding: 12px 20px;
+        margin-left: 60px;
+    }
+    #profile .col-md-5 .wrapper p.lead {
+        font-size: 1.1rem;
+    }
+    #profile .wrapper .order h4 {
+        font-size: .9rem;
+    }
+}
