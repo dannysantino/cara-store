@@ -17,9 +17,12 @@ const Navbar = () => {
 
     const handleClick = e => {
         const nav = document.getElementById('navbar');
+        const tag = e.target.tagName;
         if (e.target.id === 'bar') {
             nav.classList.add('active');
         } else if (e.target.id === 'close-btn') {
+            nav.classList.remove('active');
+        } else if (window.innerWidth < 992 && (tag === 'A' || tag === 'BUTTON')) {
             nav.classList.remove('active');
         }
     }
@@ -54,11 +57,36 @@ const Navbar = () => {
                 </Link>
                 <div className='wrapper'>
                     <ul id='navbar'>
-                        <li className='nav-li'><NavLink to='/'>Home</NavLink></li>
-                        <li className='nav-li'><NavLink to='/shop'>Shop</NavLink></li>
-                        <li className='nav-li'><NavLink to='/blog'>Blog</NavLink></li>
-                        <li className='nav-li'><NavLink to='/about'>About Us</NavLink></li>
-                        <li className='nav-li'><NavLink to='/contact'>Contact</NavLink></li>
+                        <li
+                            className='nav-li'
+                            onClick={handleClick}
+                        >
+                            <NavLink to='/'>Home</NavLink>
+                        </li>
+                        <li
+                            className='nav-li'
+                            onClick={handleClick}
+                        >
+                            <NavLink to='/shop'>Shop</NavLink>
+                        </li>
+                        <li
+                            className='nav-li'
+                            onClick={handleClick}
+                        >
+                            <NavLink to='/blog'>Blog</NavLink>
+                        </li>
+                        <li
+                            className='nav-li'
+                            onClick={handleClick}
+                        >
+                            <NavLink to='/about'>About Us</NavLink>
+                        </li>
+                        <li
+                            className='nav-li'
+                            onClick={handleClick}
+                        >
+                            <NavLink to='/contact'>Contact</NavLink>
+                        </li>
                         <li id='nav-cart'>
                             <NavLink to='/cart'>
                                 <i className='fa-solid fa-cart-shopping'></i>
@@ -71,7 +99,10 @@ const Navbar = () => {
                             currentUser
                                 ? (
                                     <>
-                                        <li className='auth-li image-li'>
+                                        <li
+                                            className='auth-li image-li'
+                                            onClick={handleClick}
+                                        >
                                             <Link to={`/profile/${currentUser._id}`}>
                                                 <img
                                                     src={currentUser.img}
@@ -80,7 +111,10 @@ const Navbar = () => {
                                                 />
                                             </Link>
                                         </li>
-                                        <li className='auth-li logout-li'>
+                                        <li
+                                            className='auth-li logout-li'
+                                            onClick={handleClick}
+                                        >
                                             <button
                                                 className='btn btn-info logout'
                                                 onClick={() => handleLogout()}
@@ -92,7 +126,10 @@ const Navbar = () => {
                                 )
                                 : (
                                     <>
-                                        <li className='auth-li login-li'>
+                                        <li
+                                            className='auth-li login-li'
+                                            onClick={handleClick}
+                                        >
                                             <button
                                                 className='btn btn-success login'
                                                 onClick={() => handleNavigate('/login')}
@@ -100,7 +137,10 @@ const Navbar = () => {
                                                 LOG IN
                                             </button>
                                         </li>
-                                        <li className='auth-li register-li'>
+                                        <li
+                                            className='auth-li register-li'
+                                            onClick={handleClick}
+                                        >
                                             <button
                                                 className='btn btn-primary register'
                                                 onClick={() => handleNavigate('/register')}

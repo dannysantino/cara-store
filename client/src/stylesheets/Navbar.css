@@ -134,7 +134,7 @@
         background-color: #d4d9ed;
         box-shadow: 0 40px 60px rgba(0, 0, 0, .1);
         overflow-y: auto;
-        transition: .3s ease;
+        transition: .5s ease;
     }
     #navbar.active {
         right: 0;
@@ -188,6 +188,12 @@
 @media only screen and (max-width: 575px) {
     #user-alert {
         min-width: 80%;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    #navbar li {
+        margin-bottom: 2.5rem;
     }
 }
 
