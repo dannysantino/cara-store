@@ -177,7 +177,7 @@
     background-image: url(../assets/img/banner/b18.jpg);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
     #hero .offer h2 {
         font-size: 25px;
         line-height: normal;

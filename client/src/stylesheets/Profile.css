@@ -64,19 +64,23 @@
     border: 1px solid #e1e1e1;
 }
 
-#profile form .update {
+#profile form .action {
     display: flex;
 }
 
-#profile form .update .update {
+#profile form .action .update {
     font-weight: 600;
     margin-left: 64px;
 }
 
-#profile form .update .delete {
+#profile form .action .delete {
     font-weight: 600;
     padding: 10px 20px;
     margin-left: auto;
+}
+
+#profile form .action .delete span {
+    margin-right: 0 !important;
 }
 
 #profile .col-md-5 .wrapper {
@@ -101,7 +105,7 @@
 }
 
 #profile .wrapper .order h4 {
-    font-size: 1rem;
+    font-size: .95rem;
     font-weight: 700;
     color: #0d6efd;
     margin-bottom: 1rem;
@@ -160,7 +164,7 @@
     #profile {
         margin-top: 130px;
     }
-    #profile .col-md-7 .wrapper span {
+    #profile .col-md-7 .wrapper > span {
         margin-bottom: 20px;
     }
 }
@@ -177,7 +181,7 @@
     #profile .wrapper .orders {
         font-size: 14px;
     }
-    #profile .col-md-7 .wrapper span {
+    #profile .col-md-7 .wrapper > span {
         margin-bottom: 1rem;
     }
     #profile form .user-info i {
@@ -188,7 +192,7 @@
         width: calc(100% - 58px);
         padding: 5px 10px;
     }
-    #profile form .update button {
+    #profile form .action button {
         font-size: 12px;
         padding: 12px 20px;
         margin-left: 60px;

@@ -4,7 +4,7 @@ export const updateAlert = (type, item, message) => {
             ${type === 'success'
             ? '<i class="bi bi-check-circle-fill me-2"></i>'
             : '<i class="bi bi-exclamation-triangle-fill me-2"></i>'}
-            <b>${item}</b> ${message}
+            <p class='mb-0'><b>${item}</b> ${message}</p>
             <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
         </div>
     `
@@ -21,7 +21,7 @@ export const userAlert = (type, message, user) => {
                     ? '<i class="bi bi-info-circle-fill me-2"></i>'
                     : '<i class="bi bi-exclamation-triangle-fill me-2"></i>'
         }
-            ${message} <b>${user}</b>
+            <p class='mb-0'>${message} <b>${user}</b></p>
             <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
         </div>
     `

@@ -3,10 +3,13 @@ import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import { userAlert } from '../utils/alerts'
+import { useTitle } from '../utils/pageTitle'
 import { setError, userRequest } from '../utils/requestMethods'
 import Loader from '../components/Loader'
 
 const Order = () => {
+    useTitle('Your Order');
+
     const { id } = useParams();
     const { state } = useLocation();
     const navigate = useNavigate();
@@ -83,7 +86,7 @@ const Order = () => {
             .catch(e => {
                 if (e.cause?.response?.status === 403) {
                     userAlert('danger', e.cause.response.data, '');
-                    navigate('/');
+                    navigate('/', { replace: true });
                 } else {
                     setStatus({ fetching: false, error: true });
                 }
@@ -122,13 +125,17 @@ const Order = () => {
                                                     <span className='text-success d-block d-md-inline mt-2'>
                                                         <i className='fa-solid fa-plane-arrival'></i>
                                                         &nbsp;
-                                                        <b>Estimated delivery: 1 - 2 business days</b>
+                                                        {
+                                                            order.status === 'pending'
+                                                                ? <b>Estimated delivery: 1 - 2 business days</b>
+                                                                : <b>Order delivered</b>
+                                                        }
                                                     </span>
                                                 </div>
                                                 <hr />
                                                 <div className='products my-4' style={styles.font}>
-                                                    {order.products.map(e => (
-                                                        <div className='row px-xl-2 px-xxl-3 my-3' key={e._id}>
+                                                    {order.products.map((e, i) => (
+                                                        <div className='row px-xl-2 px-xxl-3 my-3' key={i}>
                                                             <div className='col-3 col-sm-2 text-start pe-0'>
                                                                 <img
                                                                     src={e.img}
@@ -244,7 +251,7 @@ const Order = () => {
                                                                 <tbody>
                                                                     <tr>
                                                                         <td className='pb-3'>Subtotal</td>
-                                                                        <td className='pb-3 text-end'>$ {order.total - 12}</td>
+                                                                        <td className='pb-3 text-end'>$ {(order.total - 12).toFixed(2)}</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td className='pb-3'>Shipping</td>

@@ -1,9 +1,12 @@
+import { useTitle } from '../utils/pageTitle'
 import Blogpost from '../components/Blogpost'
 import Pagination from '../components/Pagination'
 
 import '../stylesheets/Blog.css'
 
 const Blog = () => {
+    useTitle('Blog');
+
     return (
         <>
             <section id='blog-header' className='page-header'>

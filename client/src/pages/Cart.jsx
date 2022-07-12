@@ -4,13 +4,17 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { removeFromCart, updateCartItem } from '../redux/actions/cartActions'
 import { clearCart } from '../redux/reducers/cartReducers'
+import { updateUser } from '../redux/reducers/userReducers'
 import { userAlert } from '../utils/alerts'
+import { useTitle } from '../utils/pageTitle'
 import { setError, userRequest, verifyToken } from '../utils/requestMethods'
+import Spinner from '../components/Spinner'
 
 import '../stylesheets/Cart.css'
-import { updateUser } from '../redux/reducers/userReducers'
 
 const Cart = () => {
+    useTitle('Your Cart');
+
     const location = useLocation();
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -163,7 +167,7 @@ const Cart = () => {
                             <section id='summary'>
                                 <div className='container'>
                                     <div className='row px-sm-4'>
-                                        <div className='col-12 col-md-6'>
+                                        <div className='col-md-6'>
                                             <div id='coupon' className='pt-md-4 mb-4'>
                                                 <h4 className='mb-3'>Apply Coupon</h4>
                                                 <div className='form'>
@@ -173,7 +177,7 @@ const Cart = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='col-12 col-md-6'>
+                                        <div className='col-md-6'>
                                             <div id='subtotal' className='p-4 mb-4'>
                                                 <h4 className='mb-3'>Cart Total</h4>
                                                 <table className='mb-4'>
@@ -188,7 +192,7 @@ const Cart = () => {
                                                         </tr>
                                                         <tr>
                                                             <td><b>Total</b></td>
-                                                            <td><b>$ {cart.total + 12}</b></td>
+                                                            <td><b>$ {(cart.total + 12).toFixed(2)}</b></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -198,13 +202,7 @@ const Cart = () => {
                                                         disabled={loading}
                                                         onClick={checkout}
                                                     >
-                                                        {loading &&
-                                                            <span
-                                                                className='spinner-border spinner-border-sm me-2'
-                                                                role='status'
-                                                                aria-hidden='true'
-                                                            />
-                                                        }
+                                                        {loading && <Spinner />}
                                                         Proceed to checkout
                                                     </button>
                                                     <button

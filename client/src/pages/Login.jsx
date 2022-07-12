@@ -2,14 +2,18 @@ import { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { verifyToken } from '../utils/requestMethods'
 import { login, logout } from '../redux/actions/userActions'
 import { userAlert } from '../utils/alerts'
+import { useTitle } from '../utils/pageTitle'
+import { verifyToken } from '../utils/requestMethods'
+import Spinner from '../components/Spinner'
 
 import a5 from '../assets/img/about/a5.jpg'
 import '../stylesheets/Logister.css'
 
 const Login = () => {
+    useTitle('Login');
+
     const { state } = useLocation();
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -99,6 +103,7 @@ const Login = () => {
                                                         className='btn btn-success w-100'
                                                         disabled={loading}
                                                     >
+                                                        {loading && <Spinner />}
                                                         LOGIN
                                                     </button>
                                                 </div>

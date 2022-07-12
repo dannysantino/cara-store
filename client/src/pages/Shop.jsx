@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { getProducts } from '../redux/actions/productActions'
+import { useTitle } from '../utils/pageTitle'
 import Loader from '../components/Loader'
 import ShopItem from '../components/ShopItem'
 import Pagination from '../components/Pagination'
@@ -10,6 +11,8 @@ import Pagination from '../components/Pagination'
 import '../stylesheets/Shop.css'
 
 const Shop = () => {
+    useTitle('Shop Cara');
+
     const dispatch = useDispatch();
     const [searchParams] = useSearchParams();
     const { fetching, error, products } = useSelector(state => state.products);

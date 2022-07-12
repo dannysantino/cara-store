@@ -55,7 +55,7 @@ router.get('/admin/:id', verifyTokenAndAdmin, catchAsync(async (req, res) => {
 
 router.put('/update/:id', verifyTokenAndAuth, upload.single('img'), catchAsync(async (req, res) => {
     req.body.password && (req.body.password = CryptoJS.AES.encrypt(
-        userPassword, process.env.CRYPTO_JS_SECRET
+        req.body.password, process.env.CRYPTO_JS_SECRET
     ).toString());
 
     req.file && (req.body.img = req.file.path);

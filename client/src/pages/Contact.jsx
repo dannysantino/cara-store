@@ -1,9 +1,13 @@
+import { useTitle } from '../utils/pageTitle'
+
 import avatar1 from '../assets/img/people/1.png'
 import avatar2 from '../assets/img/people/2.png'
 import avatar3 from '../assets/img/people/3.png'
 import '../stylesheets/Contact.css'
 
 const Contact = () => {
+    useTitle('Contact Us');
+
     return (
         <>
             <section id='contact-header' className='page-header'>
@@ -22,7 +26,7 @@ const Contact = () => {
             <section id='contact' className='pb-4 py-md-5 mt-5'>
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-12 col-md-6'>
+                        <div className='col-md-6'>
                             <div className='wrapper details'>
                                 <span>GET IN TOUCH</span>
                                 <h2>Visit one of our agency locations or contact us today</h2>
@@ -50,7 +54,7 @@ const Contact = () => {
                             </div>
                         </div>
 
-                        <div className='col-12 col-md-6 mt-4 mt-md-0'>
+                        <div className='col-md-6 mt-4 mt-md-0'>
                             <div className='wrapper map'>
                                 <iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d73968.40792802478!2d-5.996671590783298!3d54.59495923962352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4860fffdd7d08a3b%3A0x2e57162cefc7c531!2sBelfast%2C%20UK!5e0!3m2!1sen!2sng!4v1646571467204!5m2!1sen!2sng' title='store location map' width='600' height='450' style={{ border: 0 }} allowFullScreen='' loading='lazy'></iframe>
                             </div>
@@ -62,7 +66,7 @@ const Contact = () => {
             <section id='contact-form' className='pt-5 pb-lg-5'>
                 <div className='container'>
                     <div className='row pt-5 px-sm-3 px-md-4 p-lg-5 mx-1 mx-sm-0'>
-                        <div className='col-12 col-lg-7 col-xl-8'>
+                        <div className='col-lg-7 col-xl-8'>
                             <div className='wrapper form'>
                                 <form action=''>
                                     <span>LEAVE A MESSAGE</span>
@@ -75,7 +79,7 @@ const Contact = () => {
                                 </form>
                             </div>
                         </div>
-                        <div className='col-12 col-lg-5 col-xl-4 mt-4'>
+                        <div className='col-lg-5 col-xl-4 mt-4'>
                             <div className='wrapper contact-staff ms-lg-5'>
                                 <h2>Contact Staff</h2>
                                 <div className='staff mb-5'>

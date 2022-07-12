@@ -9,9 +9,19 @@
     background-image: url(../assets/img/about/banner.png);
 }
 
+#logister .wrapper {
+    display: flex;
+}
+
 #logister .card .login-img {
     max-height: 200px;
     object-fit: cover;
+}
+
+#logister .card .reg-img {
+    height: 100%;
+    object-fit: cover;
+    object-position: right;
 }
 
 #logister .card-body h3 {
@@ -23,4 +33,27 @@
     color: #0d6efd;
     background: none;
     border: none;
+}
+
+@media only screen and (max-width: 767px) {
+    #logister .wrapper {
+        flex-direction: column;
+    }
+    #logister .card .reg-img {
+        object-position: center;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    #logister .card-body label {
+        font-size: .8rem;
+    }
+    #logister .card-body input {
+        font-size: .875rem;
+        padding: .25rem .5rem;
+        border-radius: .2rem;
+    }
+    #logister .card-body p {
+        font-size: 14px;
+    }
 }

@@ -4,12 +4,15 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { clearCart } from '../redux/reducers/cartReducers'
 import { userAlert } from '../utils/alerts'
+import { useTitle } from '../utils/pageTitle'
 import { placeNewOrder } from '../utils/placeNewOrder'
 import Loader from '../components/Loader'
 
 import banner from '../assets/img/about/banner.png'
 
 const Success = () => {
+    useTitle('Order Confirmation');
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [searchParams] = useSearchParams();
@@ -47,7 +50,7 @@ const Success = () => {
 
     useEffect(() => {
         if (!searchParams.has('session_id')) {
-            navigate('/');
+            navigate('/', { replace: true });
         } else {
             placeNewOrder(searchParams.get('session_id'))
                 .then(res => {
@@ -58,10 +61,12 @@ const Success = () => {
                     console.error(e);
                     setStatus({ placing: false, error: true });
                     if (e.message === 'Duplicate Error!') {
-                        setErrorMessage('Your order has already been placed! Please visit your profile page to view the details.');
+                        setErrorMessage(
+                            'Your order has already been placed! Please visit your profile page to view the details.'
+                        );
                     } else if (e.cause?.response?.status === 401 || e.cause?.response?.status === 403) {
                         userAlert('danger', e.cause.response.data, '');
-                        navigate('/');
+                        navigate('/', { replace: true });
                     }
                 });
         }
@@ -81,7 +86,9 @@ const Success = () => {
                                                 ? (
                                                     <>
                                                         <Loader />
-                                                        <p className='lead mt-4'>Please wait while we confirm your order...</p>
+                                                        <p className='lead mt-4'>
+                                                            Please wait while we confirm your order...
+                                                        </p>
                                                     </>
                                                 )
                                                 : status.error && !errorMessage
@@ -91,7 +98,11 @@ const Success = () => {
                                                     : (
                                                         <>
                                                             <div className='checkmark mb-3'>
-                                                                <i className='fa-solid fa-circle-check fa-4x' style={styles.checkMark}></i>
+                                                                <i
+                                                                    className='fa-solid fa-circle-check fa-4x'
+                                                                    style={styles.checkMark}
+                                                                >
+                                                                </i>
                                                             </div>
                                                             <h4 className='text-success mb-4'>Payment successful!</h4>
                                                             {
@@ -105,11 +116,12 @@ const Success = () => {
                                                                                     to={`/profile/${currentUser._id}`}
                                                                                     style={styles.profileLink}
                                                                                 >
-                                                                                    {currentUser.name}
-                                                                                </Link>!
+                                                                                    {currentUser.name}!
+                                                                                </Link>
                                                                                 Your order has been placed.
                                                                                 <br />
-                                                                                You will receive confirmation via email shortly with the expected delivery details for your item(s).
+                                                                                You will receive confirmation via email shortly&nbsp;
+                                                                                with the expected delivery details for your item(s).
                                                                             </p>
                                                                             <div className='mt-4 mb-3'>
                                                                                 <Link
@@ -135,7 +147,6 @@ const Success = () => {
                                 </div>
                             </div>
                         </div>
-
                     </section>
                 )
             }

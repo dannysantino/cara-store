@@ -11,7 +11,7 @@ import '../stylesheets/Navbar.css'
 
 const Navbar = () => {
     const location = useLocation();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const { cart, user: { currentUser } } = useSelector(state => state);
 

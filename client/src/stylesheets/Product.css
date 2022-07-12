@@ -29,6 +29,10 @@
     filter: brightness(.8);
 }
 
+#product .details .alert {
+    display: flex;
+}
+
 #product .details .add-to-cart {
     display: flex;
 }

@@ -2,14 +2,18 @@ import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { logout } from '../redux/actions/userActions'
 import { updateUser } from '../redux/reducers/userReducers'
 import { userAlert } from '../utils/alerts'
+import { useTitle } from '../utils/pageTitle'
 import { setError, userRequest } from '../utils/requestMethods'
+import Spinner from '../components/Spinner'
 
 import '../stylesheets/Profile.css'
-import { logout } from '../redux/actions/userActions'
 
 const Profile = () => {
+    useTitle('Your Profile');
+
     const { id } = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -27,8 +31,8 @@ const Profile = () => {
 
     const [inputs, setInputs] = useState({});
     const [errorMessage, setErrorMessage] = useState('');
-    const [loading, setLoading] = useState({ update: false, delete: false });
     const [status, setStatus] = useState({ error: false, orders: [] });
+    const [loading, setLoading] = useState({ update: false, delete: false });
 
     const handleInputs = e => {
         e.target.name === 'img'
@@ -82,14 +86,14 @@ const Profile = () => {
             return data;
         } catch (err) {
             console.error(err);
-            throw new Error(setError(err), { cause: err });
+            throw new Error(setError(err));
         }
     }, [_id]);
 
     useEffect(() => {
         if (id !== _id) {
             userAlert('danger', 'Access denied! Unauthorised user', '');
-            navigate('/');
+            navigate('/', { replace: true });
         } else {
             getOrders()
                 .then(res => setStatus({ error: false, orders: res.reverse() }))
@@ -244,18 +248,14 @@ const Profile = () => {
                                                         onChange={handleInputs}
                                                     />
                                                 </div>
-                                                <div className='update mt-4 mt-md-5'>
+                                                <div className='action mt-4 mt-md-5'>
                                                     <button
                                                         className='base update'
                                                         onClick={handleUpdate}
                                                         disabled={loading.update || !Object.keys(inputs).length}
                                                     >
                                                         {loading.update
-                                                            ? <span
-                                                                className='spinner-border spinner-border-sm me-2'
-                                                                role='status'
-                                                                aria-hidden='true'
-                                                            />
+                                                            ? <Spinner />
                                                             : <i className='fa-solid fa-pen-to-square me-2'></i>
                                                         }
                                                         UPDATE
@@ -268,11 +268,7 @@ const Profile = () => {
                                                         disabled={loading.delete}
                                                     >
                                                         {loading.delete
-                                                            ? <span
-                                                                className='spinner-border spinner-border-sm'
-                                                                role='status'
-                                                                aria-hidden='true'
-                                                            />
+                                                            ? <Spinner />
                                                             : <i className='fa-solid fa-trash-can'></i>
                                                         }
                                                     </button>

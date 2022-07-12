@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom'
 
 import importImages from '../utils/importImages'
+import { useTitle } from '../utils/pageTitle'
 import Featured from '../components/Featured'
 
 import '../stylesheets/Home.css'
 
 const Home = () => {
+    useTitle('Cara Store | Home');
+
     const images = importImages(require.context('../assets/img/features', false, /\.png/));
 
     return (
@@ -106,7 +109,7 @@ const Home = () => {
             <section id='explore' className='pt-3 mt-5 mb-3'>
                 <div className='container-fluid'>
                     <div className='row px-4 px-xl-5'>
-                        <div className='col-12 col-lg-6'>
+                        <div className='col-lg-6'>
                             <div className='banner-box px-4 px-sm-5 py-5'>
                                 <h4>super deals</h4>
                                 <h2>buy 2 get 1 free!</h2>
@@ -114,7 +117,7 @@ const Home = () => {
                                 <button className='clear'>Learn More</button>
                             </div>
                         </div>
-                        <div className='col-12 col-lg-6'>
+                        <div className='col-lg-6'>
                             <div className='banner-box spring px-4 px-sm-5 py-5'>
                                 <h4>spring collection</h4>
                                 <h2>upcoming season</h2>
@@ -129,7 +132,7 @@ const Home = () => {
             <section id='sale' className='pt-3 my-3'>
                 <div className='container-fluid'>
                     <div className='row px-4 px-xl-5'>
-                        <div className='col-12 col-xl-4'>
+                        <div className='col-xl-4'>
                             <div className='banner-box p-4 p-sm-5'>
                                 <h2>SEASONAL SALE</h2>
                                 <h3>Winter Collection - 50% Off!</h3>

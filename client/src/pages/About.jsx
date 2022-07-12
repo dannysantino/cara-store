@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 
+import { useTitle } from '../utils/pageTitle'
 import Featured from '../components/Featured'
 
 import a6 from '../assets/img/about/a6.jpg'
@@ -7,6 +8,8 @@ import vid from '../assets/img/about/1.mp4'
 import '../stylesheets/About.css'
 
 const About = () => {
+    useTitle('About Cara');
+
     return (
         <>
             <section id='about-header' className='page-header'>
@@ -25,12 +28,12 @@ const About = () => {
             <section id='about' className='py-lg-5 my-5'>
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-12 col-lg-6'>
+                        <div className='col-lg-6'>
                             <div className='wrapper image'>
                                 <img src={a6} alt='shopping illustration' />
                             </div>
                         </div>
-                        <div className='col-12 col-lg-6 mt-4 mt-lg-0'>
+                        <div className='col-lg-6 mt-4 mt-lg-0'>
                             <div className='wrapper story pt-4 ps-0 pt-lg-0 ps-lg-3'>
                                 <h2 className='text-center text-lg-start'>Who We Are</h2>
                                 <p>
@@ -61,7 +64,7 @@ const About = () => {
                         <h2>Download Our <Link to='#'>App</Link></h2>
                     </div>
                     <div className='row mt-4'>
-                        <div className='col-12 col-lg-8 offset-lg-2'>
+                        <div className='col-lg-8 offset-lg-2'>
                             <div className='wrapper video'>
                                 <video src={vid} autoPlay muted loop></video>
                             </div>

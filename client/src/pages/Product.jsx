@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { addToCart } from '../redux/actions/cartActions'
 import { updateAlert } from '../utils/alerts'
+import { useTitle } from '../utils/pageTitle'
 import { publicRequest } from '../utils/requestMethods'
 import Loader from '../components/Loader'
 import Featured from '../components/Featured'
@@ -11,6 +12,8 @@ import Featured from '../components/Featured'
 import '../stylesheets/Product.css'
 
 const Product = () => {
+    useTitle('Product');
+
     const { id } = useParams();
     const dispatch = useDispatch();
 
@@ -82,7 +85,11 @@ const Product = () => {
                                         <>
                                             <div className='col-lg-6'>
                                                 <div className='wrapper image'>
-                                                    <img src={product.img} alt={product.name} />
+                                                    <img
+                                                        src={product.img}
+                                                        alt={product.name}
+                                                        className='img-thumbnail'
+                                                    />
                                                 </div>
                                             </div>
 

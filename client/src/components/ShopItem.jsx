@@ -19,7 +19,7 @@ const ShopItem = ({ data }) => {
     }
 
     return (
-        <div className='col-12 col-sm-6 col-lg-3'>
+        <div className='col-sm-6 col-lg-3'>
             <div className='product'>
                 <Link to={`../product/${data._id}`}>
                     <img src={data.img} alt={data.name} />

@@ -62,14 +62,14 @@ router.get('/admin/income', verifyTokenAndAdmin, catchAsync(async (req, res) => 
             $match: {
                 createdAt: { $gte: startMonth },
                 ...(id && {
-                    products: { $elemMatch: { productId: id } }
+                    products: { $elemMatch: { _id: id } }
                 })
             }
         },
         {
             $project: {
                 month: { $month: '$createdAt' },
-                sales: '$amount'
+                sales: '$total'
             }
         },
         {
