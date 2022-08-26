@@ -1,7 +1,7 @@
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = 'https://carastoreapi.herokuapp.com/';
 
 export const publicRequest = axios.create({
     baseURL: BASE_URL
