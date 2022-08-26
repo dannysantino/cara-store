@@ -116,7 +116,7 @@ const Success = () => {
                                                                                     to={`/profile/${currentUser._id}`}
                                                                                     style={styles.profileLink}
                                                                                 >
-                                                                                    {currentUser.name}!
+                                                                                    {currentUser.name}!&nbsp;
                                                                                 </Link>
                                                                                 Your order has been placed.
                                                                                 <br />
