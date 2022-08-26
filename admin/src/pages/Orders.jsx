@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { getOrders, cancelOrder } from '../redux/actions/orderActions'
+import { getOrders, updateOrder, cancelOrder } from '../redux/actions/orderActions'
 import { getUsers } from '../redux/actions/usersActions'
 import { useOrderRows } from '../utils/dataGridColumns'
 import DataTable from '../components/DataTable'
