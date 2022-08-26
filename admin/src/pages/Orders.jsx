@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { getOrders, updateOrder, cancelOrder } from '../redux/actions/orderActions'
+import { getOrders, cancelOrder } from '../redux/actions/orderActions'
 import { getUsers } from '../redux/actions/usersActions'
 import { useOrderRows } from '../utils/dataGridColumns'
 import DataTable from '../components/DataTable'
@@ -11,8 +11,7 @@ const Orders = () => {
     const { orders: { fetching, error, orders }, users: { users } } = useSelector(state => state);
 
     const deleteOrder = id => cancelOrder(dispatch, id);
-    const handleUpdate = id => updateOrder(dispatch, id, { status: document.getElementById('status').value });
-    const { columns } = useOrderRows(deleteOrder, handleUpdate);
+    const { columns } = useOrderRows(deleteOrder);
 
     useEffect(() => {
         !users.length && getUsers(dispatch);

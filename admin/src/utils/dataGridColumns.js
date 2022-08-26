@@ -136,7 +136,7 @@ export const useUserRows = callback => {
     }
 }
 
-export const useOrderRows = (handleCancel, handleUpdate) => {
+export const useOrderRows = callback => {
     const { users: { users } } = store.getState();
     return {
         columns: [
@@ -197,21 +197,6 @@ export const useOrderRows = (handleCancel, handleUpdate) => {
                         >
                             {params.row.status}
                         </span>
-                        <select
-                            name='status'
-                            id='status'
-                            className='form-select mx-3'
-                            defaultValue={params.row.status}
-                        >
-                            <option value='pending'>Pending</option>
-                            <option value='Delivered'>Delivered</option>
-                        </select>
-                        <button
-                            className='btn btn-primary'
-                            onClick={() => handleUpdate(params.row._id)}
-                        >
-                            OK
-                        </button>
                     </div>
                 )
             },
@@ -223,7 +208,7 @@ export const useOrderRows = (handleCancel, handleUpdate) => {
                     <div className='actions'>
                         <button
                             className='btn'
-                            onClick={() => handleCancel(params.row._id)}
+                            onClick={() => callback(params.row._id)}
                             disabled={params.row.status === 'delivered'}
                         >
                             <i className='fa-solid fa-ban'></i>
