@@ -11,7 +11,8 @@ const Orders = () => {
     const { orders: { fetching, error, orders }, users: { users } } = useSelector(state => state);
 
     const deleteOrder = id => cancelOrder(dispatch, id);
-    const { columns } = useOrderRows(deleteOrder);
+    const handleUpdate = id => updateOrder(dispatch, id, { status: document.getElementById('status').value });
+    const { columns } = useOrderRows(deleteOrder, handleUpdate);
 
     useEffect(() => {
         !users.length && getUsers(dispatch);
