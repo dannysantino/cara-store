@@ -9,7 +9,7 @@
     "client": "npm start --prefix client",
     "admin": "npm start --prefix admin",
     "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run admin\"",
-    "db:seed": "node api/seed.js",
+    "db:seed": "node api/utilities/seed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,13 +1,14 @@
 {
-  "name": "api",
+  "name": "cara-store-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "NodeJS application serving resources to the Cara Store web app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Danny Santino",
   "license": "ISC",
   "dependencies": {
     "cloudinary": "^1.29.0",
