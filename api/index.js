@@ -19,7 +19,7 @@ mongoose.connect(process.env.MONGO_URI, {
     .then(() => console.log('Database successfully connected'))
     .catch(e => console.error('Error connecting to database', e));
 
-const allowedOrigins = ['https://caraonline.netlify.app/', 'https://caraonlineadmin.netlify.app/'];
+const allowedOrigins = ['https://caraonline.netlify.app', 'https://caraonlineadmin.netlify.app'];
 const corsOptions = {
     origin: (origin, callback) => allowedOrigins.indexOf(origin) !== -1
         ? callback(null, true)
