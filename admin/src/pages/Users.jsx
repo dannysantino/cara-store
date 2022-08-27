@@ -13,8 +13,8 @@ const Users = () => {
     const { columns } = useUserRows(handleDelete);
 
     useEffect(() => {
-        !users.length && getUsers(dispatch);
-    }, [users, dispatch]);
+        (!users.length || error) && getUsers(dispatch);
+    }, [users, error, dispatch]);
 
     return (
         <DataTable

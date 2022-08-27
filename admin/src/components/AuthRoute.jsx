@@ -19,9 +19,9 @@ const AuthRoute = ({ children }) => {
         });
     }
 
-    return adminUser && adminUser.isAdmin && isVerified
-        ? children
-        : <Navigate to='/login' state={state} replace />
+    return adminUser && !isVerified
+        ? <Navigate to='/login' state={state} replace />
+        : children
 }
 
 export default AuthRoute

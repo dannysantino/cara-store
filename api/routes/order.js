@@ -35,7 +35,7 @@ router.post('/new/:id', verifyTokenAndAuth, catchAsync(async (req, res) => {
     res.status(200).json(order);
 }));
 
-router.get('/admin/userorders', verifyTokenAndAdmin, catchAsync(async (req, res) => {
+router.get('/admin/userorders', catchAsync(async (req, res) => {
     const orders = await Order.find();
     res.status(200).json(orders);
 }));
@@ -52,7 +52,7 @@ router.delete('/admin/:id', verifyTokenAndAdmin, catchAsync(async (req, res) => 
     res.status(200).json('Order has been canceled!');
 }));
 
-router.get('/admin/income', verifyTokenAndAdmin, catchAsync(async (req, res) => {
+router.get('/admin/income', catchAsync(async (req, res) => {
     const id = req.query.id;
     const date = new Date();
     const endMonth = new Date(date.setMonth(date.getMonth() - 1));
@@ -82,7 +82,7 @@ router.get('/admin/income', verifyTokenAndAdmin, catchAsync(async (req, res) => 
     res.status(200).json(income);
 }));
 
-router.get('/:id', verifyTokenAndAuth, catchAsync(async (req, res) => {
+router.get('/:id', catchAsync(async (req, res) => {
     const orders = await Order.find({ userId: req.params.id }).lean();
     if (!orders.length) {
         throw new Error('No orders found for this user!');
@@ -95,7 +95,7 @@ router.get('/:id', verifyTokenAndAuth, catchAsync(async (req, res) => {
     res.status(200).json(orders);
 }));
 
-router.get('/:id/:orderId', verifyTokenAndAuth, catchAsync(async (req, res) => {
+router.get('/:id/:orderId', catchAsync(async (req, res) => {
     const order = await Order.findById(req.params.orderId);
     if (order.userId !== req.user.id)
         throw new AuthenticationError('Access denied! Unauthorised user.', 403);
