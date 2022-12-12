@@ -46,7 +46,11 @@ const Order = () => {
                                     <i className='fa-solid fa-ban ms-2'></i>
                                 </button>
                             </header>
-                            <div id='alert-box' className='d-inline-block'></div>
+
+                            <div className='wrapper'>
+                                <div id='alert-box' className='d-inline-block'></div>
+                            </div>
+
                             <div className='col-md-8 col-lg-12 col-xl-8 mb-3 mb-md-0 mb-lg-3 mb-xl-0'>
                                 <div className='card shadow-sm'>
                                     <div className='card-body order-details'>

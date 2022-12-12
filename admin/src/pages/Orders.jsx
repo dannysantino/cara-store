@@ -14,9 +14,9 @@ const Orders = () => {
     const { columns } = useOrderRows(deleteOrder);
 
     useEffect(() => {
-        !users.length && getUsers(dispatch);
-        !orders.length && getOrders(dispatch);
-    }, [users, orders, dispatch]);
+        (!users.length || error) && getUsers(dispatch);
+        (!orders.length || error) && getOrders(dispatch);
+    }, [users, error, orders, dispatch]);
 
     return (
         <>

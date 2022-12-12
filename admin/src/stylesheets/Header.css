@@ -12,11 +12,11 @@
     margin-left: .7rem;
 }
 
-.navbar .navbar-nav a:nth-child(1) {
+.navbar .navbar-nav a.notifs {
     position: relative;
 }
 
-.navbar .navbar-nav a:nth-child(1) span {
+.navbar .navbar-nav a.notifs span {
     top: -3px;
     right: -3px;
     position: absolute;
@@ -32,8 +32,10 @@
     border-radius: 50%;
 }
 
-.navbar .navbar-nav button {
+.navbar .navbar-nav .logout,
+.navbar .navbar-nav .login {
     color: aliceblue;
+    font-weight: 600;
     margin-left: 2rem;
 }
 
@@ -59,6 +61,9 @@
     }
     #navbarNavAltMarkup .navbar-nav a {
         margin: .3rem 0 0 0;
+    }
+    #navbarNavAltMarkup .navbar-nav .login {
+        margin-top: 1.5rem;
     }
     #navbarNavAltMarkup .navbar-nav button {
         margin: 1rem 0 0 0;

@@ -134,7 +134,7 @@ const NewProduct = () => {
                                 required
                             />
                         </div>
-                        <div className='col-md-6 mb-3 mb-lg-4 item-data'>
+                        <div className='col-md-6 mb-3 mb-md-0 item-data'>
                             <label htmlFor='size' className='form-label'>Size</label>
                             <input
                                 type='text'
@@ -146,7 +146,7 @@ const NewProduct = () => {
                                 required
                             />
                         </div>
-                        <div className='col-md-6 mb-3 mb-lg-4 item-data'>
+                        <div className='col-md-6 mb-3 mb-md-0 item-data'>
                             <label htmlFor='color' className='form-label'>Color</label>
                             <input
                                 type='text'

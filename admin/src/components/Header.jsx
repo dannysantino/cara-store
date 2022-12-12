@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { verifyToken } from '../utils/requestMethods'
 import { logout } from '../redux/reducers/adminReducers'
+import { userRequest, verifyToken } from '../utils/requestMethods'
 
 import '../stylesheets/Header.css'
 
@@ -16,6 +16,17 @@ const Header = () => {
     useEffect(() => {
         setIsVerified(verifyToken());
     }, [location]);
+
+    useEffect(() => {
+        if (!adminUser) {
+            userRequest.interceptors.response.use(res => res, err => {
+                if (err.response.status === 401 || err.response.status === 403) {
+                    alert('Unauthorised! Operation restricted to admin only!');
+                    return Promise.reject(err);
+                }
+            });
+        }
+    }, [adminUser]);
 
     return (
         <header className='navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm px-sm-4'>
@@ -35,9 +46,9 @@ const Header = () => {
                 <div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
                     <div className='navbar-nav ms-auto'>
                         {
-                            adminUser && isVerified && (
-                                <>
-                                    <NavLink to='notifications' className='nav-link disabled'>
+                            adminUser && isVerified
+                                ? <>
+                                    <NavLink to='notifications' className='nav-link notifs disabled'>
                                         <i className='fa-regular fa-bell'></i>
                                         <span className='badge rounded-pill bg-danger'>8</span>
                                     </NavLink>
@@ -57,13 +68,26 @@ const Header = () => {
                                         <img src={adminUser.img} alt={adminUser.name} />
                                     </NavLink>
                                     <button
-                                        className='btn btn-info'
+                                        className='btn btn-info logout'
                                         onClick={() => dispatch(logout())}
                                     >
                                         LOG OUT
                                     </button>
                                 </>
-                            )
+                                : <>
+                                    <i
+                                        className='fa-solid fa-circle-info text-secondary'
+                                        title='Admin restrictions on READ operations temporarily disabled to allow public access.'
+                                    >
+                                    </i>
+                                    <NavLink
+                                        to='login'
+                                        className='btn btn-info text-white login'
+                                        state={{ from: location }}
+                                    >
+                                        LOGIN
+                                    </NavLink>
+                                </>
                         }
                     </div>
                 </div>

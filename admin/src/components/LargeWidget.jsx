@@ -34,23 +34,27 @@ const LargeWidget = () => {
                             </thead>
                             <tbody>
                                 {
-                                    orders.length && users.length && orders.slice(-6).reverse().map(e => (
-                                        <tr key={e._id}>
-                                            <td>
-                                                <img
-                                                    src={users.find(u => u._id === e.userId).img}
-                                                    className='img-thumbnail'
-                                                    alt='user-avatar'
-                                                />
-                                                <Link to={`/order/${e._id}`}>
-                                                    <span className='name'>{e.name}</span>
-                                                </Link>
-                                            </td>
-                                            <td>{format(e.createdAt)}</td>
-                                            <td>$ <b>{e.total}</b></td>
-                                            <td><Button type={e.status} /></td>
+                                    orders.length && users.length
+                                        ? orders.slice(-6).reverse().map(e => (
+                                            <tr key={e._id}>
+                                                <td>
+                                                    <img
+                                                        src={users.find(u => u._id === e.userId).img}
+                                                        className='img-thumbnail'
+                                                        alt='user-avatar'
+                                                    />
+                                                    <Link to={`/order/${e._id}`}>
+                                                        <span className='name'>{e.name}</span>
+                                                    </Link>
+                                                </td>
+                                                <td>{format(e.createdAt)}</td>
+                                                <td>$ <b>{e.total}</b></td>
+                                                <td><Button type={e.status} /></td>
+                                            </tr>
+                                        ))
+                                        : <tr>
+                                            <td><span className='text-danger'>Error fetching data.</span></td>
                                         </tr>
-                                    ))
                                 }
                             </tbody>
                         </table>

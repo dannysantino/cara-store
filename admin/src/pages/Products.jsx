@@ -13,8 +13,8 @@ const Products = () => {
     const { columns } = useProductRows(handleDelete);
 
     useEffect(() => {
-        !products.length && getProducts(dispatch);
-    }, [products, dispatch]);
+        (!products.length || error) && getProducts(dispatch);
+    }, [products, error, dispatch]);
 
     return (
         <DataTable
