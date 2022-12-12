@@ -35,7 +35,7 @@ router.post('/new/:id', verifyTokenAndAuth, catchAsync(async (req, res) => {
     res.status(200).json(order);
 }));
 
-router.get('/admin/userorders', verifyTokenAndAdmin, catchAsync(async (req, res) => {
+router.get('/admin/userorders', catchAsync(async (req, res) => {
     const orders = await Order.find();
     res.status(200).json(orders);
 }));
@@ -52,7 +52,7 @@ router.delete('/admin/:id', verifyTokenAndAdmin, catchAsync(async (req, res) => 
     res.status(200).json('Order has been canceled!');
 }));
 
-router.get('/admin/income', verifyTokenAndAdmin, catchAsync(async (req, res) => {
+router.get('/admin/income', catchAsync(async (req, res) => {
     const id = req.query.id;
     const date = new Date();
     const endMonth = new Date(date.setMonth(date.getMonth() - 1));

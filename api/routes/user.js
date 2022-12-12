@@ -9,7 +9,7 @@ const { verifyTokenAndAuth, verifyTokenAndAdmin } = require('../utilities/verify
 
 const upload = multer({ storage: userStorage });
 
-router.get('/admin/useraccounts', verifyTokenAndAdmin, catchAsync(async (req, res) => {
+router.get('/admin/useraccounts', catchAsync(async (req, res) => {
     const users = req.query.new
         ? await User.find().lean().sort({ _id: -1 }).limit(5)
         : await User.find().lean();
@@ -17,7 +17,7 @@ router.get('/admin/useraccounts', verifyTokenAndAdmin, catchAsync(async (req, re
     res.status(200).json(users);
 }));
 
-router.get('/admin/stats', verifyTokenAndAdmin, catchAsync(async (req, res) => {
+router.get('/admin/stats', catchAsync(async (req, res) => {
     const date = new Date();
     const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
     const data = await User.aggregate([
@@ -47,7 +47,7 @@ router.post('/admin/add', verifyTokenAndAdmin, catchAsync(async (req, res) => {
     res.status(200).json(newUser);
 }));
 
-router.get('/admin/:id', verifyTokenAndAdmin, catchAsync(async (req, res) => {
+router.get('/admin/:id', catchAsync(async (req, res) => {
     const user = await User.findById(req.params.id);
     const { password, ...rest } = user._doc;
     res.status(200).json(rest);

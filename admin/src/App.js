@@ -20,8 +20,7 @@ function App() {
             </AuthRoute>
           }
           />
-          <Route path='login' element={<Login />}
-          />
+          <Route path='login' element={<Login />} />
         </Routes>
       </ScrollToTop>
     </Router>
