@@ -1,7 +1,7 @@
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 
-const BASE_URL = 'https://carastore.onrender.com/api';
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 export const publicRequest = axios.create({
     baseURL: BASE_URL
