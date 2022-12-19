@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DannySantino/cara-online-store.git"
+    "url": "git+https://github.com/dannysantino/cara-online-store.git"
   },
   "keywords": [],
   "author": "Danny Santino",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DannySantino/cara-online-store/issues"
+    "url": "https://github.com/dannysantino/cara-online-store/issues"
   },
-  "homepage": "https://github.com/DannySantino/cara-online-store#readme",
+  "homepage": "https://github.com/dannysantino/cara-online-store#readme",
   "devDependencies": {
     "concurrently": "^7.0.0"
   }
