@@ -20,7 +20,7 @@ mongoose.connect(process.env.MONGO_URI, {
     .catch(e => console.error('Error connecting to database', e));
 
 const allowedOrigins = [
-    'http://localhost:3000', 'http://localhost:3001',
+    'http://localhost:3000', 'http://localhost:3500',
     'https://caraonline.netlify.app', 'https://caraonlineadmin.netlify.app'
 ];
 const corsOptions = {
