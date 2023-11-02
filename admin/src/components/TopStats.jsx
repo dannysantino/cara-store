@@ -33,14 +33,14 @@ const TopStats = () => {
 
     return (
         <>
-            {
-                income.length && (
-                    <>
-                        <article className='col-sm-4 mb-3 mb-sm-0'>
-                            <div className='card shadow-sm'>
-                                <div className='card-body p-sm-2 p-lg-3'>
-                                    <h4>Revenue</h4>
-                                    <div className='stats'>
+            <article className='col-sm-4 mb-3 mb-sm-0'>
+                <div className='card shadow-sm'>
+                    <div className='card-body p-sm-2 p-lg-3'>
+                        <h4>Revenue</h4>
+                        <div className='stats'>
+                            {
+                                income.length > 1
+                                    ? <>
                                         <span className='amount'>${((0.4 * income[1]?.total) + income[1]?.total).toFixed(2)}</span>
                                         <span className='rate ms-3'>
                                             {(revenue.current).toFixed(0)}%
@@ -49,17 +49,23 @@ const TopStats = () => {
                                                 : <i className='fa-solid fa-arrow-up'></i>
                                             }
                                         </span>
-                                    </div>
-                                    <footer>Compared to previous month</footer>
-                                </div>
-                            </div>
-                        </article>
+                                    </>
+                                    : <p>Data currently unavailable</p>
+                            }
+                        </div>
+                        <footer>Compared to previous month</footer>
+                    </div>
+                </div>
+            </article>
 
-                        <article className='col-sm-4 mb-3 mb-sm-0'>
-                            <div className='card shadow-sm'>
-                                <div className='card-body p-sm-2 p-lg-3'>
-                                    <h4>Sales</h4>
-                                    <div className='stats'>
+            <article className='col-sm-4 mb-3 mb-sm-0'>
+                <div className='card shadow-sm'>
+                    <div className='card-body p-sm-2 p-lg-3'>
+                        <h4>Sales</h4>
+                        <div className='stats'>
+                            {
+                                income.length > 1
+                                    ? <>
                                         <span className='amount'>${(income[1]?.total).toFixed(2)}</span>
                                         <span className='rate ms-3'>
                                             {(sales.current).toFixed(0)}%
@@ -68,17 +74,23 @@ const TopStats = () => {
                                                 : <i className='fa-solid fa-arrow-up'></i>
                                             }
                                         </span>
-                                    </div>
-                                    <footer>Compared to previous month</footer>
-                                </div>
-                            </div>
-                        </article>
+                                    </>
+                                    : <p>Data currently unavailable</p>
+                            }
+                        </div>
+                        <footer>Compared to previous month</footer>
+                    </div>
+                </div>
+            </article>
 
-                        <article className='col-sm-4'>
-                            <div className='card shadow-sm'>
-                                <div className='card-body p-sm-2 p-lg-3'>
-                                    <h4>Expenses</h4>
-                                    <div className='stats'>
+            <article className='col-sm-4'>
+                <div className='card shadow-sm'>
+                    <div className='card-body p-sm-2 p-lg-3'>
+                        <h4>Expenses</h4>
+                        <div className='stats'>
+                            {
+                                income.length > 1
+                                    ? <>
                                         <span className='amount'>${(0.25 * income[1]?.total).toFixed(2)}</span>
                                         <span className='rate ms-3'>
                                             {(expenses.current).toFixed(0)}%
@@ -87,14 +99,14 @@ const TopStats = () => {
                                                 : <i className='fa-solid fa-arrow-up neg'></i>
                                             }
                                         </span>
-                                    </div>
-                                    <footer>Compared to previous month</footer>
-                                </div>
-                            </div>
-                        </article>
-                    </>
-                )
-            }
+                                    </>
+                                    : <p>Data currently unavailable</p>
+                            }
+                        </div>
+                        <footer>Compared to previous month</footer>
+                    </div>
+                </div>
+            </article>
         </>
     )
 }
